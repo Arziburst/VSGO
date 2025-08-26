@@ -1,0 +1,13 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+
+## Commits and PR
+
+- Commits are written in English
+- You can find task number in the actual branch name
+- Commit types: feat, fix, docs, style, refactor, test, chore
+- Commit format: [Project-taskNumber]: type(scope): brief description
+- Description should be concise, clear, and start with an imperative verb
