@@ -8,6 +8,9 @@ import { ThemeProvider } from "next-themes";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import { TanstackQueryClientProvider } from "@/lib/TanstackQueryClientProvider";
+import { Header } from "@/components/home/Header";
+import { Sidebar } from "@/components/home/Sidebar";
+import { Footer } from "@/components/home/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,7 +51,18 @@ export default function RootLayout({
             enableColorScheme={true}
             storageKey="vsgo-theme"
           >
-            <TooltipProvider>{children}</TooltipProvider>
+            <Header />
+            <div className="mx-auto max-w-7xl px-4 py-6">
+              <div className="grid grid-cols-12 gap-6">
+                <aside className="col-span-12 md:col-span-3">
+                  <Sidebar />
+                </aside>
+                <div className="col-span-12 md:col-span-9 space-y-6">
+                  <TooltipProvider>{children}</TooltipProvider>
+                </div>
+              </div>
+            </div>
+            <Footer />
             <Toaster />
           </ThemeProvider>
         </TanstackQueryClientProvider>
