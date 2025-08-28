@@ -27,26 +27,41 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import Link from "next/link";
+import {
+  ROUTE_ROOT,
+  ROUTE_MEMBERS,
+  ROUTE_OFFICES,
+  ROUTE_LEGISLATION,
+  ROUTE_ACTIVITIES,
+  ROUTE_GALLERY,
+  ROUTE_NEWS,
+  ROUTE_CONTACTS,
+  ROUTE_STATUS,
+  ROUTE_STRUCTURE,
+  ROUTE_MEMBERSHIP,
+  ROUTE_RIGHTS,
+  ROUTE_TASKS,
+} from "@/constants";
 import { usePathname } from "next/navigation";
 
 const menuItems = [
-  { icon: Home, label: "Home", href: "/", active: true },
+  { icon: Home, label: "Home", href: ROUTE_ROOT, active: true },
   { icon: Info, label: "About Confederation", expandable: true },
-  { icon: Users, label: "Members", href: "/members" },
-  { icon: Building2, label: "Regional Offices", href: "/offices" },
-  { icon: ScrollText, label: "Legislation", href: "/legislation" },
-  { icon: Settings, label: "Our Activities", href: "/activities" },
-  { icon: Camera, label: "Photo Gallery", href: "/gallery" },
-  { icon: Newspaper, label: "News", href: "/news" },
-  { icon: Phone, label: "Contacts", href: "/contacts" },
+  { icon: Users, label: "Members", href: ROUTE_MEMBERS },
+  { icon: Building2, label: "Regional Offices", href: ROUTE_OFFICES },
+  { icon: ScrollText, label: "Legislation", href: ROUTE_LEGISLATION },
+  { icon: Settings, label: "Our Activities", href: ROUTE_ACTIVITIES },
+  { icon: Camera, label: "Photo Gallery", href: ROUTE_GALLERY },
+  { icon: Newspaper, label: "News", href: ROUTE_NEWS },
+  { icon: Phone, label: "Contacts", href: ROUTE_CONTACTS },
 ];
 
 const aboutItems = [
-  { icon: FileText, label: "Status", href: "/status" },
-  { icon: Network, label: "Structure", href: "/structure" },
-  { icon: UserCheck, label: "Membership conditions", href: "/membership" },
-  { icon: Scale, label: "Rights and obligations", href: "/rights" },
-  { icon: Target, label: "Confederation tasks", href: "/tasks" },
+  { icon: FileText, label: "Status", href: ROUTE_STATUS },
+  { icon: Network, label: "Structure", href: ROUTE_STRUCTURE },
+  { icon: UserCheck, label: "Membership conditions", href: ROUTE_MEMBERSHIP },
+  { icon: Scale, label: "Rights and obligations", href: ROUTE_RIGHTS },
+  { icon: Target, label: "Confederation tasks", href: ROUTE_TASKS },
 ];
 
 interface MobileMenuProps {

@@ -1,14 +1,21 @@
+"use client";
+
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Menu } from "lucide-react";
+import { Menu, Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 
 interface HeaderProps {
   onMenuToggle?: () => void;
 }
 
 export function Header({ onMenuToggle }: HeaderProps) {
+  const { theme, setTheme } = useTheme();
+
+  const isDark = theme === "dark";
+
   return (
-    <header className="bg-gradient-to-r from-[var(--brand-primary-10)] via-purple-50 to-violet-50 border-b border-border/50 p-4 lg:p-6">
+    <header className="bg-gradient-to-r from-[var(--brand-primary-10)] via-[var(--brand-secondary-10)] to-[var(--brand-primary-20)] border-b border-border/50 p-4 lg:p-6">
       <div className="max-w-7xl mx-auto flex items-center gap-4 lg:gap-6">
         {/* Mobile Menu Button */}
         <Button
@@ -21,7 +28,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
         </Button>
         {/* Logo Placeholder */}
         <Avatar className="h-20 w-20 rounded-full border-2 border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)]">
-          <AvatarFallback className="bg-gradient-to-br from-[var(--brand-primary-20)] to-purple-100 text-[var(--brand-primary)]">
+          <AvatarFallback className="bg-gradient-to-br from-[var(--brand-primary-20)] to-[var(--brand-secondary-10)] text-[var(--brand-primary)]">
             <div className="flex flex-col items-center">
               <div className="text-xs">CONF</div>
               <div className="text-xs">EDER</div>
@@ -37,13 +44,24 @@ export function Header({ onMenuToggle }: HeaderProps) {
             <span className="sm:hidden"> </span>
             of Public Organizations
           </h1>
-          <h2 className="text-base md:text-xl lg:text-2xl text-purple-600 mt-1">
-            "Confederation of
+          <h2 className="text-base md:text-xl lg:text-2xl text-[var(--brand-secondary)] mt-1">
+            &quot;Confederation of
             <br className="hidden sm:block" />
             <span className="sm:hidden"> </span>
-            Organizations of Persons with Disabilities of Ukraine"
+            Organizations of Persons with Disabilities of Ukraine&quot;
           </h2>
         </div>
+
+        {/* Theme Toggle */}
+        <Button
+          variant="ghost"
+          size="icon"
+          aria-label="Toggle theme"
+          className="ml-auto icon-theme"
+          onClick={() => setTheme(isDark ? "light" : "dark")}
+        >
+          {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+        </Button>
       </div>
     </header>
   );

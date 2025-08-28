@@ -5,6 +5,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "next-themes";
+import { THEME_STORAGE_KEY } from "@/constants";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 import { TanstackQueryClientProvider } from "@/lib/TanstackQueryClientProvider";
@@ -101,7 +102,7 @@ export default function RootLayout({
             defaultTheme="light"
             enableSystem={true}
             enableColorScheme={true}
-            storageKey="vsgo-theme"
+            storageKey={THEME_STORAGE_KEY}
           >
             <MobileChrome />
             <div className="mx-auto max-w-7xl px-4 py-6">

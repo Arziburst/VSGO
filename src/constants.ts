@@ -12,6 +12,21 @@ export const ROUTE_ROOT = "/" as const;
 
 export const DEFAULT_THEME = "system" as const;
 
+export const THEME_STORAGE_KEY = "vsgo-theme" as const;
+
+export const ROUTE_MEMBERS = "/members" as const;
+export const ROUTE_OFFICES = "/offices" as const;
+export const ROUTE_LEGISLATION = "/legislation" as const;
+export const ROUTE_ACTIVITIES = "/activities" as const;
+export const ROUTE_GALLERY = "/gallery" as const;
+export const ROUTE_NEWS = "/news" as const;
+export const ROUTE_CONTACTS = "/contacts" as const;
+export const ROUTE_STATUS = "/status" as const;
+export const ROUTE_STRUCTURE = "/structure" as const;
+export const ROUTE_MEMBERSHIP = "/membership" as const;
+export const ROUTE_RIGHTS = "/rights" as const;
+export const ROUTE_TASKS = "/tasks" as const;
+
 export const CACHE_TIME_5_MINUTES = 5 * 60 * 1000;
 export const CACHE_TIME_10_MINUTES = 10 * 60 * 1000;
 
