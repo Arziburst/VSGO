@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 
-export const metadata: Metadata = { title: "Legislation", description: "Legislation" };
+export const metadata: Metadata = {
+  title: "Legislation",
+  description: "Relevant legislation and documents",
+  alternates: { canonical: "/legislation" },
+  openGraph: { url: "/legislation", title: "Legislation | VSGO" },
+};
 
 export default function Page() {
   return (

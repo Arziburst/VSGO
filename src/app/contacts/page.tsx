@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 
-export const metadata: Metadata = { title: "Contacts", description: "Contact information" };
+export const metadata: Metadata = {
+  title: "Contacts",
+  description: "Contact information",
+  alternates: { canonical: "/contacts" },
+  openGraph: { url: "/contacts", title: "Contacts | VSGO" },
+};
 
 export default function Page() {
   return (

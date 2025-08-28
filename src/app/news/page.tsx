@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 
-export const metadata: Metadata = { title: "News", description: "Latest news" };
+export const metadata: Metadata = {
+  title: "News",
+  description: "Latest news and updates",
+  alternates: { canonical: "/news" },
+  openGraph: { url: "/news", title: "News | VSGO" },
+};
 
 export default function Page() {
   return (

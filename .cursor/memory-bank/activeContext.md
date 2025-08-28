@@ -1,17 +1,8 @@
 # Active Context
 
-Current focus
+- Added comprehensive Metadata API configuration in root layout and for all pages (title templates, canonical, OG/Twitter).
+- Source information mirrored from legacy site sections (members, units, legislation, gallery, news, contacts).
+- Mobile sidebar logic: static sidebar hidden on mobile; slide-in menu via Sheet.
 
-- Establish stable Memory Bank reflecting the present architecture, routes, and auth patterns.
-
-Recent changes
-
-- Implemented global shell with `Header`, `Sidebar`, `Footer`; `MainContent` for `/`.
-- Created static pages for: activities, contacts, gallery, legislation, members, membership, news, offices, rights, status, structure, tasks.
-- Integrated TanStack Query provider with streamed hydration and devtools in development.
-- Added encrypted auth cookie, middleware protection, and `withAuthRetry` for automatic refresh.
-
-Immediate next steps
-
-- Wire real API via OpenAPI client when backend URL/spec is finalized.
-- Fill pages with actual content and role-based conditions as needed.
+Next:
+- Add per-page OG images when assets are provided.

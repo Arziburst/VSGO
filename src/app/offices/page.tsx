@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 
-export const metadata: Metadata = { title: "Regional Offices", description: "Regional offices" };
+export const metadata: Metadata = {
+  title: "Regional Offices",
+  description: "Regional offices of the Confederation",
+  alternates: { canonical: "/offices" },
+  openGraph: { url: "/offices", title: "Regional Offices | VSGO" },
+};
 
 export default function Page() {
   return (

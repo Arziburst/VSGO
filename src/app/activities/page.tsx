@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 
-export const metadata: Metadata = { title: "Our Activities", description: "Our activities" };
+export const metadata: Metadata = {
+  title: "Our Activities",
+  description: "Activities and initiatives of the Confederation",
+  alternates: { canonical: "/activities" },
+  openGraph: { url: "/activities", title: "Our Activities | VSGO" },
+};
 
 export default function Page() {
   return (

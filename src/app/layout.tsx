@@ -29,8 +29,60 @@ const hankenGrotesk = Hanken_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Phage - Personalized Phage Therapy",
-  description: "Platform for personalized phage therapy",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_BASE_URL ?? "http://localhost:3000"
+  ),
+  applicationName: "VSGO",
+  title: {
+    default:
+      "VSGO — Confederation of Organizations of Persons with Disabilities of Ukraine",
+    template: "%s | VSGO",
+  },
+  description:
+    'All‑Ukrainian Union of Public Organizations "Confederation of Organizations of Persons with Disabilities of Ukraine".',
+  keywords: [
+    "VSGO",
+    "Confederation",
+    "organizations",
+    "disability",
+    "Ukraine",
+    "non‑profit",
+  ],
+  authors: [{ name: "VSGO" }],
+  creator: "VSGO",
+  category: "Non‑profit",
+  robots: { index: true, follow: true },
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "uk_UA",
+    url: "/",
+    siteName: "VSGO",
+    title:
+      "VSGO — Confederation of Organizations of Persons with Disabilities of Ukraine",
+    description:
+      'All‑Ukrainian Union of Public Organizations "Confederation of Organizations of Persons with Disabilities of Ukraine".',
+    images: [
+      {
+        url: "/logo1.svg",
+        width: 512,
+        height: 512,
+        alt: "VSGO logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "VSGO — Confederation of Organizations of Persons with Disabilities of Ukraine",
+    description:
+      'All‑Ukrainian Union of Public Organizations "Confederation of Organizations of Persons with Disabilities of Ukraine".',
+    images: ["/logo1.svg"],
+  },
+  icons: {
+    icon: "/logo1.svg",
+    shortcut: "/logo1-light.svg",
+  },
 };
 
 export default function RootLayout({

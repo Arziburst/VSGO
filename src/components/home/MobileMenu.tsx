@@ -27,6 +27,7 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const menuItems = [
   { icon: Home, label: "Home", href: "/", active: true },
@@ -55,6 +56,7 @@ interface MobileMenuProps {
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const [openAbout, setOpenAbout] = useState(false);
+  const pathname = usePathname();
 
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
@@ -110,19 +112,23 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 </div>
               );
             }
+            const isActive = (item.href ?? "/") === pathname;
             return (
               <Button
                 asChild
                 key={index}
-                variant={item.active ? "default" : "ghost"}
+                variant={isActive ? "default" : "ghost"}
                 className={`w-full justify-start gap-3 h-auto py-3 px-4 ${
-                  item.active
+                  isActive
                     ? "bg-gradient-to-r from-[#7a97e3] to-purple-600 hover:from-[#7a97e3]/90 hover:to-purple-700 text-white"
                     : "text-[#7a97e3] hover:bg-[#7a97e3]/10"
                 }`}
                 onClick={onClose}
               >
-                <Link href={item.href ?? "/"}>
+                <Link
+                  href={item.href ?? "/"}
+                  aria-current={isActive ? "page" : undefined}
+                >
                   <Icon className="h-5 w-5 flex-shrink-0" />
                   <span className="text-left">{item.label}</span>
                 </Link>
