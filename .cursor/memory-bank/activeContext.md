@@ -1,8 +1,8 @@
 # Active Context
 
-- Added comprehensive Metadata API configuration in root layout and for all pages (title templates, canonical, OG/Twitter).
-- Source information mirrored from legacy site sections (members, units, legislation, gallery, news, contacts).
-- Mobile sidebar logic: static sidebar hidden on mobile; slide-in menu via Sheet.
+- Introduced brand color variables in globals.css: --brand-primary (#7a97e3), --brand-secondary (purple-600) plus translucent mixes.
+- Replaced hardcoded hex and purple classes across Header, Sidebar, MobileMenu, MainContent, Footer, and all page headings with CSS variables.
+- NavLink/MobileMenu use gradient from brand vars for active state.
 
 Next:
-- Add per-page OG images when assets are provided.
+- If brand palette changes, edit only globals.css to propagate.

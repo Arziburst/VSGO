@@ -74,8 +74,8 @@ export function NavLink({ href, label, iconKey, sub }: NavLinkProps) {
         variant={isActive ? "default" : "ghost"}
         className={`w-full justify-start gap-3 h-auto py-2 px-4 ml-6 text-sm ${
           isActive
-            ? "bg-gradient-to-r from-[#7a97e3] to-purple-600 hover:from-[#7a97e3]/90 hover:to-purple-700 text-white"
-            : "text-[#7a97e3]/80 hover:bg-[#7a97e3]/5"
+            ? "bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-secondary)] hover:from-[color-mix(in_oklab,var(--brand-primary)_90%,transparent)] hover:to-[color-mix(in_oklab,var(--brand-secondary)_90%,transparent)] text-white"
+            : "text-[var(--brand-primary)]/80 hover:bg-[var(--brand-primary-10)]"
         }`}
         data-active={isActive || undefined}
       >
@@ -93,8 +93,8 @@ export function NavLink({ href, label, iconKey, sub }: NavLinkProps) {
       variant={isActive ? "default" : "ghost"}
       className={`w-full justify-start gap-3 h-auto py-3 px-4 ${
         isActive
-          ? "bg-gradient-to-r from-[#7a97e3] to-purple-600 hover:from-[#7a97e3]/90 hover:to-purple-700 text-white"
-          : "text-[#7a97e3] hover:bg-[#7a97e3]/10"
+          ? "bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-secondary)] hover:from-[color-mix(in_oklab,var(--brand-primary)_90%,transparent)] hover:to-[color-mix(in_oklab,var(--brand-secondary)_90%,transparent)] text-white"
+          : "text-[var(--brand-primary)] hover:bg-[var(--brand-primary-10)]"
       }`}
       data-active={isActive || undefined}
     >

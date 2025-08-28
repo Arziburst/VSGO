@@ -1,4 +1,3 @@
 # Progress
 
-- SEO metadata configured across pages and layout (Next.js 15).
-- Lints clean.
+- Centralized color system applied; lints clean in edited files.

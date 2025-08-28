@@ -96,7 +96,7 @@ export function Sidebar() {
 
   return (
     <div className="p-4">
-      <Card className="p-4 shadow-lg border-[#7a97e3]/30 bg-white dark:bg-background">
+      <Card className="p-4 shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-white dark:bg-background">
         <h3 className="text-lg text-[#7a97e3] mb-4 text-center">Menu</h3>
 
         <nav className="space-y-2">
@@ -109,7 +109,7 @@ export function Sidebar() {
               <Button
                 asChild
                 variant="ghost"
-                className="w-full justify-start gap-3 h-auto py-3 px-4 text-[#7a97e3] hover:bg-[#7a97e3]/10"
+                className="w-full justify-start gap-3 h-auto py-3 px-4 text-[var(--brand-primary)] hover:bg-[var(--brand-primary-10)]"
               >
                 <div className="flex items-center w-full">
                   <Info className="h-5 w-5 flex-shrink-0" />

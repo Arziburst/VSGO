@@ -62,7 +62,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     <Sheet open={isOpen} onOpenChange={onClose}>
       <SheetContent side="left" className="w-80 bg-white dark:bg-background">
         <SheetHeader>
-          <SheetTitle className="text-[#7a97e3]">Menu</SheetTitle>
+          <SheetTitle className="text-[var(--brand-primary)]">Menu</SheetTitle>
         </SheetHeader>
 
         <nav className="space-y-2 mt-6">
@@ -73,7 +73,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 <div key={index} className="space-y-1">
                   <Button
                     variant="ghost"
-                    className="w-full justify-start gap-3 h-auto py-3 px-4 text-[#7a97e3] hover:bg-[#7a97e3]/10"
+                    className="w-full justify-start gap-3 h-auto py-3 px-4 text-[var(--brand-primary)] hover:bg-[var(--brand-primary-10)]"
                     onClick={() => setOpenAbout((v) => !v)}
                   >
                     <Icon className="h-5 w-5 flex-shrink-0" />
@@ -95,7 +95,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                             asChild
                             key={i}
                             variant="ghost"
-                            className="w-full justify-start gap-3 h-auto py-2 px-4 ml-6 text-[#7a97e3]/80 hover:bg-[#7a97e3]/5 text-sm"
+                            className="w-full justify-start gap-3 h-auto py-2 px-4 ml-6 text-[color-mix(in_oklab,var(--brand-primary)_80%,transparent)] hover:bg-[var(--brand-primary-10)] text-sm"
                             onClick={onClose}
                           >
                             <Link href={sub.href}>
@@ -120,8 +120,8 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 variant={isActive ? "default" : "ghost"}
                 className={`w-full justify-start gap-3 h-auto py-3 px-4 ${
                   isActive
-                    ? "bg-gradient-to-r from-[#7a97e3] to-purple-600 hover:from-[#7a97e3]/90 hover:to-purple-700 text-white"
-                    : "text-[#7a97e3] hover:bg-[#7a97e3]/10"
+                    ? "bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-secondary)] hover:from-[color-mix(in_oklab,var(--brand-primary)_90%,transparent)] hover:to-[color-mix(in_oklab,var(--brand-secondary)_90%,transparent)] text-white"
+                    : "text-[var(--brand-primary)] hover:bg-[var(--brand-primary-10)]"
                 }`}
                 onClick={onClose}
               >

@@ -6,36 +6,38 @@ export function MainContent() {
   const partnerOrganizations = [
     {
       title: "Fund for Social Protection of Persons with Disabilities",
-      color: "bg-gradient-to-br from-[#7a97e3] to-purple-600",
+      color:
+        "bg-gradient-to-br from-[var(--brand-primary)] to-[var(--brand-secondary)]",
       textColor: "text-white",
     },
     {
       title: "Ministry of Social Policy of Ukraine",
-      color: "bg-gradient-to-br from-[#7a97e3]/20 to-purple-100",
-      textColor: "text-[#7a97e3]",
+      color: "bg-gradient-to-br from-[var(--brand-primary-20)] to-purple-100",
+      textColor: "text-[var(--brand-primary)]",
     },
     {
       title: "Government Portal",
-      color: "bg-gradient-to-br from-[#7a97e3] to-purple-700",
+      color: "bg-gradient-to-br from-[var(--brand-primary)] to-purple-700",
       textColor: "text-white",
       subtitle: "Unified web portal of Ukraine's executive authorities",
     },
     {
       title: "President of Ukraine",
-      color: "bg-gradient-to-br from-yellow-100 to-[#7a97e3]/20",
-      textColor: "text-[#7a97e3]",
+      color: "bg-gradient-to-br from-yellow-100 to-[var(--brand-primary-20)]",
+      textColor: "text-[var(--brand-primary)]",
       subtitle: "Official Internet Representation",
     },
     {
       title: "Verkhovna Rada of Ukraine",
-      color: "bg-gradient-to-br from-[#7a97e3] to-purple-600",
+      color:
+        "bg-gradient-to-br from-[var(--brand-primary)] to-[var(--brand-secondary)]",
       textColor: "text-white",
       subtitle: "Official web portal of the Parliament of Ukraine",
     },
     {
       title: "prozorro",
-      color: "bg-gradient-to-br from-white to-[#7a97e3]/10",
-      textColor: "text-[#7a97e3]",
+      color: "bg-gradient-to-br from-white to-[var(--brand-primary-10)]",
+      textColor: "text-[var(--brand-primary)]",
       subtitle: "Public procurement",
     },
   ];
@@ -43,7 +45,7 @@ export function MainContent() {
   return (
     <div className="max-w-6xl mx-auto space-y-8">
       {/* Welcome Section */}
-      <Card className="shadow-lg border-[#7a97e3]/30 bg-gradient-to-r from-[#7a97e3]/10 via-purple-50 to-violet-50">
+      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-r from-[var(--brand-primary-10)] via-purple-50 to-violet-50">
         <CardHeader>
           <CardTitle className="text-xl text-[#7a97e3]">
             Dear friends!
@@ -52,8 +54,8 @@ export function MainContent() {
         <CardContent className="space-y-4">
           <p className="text-gray-700 leading-relaxed">
             Welcome to the website of the All‑Ukrainian Union of Public
-            Organizations "Confederation of Organizations of Persons with
-            Disabilities of Ukraine". The creation of this resource is a
+            Organizations &quot;Confederation of Organizations of Persons with
+            Disabilities of Ukraine&quot;. The creation of this resource is a
             necessary and purposeful step to provide information and
             consultation support to people with special needs.
           </p>
@@ -71,7 +73,9 @@ export function MainContent() {
 
       {/* Partner Organizations Grid */}
       <div>
-        <h2 className="text-xl text-[#7a97e3] mb-6">Partner organizations</h2>
+        <h2 className="text-xl text-[var(--brand-primary)] mb-6">
+          Partner organizations
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {partnerOrganizations.map((org, index) => (
             <Card
@@ -95,12 +99,12 @@ export function MainContent() {
       </div>
 
       {/* Additional Info Section */}
-      <Card className="shadow-lg border-[#7a97e3]/30 bg-gradient-to-r from-[#7a97e3]/10 to-purple-50">
+      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-r from-[var(--brand-primary-10)] to-purple-50">
         <CardContent className="p-6">
           <div className="flex items-center gap-4 mb-4">
             <Badge
               variant="secondary"
-              className="bg-gradient-to-r from-[#7a97e3]/20 to-purple-100 text-[#7a97e3]"
+              className="bg-gradient-to-r from-[var(--brand-primary-20)] to-purple-100 text-[var(--brand-primary)]"
             >
               Information
             </Badge>
