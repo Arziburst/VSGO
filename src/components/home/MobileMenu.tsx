@@ -45,23 +45,23 @@ import {
 import { usePathname } from "next/navigation";
 
 const menuItems = [
-  { icon: Home, label: "Home", href: ROUTE_ROOT, active: true },
-  { icon: Info, label: "About Confederation", expandable: true },
-  { icon: Users, label: "Members", href: ROUTE_MEMBERS },
-  { icon: Building2, label: "Regional Offices", href: ROUTE_OFFICES },
-  { icon: ScrollText, label: "Legislation", href: ROUTE_LEGISLATION },
-  { icon: Settings, label: "Our Activities", href: ROUTE_ACTIVITIES },
-  { icon: Camera, label: "Photo Gallery", href: ROUTE_GALLERY },
-  { icon: Newspaper, label: "News", href: ROUTE_NEWS },
-  { icon: Phone, label: "Contacts", href: ROUTE_CONTACTS },
+  { icon: Home, label: "Головна", href: ROUTE_ROOT, active: true },
+  { icon: Info, label: "Про Конфедерацію", expandable: true },
+  { icon: Users, label: "Члени Конфедерації", href: ROUTE_MEMBERS },
+  { icon: Building2, label: "Відокремлені підрозділи", href: ROUTE_OFFICES },
+  { icon: ScrollText, label: "Законодавство", href: ROUTE_LEGISLATION },
+  { icon: Settings, label: "Наша діяльність", href: ROUTE_ACTIVITIES },
+  { icon: Camera, label: "Фотогалерея", href: ROUTE_GALLERY },
+  { icon: Newspaper, label: "Новини", href: ROUTE_NEWS },
+  { icon: Phone, label: "Контакти", href: ROUTE_CONTACTS },
 ];
 
 const aboutItems = [
-  { icon: FileText, label: "Status", href: ROUTE_STATUS },
-  { icon: Network, label: "Structure", href: ROUTE_STRUCTURE },
-  { icon: UserCheck, label: "Membership conditions", href: ROUTE_MEMBERSHIP },
-  { icon: Scale, label: "Rights and obligations", href: ROUTE_RIGHTS },
-  { icon: Target, label: "Confederation tasks", href: ROUTE_TASKS },
+  { icon: FileText, label: "Статус", href: ROUTE_STATUS },
+  { icon: Network, label: "Структура", href: ROUTE_STRUCTURE },
+  { icon: UserCheck, label: "Умови вступу", href: ROUTE_MEMBERSHIP },
+  { icon: Scale, label: "Права та обов’язки", href: ROUTE_RIGHTS },
+  { icon: Target, label: "Завдання Конфедерації", href: ROUTE_TASKS },
 ];
 
 interface MobileMenuProps {
@@ -77,7 +77,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     <Sheet open={isOpen} onOpenChange={onClose}>
       <SheetContent side="left" className="w-80 bg-white dark:bg-background">
         <SheetHeader>
-          <SheetTitle className="text-[var(--brand-primary)]">Menu</SheetTitle>
+          <SheetTitle className="text-[var(--brand-primary)]">Меню</SheetTitle>
         </SheetHeader>
 
         <nav className="space-y-2 mt-6">
@@ -92,9 +92,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                     onClick={() => setOpenAbout((v) => !v)}
                   >
                     <Icon className="h-5 w-5 flex-shrink-0" />
-                    <span className="text-left flex-1">
-                      About Confederation
-                    </span>
+                    <span className="text-left flex-1">Про Конфедерацію</span>
                     {openAbout ? (
                       <ChevronDown className="h-4 w-4" />
                     ) : (
@@ -110,7 +108,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                             asChild
                             key={i}
                             variant="ghost"
-                            className="w-full justify-start gap-3 h-auto py-2 px-4 ml-6 text-[color-mix(in_oklab,var(--brand-primary)_80%,transparent)] hover:bg-[var(--brand-primary-10)] text-sm"
+                            className="w-full justify-start gap-3 h-auto py-2 px-4 ml-6 text-[var(--brand-primary)] hover:bg-[var(--brand-primary-10)] text-sm"
                             onClick={onClose}
                           >
                             <Link href={sub.href}>
@@ -143,9 +141,12 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 <Link
                   href={item.href ?? "/"}
                   aria-current={isActive ? "page" : undefined}
+                  className="flex items-start gap-3 w-full"
                 >
-                  <Icon className="h-5 w-5 flex-shrink-0" />
-                  <span className="text-left">{item.label}</span>
+                  <Icon className="h-5 w-5 flex-shrink-0 mt-[2px]" />
+                  <span className="text-left whitespace-normal break-words flex-1">
+                    {item.label}
+                  </span>
                 </Link>
               </Button>
             );

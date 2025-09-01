@@ -11,8 +11,6 @@ import {
   Camera,
   Newspaper,
   Phone,
-  ChevronDown,
-  ChevronRight,
   FileText,
   Network,
   UserCheck,
@@ -127,12 +125,6 @@ export function Sidebar() {
       .filter((m) => m.label.toLowerCase().includes(q));
   }, [q]);
 
-  const showAboutBlock = useMemo(() => {
-    if (!q) return true;
-    if ("Про Конфедерацію".toLowerCase().includes(q)) return true;
-    return filteredConfederationSubItems.length > 0;
-  }, [q, filteredConfederationSubItems.length]);
-
   return (
     <div className="pt-0 px-4 pb-4">
       <div className="rounded-2xl border border-[color-mix(in_oklab,var(--brand-primary)_35%,transparent)]/70">
@@ -145,36 +137,30 @@ export function Sidebar() {
             {/* Home */}
             <NavLink href="/" label="Головна" iconKey="home" />
 
-            {/* About Confederation with native details/summary for SSR */}
-            {showAboutBlock && (
-              <details className="group" open={Boolean(q)}>
-                <summary className="list-none">
-                  <Button
-                    asChild
-                    variant="ghost"
-                    className="w-full justify-start gap-3 h-auto py-3 px-4 text-[var(--brand-primary)] hover:bg-[var(--brand-primary-10)]"
-                  >
-                    <div className="flex items-center w-full">
-                      <Info className="h-5 w-5 flex-shrink-0" />
-                      <span className="text-left flex-1">Про Конфедерацію</span>
-                      <ChevronRight className="h-4 w-4 flex-shrink-0 group-open:hidden" />
-                      <ChevronDown className="h-4 w-4 flex-shrink-0 hidden group-open:block" />
-                    </div>
-                  </Button>
-                </summary>
-                <div className="space-y-1 mt-1">
-                  {filteredConfederationSubItems.map((subItem, subIndex) => (
-                    <NavLink
-                      key={subIndex}
-                      href={aboutRouteByLabel[subItem.label] ?? "/"}
-                      label={subItem.label}
-                      iconKey={getSubIconKey(subItem.label)}
-                      sub
-                    />
-                  ))}
+            {/* About Confederation always expanded */}
+            <div>
+              <Button
+                asChild
+                variant="ghost"
+                className="w-full justify-start gap-3 h-auto py-3 px-4 text-[var(--brand-primary)] hover:bg-[var(--brand-primary-10)]"
+              >
+                <div className="flex items-center w-full">
+                  <Info className="h-5 w-5 flex-shrink-0" />
+                  <span className="text-left flex-1">Про Конфедерацію</span>
                 </div>
-              </details>
-            )}
+              </Button>
+              <div className="space-y-1 mt-1">
+                {filteredConfederationSubItems.map((subItem, subIndex) => (
+                  <NavLink
+                    key={subIndex}
+                    href={aboutRouteByLabel[subItem.label] ?? "/"}
+                    label={subItem.label}
+                    iconKey={getSubIconKey(subItem.label)}
+                    sub
+                  />
+                ))}
+              </div>
+            </div>
 
             {/* Other menu items */}
             {filteredMenuItems.map((item, index) => (

@@ -75,13 +75,19 @@ export function NavLink({ href, label, iconKey, sub }: NavLinkProps) {
         className={`w-full justify-start gap-3 h-auto py-2 px-4 ml-6 text-sm ${
           isActive
             ? "bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-secondary)] hover:from-[color-mix(in_oklab,var(--brand-primary)_90%,transparent)] hover:to-[color-mix(in_oklab,var(--brand-secondary)_90%,transparent)] text-white"
-            : "text-[var(--brand-primary)]/80 hover:bg-[var(--brand-primary-10)]"
+            : "text-[var(--brand-primary)] hover:bg-[var(--brand-primary-10)]"
         }`}
         data-active={isActive || undefined}
       >
-        <Link href={href} aria-current={isActive ? "page" : undefined}>
-          <Icon className="h-4 w-4 flex-shrink-0" />
-          <span className="text-left leading-tight">{label}</span>
+        <Link
+          href={href}
+          aria-current={isActive ? "page" : undefined}
+          className="flex items-start gap-3 w-full"
+        >
+          <Icon className="h-4 w-4 flex-shrink-0 mt-[2px]" />
+          <span className="text-left leading-tight whitespace-normal break-words flex-1">
+            {label}
+          </span>
         </Link>
       </Button>
     );
@@ -98,9 +104,15 @@ export function NavLink({ href, label, iconKey, sub }: NavLinkProps) {
       }`}
       data-active={isActive || undefined}
     >
-      <Link href={href} aria-current={isActive ? "page" : undefined}>
-        <Icon className="h-5 w-5 flex-shrink-0" />
-        <span className="text-left">{label}</span>
+      <Link
+        href={href}
+        aria-current={isActive ? "page" : undefined}
+        className="flex items-start gap-3 w-full"
+      >
+        <Icon className="h-5 w-5 flex-shrink-0 mt-[2px]" />
+        <span className="text-left whitespace-normal break-words flex-1">
+          {label}
+        </span>
       </Link>
     </Button>
   );
