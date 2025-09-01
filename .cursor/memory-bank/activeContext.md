@@ -1,8 +1,3 @@
-# Active Context
-
-- Introduced brand color variables in globals.css: --brand-primary (#7a97e3), --brand-secondary (purple-600) plus translucent mixes.
-- Replaced hardcoded hex and purple classes across Header, Sidebar, MobileMenu, MainContent, Footer, and all page headings with CSS variables.
-- NavLink/MobileMenu use gradient from brand vars for active state.
-
-Next:
-- If brand palette changes, edit only globals.css to propagate.
+- Added global font scale var and html font-size binding in globals.css (var --font-scale).
+- Introduced client component FontSizeSelect (shadcn Select) with options: Standard, Large, Huge; persists to localStorage and updates :root CSS var to scale tailwind rem globally.
+- Integrated selector into Header next to theme toggle.

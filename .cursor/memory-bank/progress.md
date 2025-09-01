@@ -1,3 +1,1 @@
-# Progress
-
-- Centralized color system applied; lints clean in edited files.
+- Global font size selector added; no lints.
