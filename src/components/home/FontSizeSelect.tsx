@@ -34,7 +34,9 @@ export function FontSizeSelect() {
           String(SCALE_BY_KEY[stored])
         );
       }
-    } catch {}
+    } catch {
+      /* ignore */
+    }
   }, []);
 
   const onChange = (next: FontScaleKey) => {
@@ -43,29 +45,31 @@ export function FontSizeSelect() {
     document.documentElement.style.setProperty("--font-scale", String(scale));
     try {
       localStorage.setItem(STORAGE_KEY, next);
-    } catch {}
+    } catch {
+      /* ignore */
+    }
   };
 
   const label = useMemo(() => {
     switch (value) {
       case "large":
-        return "Large font";
+        return "Великий шрифт";
       case "xlarge":
-        return "Huge font";
+        return "Величезний шрифт";
       default:
-        return "Standard font";
+        return "Звичайний шрифт";
     }
   }, [value]);
 
   return (
     <Select value={value} onValueChange={(v) => onChange(v as FontScaleKey)}>
-      <SelectTrigger className="w-[200px]">
+      <SelectTrigger className="w-[220px] border border-[color-mix(in_oklab,var(--brand-primary)_35%,transparent)]/70 bg-card/80 shadow-sm hover:border-[var(--brand-primary)]/60 focus:ring-2 focus:ring-[var(--brand-primary-20)]">
         <SelectValue placeholder={label} />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="normal">Standard font</SelectItem>
-        <SelectItem value="large">Large font</SelectItem>
-        <SelectItem value="xlarge">Huge font</SelectItem>
+        <SelectItem value="normal">Звичайний шрифт</SelectItem>
+        <SelectItem value="large">Великий шрифт</SelectItem>
+        <SelectItem value="xlarge">Величезний шрифт</SelectItem>
       </SelectContent>
     </Select>
   );

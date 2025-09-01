@@ -1,3 +1,4 @@
 - Added global font scale var and html font-size binding in globals.css (var --font-scale).
 - Introduced client component FontSizeSelect (shadcn Select) with options: Standard, Large, Huge; persists to localStorage and updates :root CSS var to scale tailwind rem globally.
 - Integrated selector into Header next to theme toggle.
+- Implemented sidebar search: created client `SidebarSearchProvider` with `useSidebarSearch` hook; added `SearchInput` in `Header` to control query; wrapped app with provider in `layout.tsx`; filtered items in `Sidebar` by query. Lints clean.

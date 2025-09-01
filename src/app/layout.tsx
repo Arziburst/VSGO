@@ -12,6 +12,7 @@ import { TanstackQueryClientProvider } from "@/lib/TanstackQueryClientProvider";
 import { MobileChrome } from "@/components/home/MobileChrome";
 import { Sidebar } from "@/components/home/Sidebar";
 import { Footer } from "@/components/home/Footer";
+import { SidebarSearchProvider } from "@/context/SidebarSearchContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -104,19 +105,21 @@ export default function RootLayout({
             enableColorScheme={true}
             storageKey={THEME_STORAGE_KEY}
           >
-            <MobileChrome />
-            <div className="mx-auto max-w-7xl px-4 py-6">
-              <div className="grid grid-cols-12 gap-6">
-                <aside className="hidden md:block md:col-span-3">
-                  <Sidebar />
-                </aside>
-                <div className="col-span-12 md:col-span-9 space-y-6">
-                  <TooltipProvider>{children}</TooltipProvider>
+            <SidebarSearchProvider>
+              <MobileChrome />
+              <div className="mx-auto max-w-7xl px-4 py-6">
+                <div className="grid grid-cols-12 gap-6">
+                  <aside className="hidden md:block md:col-span-3">
+                    <Sidebar />
+                  </aside>
+                  <div className="col-span-12 md:col-span-9 space-y-6">
+                    <TooltipProvider>{children}</TooltipProvider>
+                  </div>
                 </div>
               </div>
-            </div>
-            <Footer />
-            <Toaster />
+              <Footer />
+              <Toaster />
+            </SidebarSearchProvider>
           </ThemeProvider>
         </TanstackQueryClientProvider>
         <Analytics debug={false} />

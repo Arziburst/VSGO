@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import OfficesClient from "./OfficesClient";
 
 export const metadata: Metadata = {
   title: "Regional Offices",
@@ -8,10 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return (
-    <div className="max-w-6xl mx-auto space-y-6">
-      <h1 className="text-xl text-[var(--brand-primary)]">Regional Offices</h1>
-      <p className="text-gray-700">Content will be added soon.</p>
-    </div>
-  );
+  return <OfficesClient />;
 }

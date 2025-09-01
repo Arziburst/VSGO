@@ -1,1 +1,2 @@
 - Global font size selector added; no lints.
+- Sidebar search connected to header input; provider in layout; no lints.

@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Menu, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { FontSizeSelect } from "./FontSizeSelect";
+import { SearchInput } from "@/components/SearchInput";
+import { useSidebarSearch } from "@/context/SidebarSearchContext";
 
 interface HeaderProps {
   onMenuToggle?: () => void;
@@ -12,6 +14,7 @@ interface HeaderProps {
 
 export function Header({ onMenuToggle }: HeaderProps) {
   const { theme, setTheme } = useTheme();
+  const { setQuery } = useSidebarSearch();
 
   const isDark = theme === "dark";
 
@@ -51,9 +54,16 @@ export function Header({ onMenuToggle }: HeaderProps) {
             <span className="sm:hidden"> </span>
             Organizations of Persons with Disabilities of Ukraine&quot;
           </h2>
+          <div className="mt-3 flex items-center gap-2 md:hidden">
+            <FontSizeSelect />
+          </div>
+          {/* Optional: mobile search below title */}
+          {/* <div className="mt-3 md:hidden">
+            <SearchInput placeholder="Search menu..." onSearch={setQuery} />
+          </div> */}
         </div>
 
-        <div className="ml-auto flex items-center gap-2">
+        <div className="ml-auto hidden md:flex items-center gap-2">
           {/* Theme Toggle */}
           <Button
             variant="ghost"
