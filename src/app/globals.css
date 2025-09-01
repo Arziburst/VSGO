@@ -52,6 +52,8 @@
 
 :root {
   --radius: 0.625rem;
+  /* Global font scaling (1.3 = large font) */
+  --font-scale: 1.3;
   --background: #ffffff;
   --foreground: oklch(0.145 0 0);
   --card: #ffffff;

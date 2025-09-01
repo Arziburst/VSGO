@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Menu, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { FontSizeSelect } from "./FontSizeSelect";
+// removed FontSizeSelect per request
 import { SearchInput } from "@/components/SearchInput";
 import { useSidebarSearch } from "@/context/SidebarSearchContext";
 
@@ -57,9 +57,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
             <span className="sm:hidden"> </span>
             Organizations of Persons with Disabilities of Ukraine&quot;
           </h2>
-          <div className="mt-3 flex items-center gap-2 md:hidden">
-            <FontSizeSelect />
-          </div>
+
           {/* Optional: mobile search below title */}
           {/* <div className="mt-3 md:hidden">
             <SearchInput placeholder="Search menu..." onSearch={setQuery} />
@@ -81,7 +79,6 @@ export function Header({ onMenuToggle }: HeaderProps) {
               <Moon className="h-5 w-5" />
             )}
           </Button>
-          <FontSizeSelect />
         </div>
       </div>
     </header>
