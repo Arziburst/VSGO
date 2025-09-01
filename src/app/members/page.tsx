@@ -1,17 +1,53 @@
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Members",
-  description: "Members of the Confederation",
-  alternates: { canonical: "/members" },
-  openGraph: { url: "/members", title: "Members | VSGO" },
-};
+"use client";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Users } from "lucide-react";
 
 export default function Page() {
   return (
-    <div className="max-w-6xl mx-auto space-y-6">
-      <h1 className="text-xl text-[var(--brand-primary)]">Members</h1>
-      <p className="text-gray-700">Content will be added soon.</p>
+    <div className="max-w-7xl mx-auto space-y-8">
+      <Card className="shadow-lg border-[#7a97e3]/30 bg-gradient-to-r from-[#7a97e3]/10 via-purple-50 to-violet-50 dark:from-[#7a97e3]/20 dark:via-purple-900/20 dark:to-violet-900/20">
+        <CardHeader>
+          <CardTitle className="text-2xl text-[#7a97e3] flex items-center gap-3">
+            <Users className="h-8 w-8" />
+            Члени Конфедерації
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-wrap items-center gap-4 mb-4">
+            <Badge
+              variant="secondary"
+              className="bg-gradient-to-r from-[#7a97e3]/20 to-purple-100 dark:from-[#7a97e3]/30 dark:to-purple-800/30 text-[#7a97e3]"
+            >
+              PDF Документ
+            </Badge>
+            <Badge
+              variant="outline"
+              className="border-[#7a97e3]/30 text-[#7a97e3]"
+            >
+              4 сторінки
+            </Badge>
+          </div>
+          <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
+            Повний список громадських об&apos;єднань - членів ВСГО «Конфедерація
+            ГОІУ» з назвами організацій та веб-сторінками.
+          </p>
+        </CardContent>
+      </Card>
+
+      <Card className="shadow-lg border-[#7a97e3]/30">
+        <CardContent className="p-0">
+          <div className="bg-gray-100 dark:bg-gray-900 flex justify-center items-center min-h-[800px] p-8">
+            <div className="bg-white dark:bg-gray-100 shadow-2xl rounded-lg overflow-hidden w-full max-w-5xl">
+              <iframe
+                src="/docs/chleni-konfederatsii.pdf"
+                title="Члени Конфедерації"
+                className="w-full h-[80vh]"
+              />
+            </div>
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }
