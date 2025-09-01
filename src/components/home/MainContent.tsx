@@ -45,9 +45,9 @@ export function MainContent() {
   return (
     <div className="max-w-6xl mx-auto space-y-8">
       {/* Welcome Section */}
-      <Card className="shadow-lg border-[#7a97e3]/30 bg-gradient-to-r from-[#7a97e3]/10 via-purple-50 to-violet-50 dark:from-[#7a97e3]/20 dark:via-purple-900/20 dark:to-violet-900/20">
+      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] via-purple-50 to-violet-50 dark:from-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] dark:via-purple-900/20 dark:to-violet-900/20">
         <CardHeader>
-          <CardTitle className="text-xl text-[#7a97e3]">
+          <CardTitle className="text-xl text-[var(--brand-primary)]">
             Dear friends!
           </CardTitle>
         </CardHeader>
@@ -99,13 +99,13 @@ export function MainContent() {
       </div>
 
       {/* Additional Info Section */}
-      <Card className="shadow-lg border-[#7a97e3]/30 bg-gradient-to-r from-[#7a97e3]/10 to-purple-50 dark:from-[#7a97e3]/20 dark:to-purple-900/20">
+      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] to-purple-50 dark:from-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] dark:to-purple-900/20">
         {" "}
         <CardContent className="p-6">
           <div className="flex items-center gap-4 mb-4">
             <Badge
               variant="secondary"
-              className="bg-gradient-to-r from-[#7a97e3]/20 to-purple-100 dark:from-[#7a97e3]/30 dark:to-purple-800/30 text-[#7a97e3]"
+              className="bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] to-purple-100 dark:from-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] dark:to-purple-800/30 text-[var(--brand-primary)]"
             >
               Інформація
             </Badge>

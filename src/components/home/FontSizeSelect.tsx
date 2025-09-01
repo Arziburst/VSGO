@@ -63,8 +63,11 @@ export function FontSizeSelect() {
 
   return (
     <Select value={value} onValueChange={(v) => onChange(v as FontScaleKey)}>
-      <SelectTrigger className="w-full md:w-[220px] max-w-[280px] border border-[color-mix(in_oklab,var(--brand-primary)_35%,transparent)]/70 bg-card/80 shadow-sm hover:border-[var(--brand-primary)]/60 focus:ring-2 focus:ring-[var(--brand-primary-20)] min-w-0">
-        <SelectValue placeholder={label} className="truncate" />
+      <SelectTrigger className="w-full md:w-[220px] min-w-0 border border-[color-mix(in_oklab,var(--brand-primary)_35%,transparent)]/70 bg-card/80 shadow-sm hover:border-[var(--brand-primary)]/60 focus:ring-2 focus:ring-[var(--brand-primary-20)] whitespace-normal">
+        <SelectValue
+          placeholder={label}
+          className="whitespace-normal break-words"
+        />
       </SelectTrigger>
       <SelectContent>
         <SelectItem value="normal">Звичайний шрифт</SelectItem>

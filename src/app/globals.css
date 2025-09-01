@@ -86,7 +86,8 @@
   --sidebar-ring: oklch(0.708 0 0);
 
   /* brand tokens still used by UI */
-  --brand-primary: #7a97e3;
+  /* Stronger, crisper blue */
+  --brand-primary: #2563eb; /* tailwind blue-600 */
   --brand-secondary: #9333ea; /* tailwind purple-600 */
   --brand-primary-10: color-mix(
     in oklab,

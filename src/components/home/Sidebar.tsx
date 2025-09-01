@@ -39,55 +39,55 @@ import {
 } from "@/constants";
 
 const menuItems = [
-  { icon: Home, label: "Home", active: true },
-  { icon: Info, label: "About Confederation", expandable: true },
-  { icon: Users, label: "Members" },
-  { icon: Building2, label: "Regional Offices" },
-  { icon: ScrollText, label: "Legislation" },
-  { icon: Settings, label: "Our Activities" },
-  { icon: Camera, label: "Photo Gallery" },
-  { icon: Newspaper, label: "News" },
-  { icon: Phone, label: "Contacts" },
+  { icon: Home, label: "Головна", active: true },
+  { icon: Info, label: "Про Конфедерацію", expandable: true },
+  { icon: Users, label: "Члени Конфедерації" },
+  { icon: Building2, label: "Відокремлені підрозділи" },
+  { icon: ScrollText, label: "Законодавство" },
+  { icon: Settings, label: "Наша діяльність" },
+  { icon: Camera, label: "Фотогалерея" },
+  { icon: Newspaper, label: "Новини" },
+  { icon: Phone, label: "Контакти" },
 ];
 
 const confederationSubItems = [
-  { icon: FileText, label: "Status" },
-  { icon: Network, label: "Structure" },
-  { icon: UserCheck, label: "Membership conditions" },
-  { icon: Scale, label: "Rights and obligations" },
-  { icon: Target, label: "Confederation tasks" },
+  { icon: FileText, label: "Статус" },
+  { icon: Network, label: "Структура" },
+  { icon: UserCheck, label: "Умови вступу" },
+  { icon: Scale, label: "Права та обов’язки" },
+  { icon: Target, label: "Завдання Конфедерації" },
 ];
 
 export function Sidebar() {
   const { query } = useSidebarSearch();
   const q = query.trim().toLowerCase();
   const routeByLabel: Record<string, string> = {
-    Members: ROUTE_MEMBERS,
-    "Regional Offices": ROUTE_OFFICES,
-    Legislation: ROUTE_LEGISLATION,
-    "Our Activities": ROUTE_ACTIVITIES,
-    "Photo Gallery": ROUTE_GALLERY,
-    News: ROUTE_NEWS,
-    Contacts: ROUTE_CONTACTS,
+    "Члени Конфедерації": ROUTE_MEMBERS,
+    "Відокремлені підрозділи": ROUTE_OFFICES,
+    Законодавство: ROUTE_LEGISLATION,
+    "Наша діяльність": ROUTE_ACTIVITIES,
+    Фотогалерея: ROUTE_GALLERY,
+    Новини: ROUTE_NEWS,
+    Контакти: ROUTE_CONTACTS,
   };
 
   const aboutRouteByLabel: Record<string, string> = {
-    Status: ROUTE_STATUS,
-    Structure: ROUTE_STRUCTURE,
-    "Membership conditions": ROUTE_MEMBERSHIP,
-    "Rights and obligations": ROUTE_RIGHTS,
-    "Confederation tasks": ROUTE_TASKS,
+    Статус: ROUTE_STATUS,
+    Структура: ROUTE_STRUCTURE,
+    "Умови вступу": ROUTE_MEMBERSHIP,
+    "Права та обов’язки": ROUTE_RIGHTS,
+    "Завдання Конфедерації": ROUTE_TASKS,
   };
 
   const getSubIconKey = (label: string) => {
     switch (label) {
-      case "Status":
+      case "Статус":
         return "fileText" as const;
-      case "Structure":
+      case "Структура":
         return "network" as const;
-      case "Membership conditions":
+      case "Умови вступу":
         return "userCheck" as const;
-      case "Rights and obligations":
+      case "Права та обов’язки":
         return "scale" as const;
       default:
         return "target" as const;
@@ -96,17 +96,17 @@ export function Sidebar() {
 
   const getIconKey = (label: string) => {
     switch (label) {
-      case "Members":
+      case "Члени Конфедерації":
         return "users" as const;
-      case "Regional Offices":
+      case "Відокремлені підрозділи":
         return "building2" as const;
-      case "Legislation":
+      case "Законодавство":
         return "scrollText" as const;
-      case "Our Activities":
+      case "Наша діяльність":
         return "settings" as const;
-      case "Photo Gallery":
+      case "Фотогалерея":
         return "camera" as const;
-      case "News":
+      case "Новини":
         return "newspaper" as const;
       default:
         return "phone" as const;
@@ -129,7 +129,7 @@ export function Sidebar() {
 
   const showAboutBlock = useMemo(() => {
     if (!q) return true;
-    if ("About Confederation".toLowerCase().includes(q)) return true;
+    if ("Про Конфедерацію".toLowerCase().includes(q)) return true;
     return filteredConfederationSubItems.length > 0;
   }, [q, filteredConfederationSubItems.length]);
 
@@ -138,12 +138,12 @@ export function Sidebar() {
       <div className="rounded-2xl border border-[color-mix(in_oklab,var(--brand-primary)_35%,transparent)]/70">
         <Card className="p-4 shadow-lg border-0 rounded-2xl bg-card">
           <h3 className="text-lg text-[var(--brand-primary)] mb-4 text-center">
-            Menu
+            Меню
           </h3>
 
           <nav className="space-y-2">
             {/* Home */}
-            <NavLink href="/" label="Home" iconKey="home" />
+            <NavLink href="/" label="Головна" iconKey="home" />
 
             {/* About Confederation with native details/summary for SSR */}
             {showAboutBlock && (
@@ -156,9 +156,7 @@ export function Sidebar() {
                   >
                     <div className="flex items-center w-full">
                       <Info className="h-5 w-5 flex-shrink-0" />
-                      <span className="text-left flex-1">
-                        About Confederation
-                      </span>
+                      <span className="text-left flex-1">Про Конфедерацію</span>
                       <ChevronRight className="h-4 w-4 flex-shrink-0 group-open:hidden" />
                       <ChevronDown className="h-4 w-4 flex-shrink-0 hidden group-open:block" />
                     </div>

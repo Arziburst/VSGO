@@ -44,7 +44,7 @@ export default function UkraineStaticMap() {
     UA_REGION_TRANSLATIONS[name.toLowerCase()] ?? name;
 
   return (
-    <div className="relative bg-gradient-to-br from-blue-50 to-[#7a97e3]/10 dark:from-blue-900/20 dark:to-[#7a97e3]/20 p-4 rounded-lg">
+    <div className="relative bg-gradient-to-br from-blue-50 to-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] dark:from-blue-900/20 dark:to-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] p-4 rounded-lg">
       <div className="max-w-3xl mx-auto">
         <svg
           ref={svgRef}
@@ -64,8 +64,8 @@ export default function UkraineStaticMap() {
                   d={loc.path}
                   className={
                     isKyivOblast(loc.name)
-                      ? "fill-yellow-300 dark:fill-yellow-400 stroke-[#7a97e3] [stroke-width:1.2]"
-                      : "fill-[#22a2ff] dark:fill-[#3b4a73] stroke-[#7a97e3] [stroke-width:1.2]"
+                      ? "fill-yellow-300 dark:fill-yellow-400 stroke-[var(--brand-primary)] [stroke-width:1.2]"
+                      : "fill-[#22a2ff] dark:fill-[#3b4a73] stroke-[var(--brand-primary)] [stroke-width:1.2]"
                   }
                 >
                   <title>{toUA(loc.name)}</title>

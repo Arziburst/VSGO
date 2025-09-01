@@ -43,16 +43,20 @@ export default function Page() {
     {
       type: "Звичайне членство",
       icon: Users,
-      color: "from-[#7a97e3]/10 to-purple-50",
-      darkColor: "dark:from-[#7a97e3]/20 dark:to-purple-900/20",
+      color:
+        "from-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] to-purple-50",
+      darkColor:
+        "dark:from-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] dark:to-purple-900/20",
       description:
         "Членами (учасниками) ВСГО «Конфедерація ГОІУ» можуть бути інші юридичні особи, мета та завдання яких не суперечить зазначеним у Статуті положенням ВСГО «Конфедерація ГОІУ».",
     },
     {
       type: "Почесне членство",
       icon: Award,
-      color: "from-yellow-50 to-[#7a97e3]/10",
-      darkColor: "dark:from-yellow-900/20 dark:to-[#7a97e3]/20",
+      color:
+        "from-yellow-50 to-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)]",
+      darkColor:
+        "dark:from-yellow-900/20 dark:to-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]",
       description:
         "У ВСГО «Конфедерація ГОІУ» може бути почесне членство (участь). Діяльність почесних членів (учасників) ВСГО «Конфедерація ГОІУ» регулюється Положенням про почесних членів (учасників) ВСГО «Конфедерація ГОІУ», яке затверджується Радою ВСГО «Конфедерація ГОІУ».",
     },
@@ -61,9 +65,9 @@ export default function Page() {
   return (
     <div className="max-w-6xl mx-auto space-y-8">
       {/* Header Section */}
-      <Card className="shadow-lg border-[#7a97e3]/30 bg-gradient-to-r from-[#7a97e3]/10 via-purple-50 to-violet-50 dark:from-[#7a97e3]/20 dark:via-purple-900/20 dark:to-violet-900/20">
+      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] via-purple-50 to-violet-50 dark:from-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] dark:via-purple-900/20 dark:to-violet-900/20">
         <CardHeader>
-          <CardTitle className="text-2xl text-[#7a97e3] flex items-center gap-3">
+          <CardTitle className="text-2xl text-[var(--brand-primary)] flex items-center gap-3">
             <UserCheck className="h-8 w-8" />
             Умови вступу
           </CardTitle>
@@ -78,18 +82,18 @@ export default function Page() {
       </Card>
 
       {/* Main Requirements */}
-      <Card className="shadow-lg border-[#7a97e3]/30 bg-gradient-to-r from-[#7a97e3]/5 to-purple-25 dark:from-[#7a97e3]/15 dark:to-purple-900/15">
+      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_5%,transparent)] to-purple-25 dark:from-[color-mix(in_oklab,var(--brand-primary)_15%,transparent)] dark:to-purple-900/15">
         <CardHeader>
           <div className="flex items-center gap-3 mb-4">
-            <FileText className="h-6 w-6 text-[#7a97e3]" />
+            <FileText className="h-6 w-6 text-[var(--brand-primary)]" />
             <Badge
               variant="secondary"
-              className="bg-gradient-to-r from-[#7a97e3]/20 to-purple-100 dark:from-[#7a97e3]/30 dark:to-purple-800/30 text-[#7a97e3]"
+              className="bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] to-purple-100 dark:from-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] dark:to-purple-800/30 text-[var(--brand-primary)]"
             >
               Основні вимоги
             </Badge>
           </div>
-          <CardTitle className="text-xl text-[#7a97e3]">
+          <CardTitle className="text-xl text-[var(--brand-primary)]">
             Хто може бути членом організації
           </CardTitle>
         </CardHeader>
@@ -100,11 +104,11 @@ export default function Page() {
               return (
                 <div
                   key={index}
-                  className="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-[#7a97e3]/20"
+                  className="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]"
                 >
                   <div className="flex items-center gap-3 mb-3">
-                    <Icon className="h-5 w-5 text-[#7a97e3]" />
-                    <h4 className="text-sm text-[#7a97e3]">
+                    <Icon className="h-5 w-5 text-[var(--brand-primary)]" />
+                    <h4 className="text-sm text-[var(--brand-primary)]">
                       {requirement.title}
                     </h4>
                   </div>
@@ -119,9 +123,9 @@ export default function Page() {
       </Card>
 
       {/* Membership Requirements Details */}
-      <Card className="shadow-lg border-[#7a97e3]/30 bg-gradient-to-br from-blue-50 to-[#7a97e3]/10 dark:from-blue-900/20 dark:to-[#7a97e3]/20">
+      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-br from-blue-50 to-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] dark:from-blue-900/20 dark:to-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]">
         <CardHeader>
-          <CardTitle className="text-xl text-[#7a97e3] flex items-center gap-3">
+          <CardTitle className="text-xl text-[var(--brand-primary)] flex items-center gap-3">
             <Users className="h-6 w-6" />
             Кількісні вимоги до членства
           </CardTitle>
@@ -132,7 +136,7 @@ export default function Page() {
             повинна перевищувати 1/3 від кількості усіх членів (учасників) ВСГО
             «Конфедерація ГОІУ».
           </p>
-          <div className="bg-gradient-to-r from-orange-50 to-[#7a97e3]/5 dark:from-orange-900/20 dark:to-[#7a97e3]/10 p-4 rounded-lg border border-[#7a97e3]/20">
+          <div className="bg-gradient-to-r from-orange-50 to-[color-mix(in_oklab,var(--brand-primary)_5%,transparent)] dark:from-orange-900/20 dark:to-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] p-4 rounded-lg border border-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]">
             <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
               У ВСГО «Конфедерація ГОІУ» може бути почесне членство (участь).
               Діяльність почесних членів (учасників) ВСГО «Конфедерація ГОІУ»
@@ -150,12 +154,20 @@ export default function Page() {
           return (
             <Card
               key={index}
-              className={`shadow-lg border-[#7a97e3]/30 bg-gradient-to-br ${membership.color} ${membership.darkColor}`}
+              className={`shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-br ${membership.color
+                .replace("#7a97e3", "var(--brand-primary)")
+                .replace(
+                  "#7a97e3",
+                  "var(--brand-primary)"
+                )} ${membership.darkColor.replace(
+                "#7a97e3",
+                "var(--brand-primary)"
+              )}`}
             >
               <CardHeader>
                 <div className="flex items-center gap-3 mb-2">
-                  <Icon className="h-6 w-6 text-[#7a97e3]" />
-                  <CardTitle className="text-lg text-[#7a97e3]">
+                  <Icon className="h-6 w-6 text-[var(--brand-primary)]" />
+                  <CardTitle className="text-lg text-[var(--brand-primary)]">
                     {membership.type}
                   </CardTitle>
                 </div>
@@ -171,9 +183,9 @@ export default function Page() {
       </div>
 
       {/* Admission Process */}
-      <Card className="shadow-lg border-[#7a97e3]/30 bg-gradient-to-r from-green-50 to-[#7a97e3]/10 dark:from-green-900/20 dark:to-[#7a97e3]/20">
+      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-r from-green-50 to-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] dark:from-green-900/20 dark:to-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]">
         <CardHeader>
-          <CardTitle className="text-xl text-[#7a97e3] flex items-center gap-3">
+          <CardTitle className="text-xl text-[var(--brand-primary)] flex items-center gap-3">
             <CheckCircle className="h-6 w-6" />
             Процедура вступу
           </CardTitle>
@@ -198,12 +210,12 @@ export default function Page() {
       </Card>
 
       {/* Rights and Responsibilities Note */}
-      <Card className="shadow-lg border-[#7a97e3]/30 bg-gradient-to-r from-purple-50 to-[#7a97e3]/10 dark:from-purple-900/20 dark:to-[#7a97e3]/20">
+      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-r from-purple-50 to-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] dark:from-purple-900/20 dark:to-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]">
         <CardContent className="p-6">
           <div className="flex items-center gap-4 mb-4">
             <Badge
               variant="secondary"
-              className="bg-gradient-to-r from-purple-200 to-[#7a97e3]/20 dark:from-purple-800/50 dark:to-[#7a97e3]/30 text-[#7a97e3]"
+              className="bg-gradient-to-r from-purple-200 to-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] dark:from-purple-800/50 dark:to-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] text-[var(--brand-primary)]"
             >
               Додаткова інформація
             </Badge>

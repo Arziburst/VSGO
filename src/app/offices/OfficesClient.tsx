@@ -42,9 +42,9 @@ export default function OfficesClient() {
 
   return (
     <div className="max-w-7xl mx-auto space-y-8">
-      <Card className="shadow-xl border-[#7a97e3]/30 bg-gradient-to-r from-[#7a97e3]/10 via-purple-50 to-violet-50 dark:from-[#7a97e3]/20 dark:via-purple-900/20 dark:to-violet-900/20">
+      <Card className="shadow-xl border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] via-purple-50 to-violet-50 dark:from-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] dark:via-purple-900/20 dark:to-violet-900/20">
         <CardHeader>
-          <CardTitle className="text-3xl text-[#7a97e3] flex items-center gap-3">
+          <CardTitle className="text-3xl text-[var(--brand-primary)] flex items-center gap-3">
             <Building2 className="h-8 w-8" />
             Відокремлені підрозділи
           </CardTitle>
@@ -53,13 +53,13 @@ export default function OfficesClient() {
           <div className="flex flex-wrap items-center gap-4 mb-6">
             <Badge
               variant="secondary"
-              className="bg-gradient-to-r from-[#7a97e3]/20 to-purple-100 dark:from-[#7a97e3]/30 dark:to-purple-800/30 text-[#7a97e3]"
+              className="bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] to-purple-100 dark:from-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] dark:to-purple-800/30 text-[var(--brand-primary)]"
             >
               {regionalOffices.length} представництв
             </Badge>
             <Badge
               variant="outline"
-              className="border-[#7a97e3]/30 text-[#7a97e3]"
+              className="border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] text-[var(--brand-primary)]"
             >
               24 області України
             </Badge>
@@ -73,19 +73,19 @@ export default function OfficesClient() {
 
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="relative flex-1">
-              <Search className="absolute left-3 top-3 h-4 w-4 text-[#7a97e3]" />
+              <Search className="absolute left-3 top-3 h-4 w-4 text-[var(--brand-primary)]" />
               <Input
                 placeholder="Пошук за областю, адресою або телефоном..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 border-[#7a97e3]/30 focus:ring-[#7a97e3]/20 focus:border-[#7a97e3]"
+                className="pl-10 border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] focus:ring-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] focus:border-[var(--brand-primary)]"
               />
             </div>
 
             <Button
               variant="outline"
               onClick={() => setShowMap(!showMap)}
-              className="border-[#7a97e3]/30 text-[#7a97e3] hover:bg-[#7a97e3]/10"
+              className="border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] text-[var(--brand-primary)] hover:bg-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)]"
             >
               {showMap ? (
                 <EyeOff className="h-4 w-4 mr-2" />
@@ -99,9 +99,9 @@ export default function OfficesClient() {
       </Card>
 
       {showMap && (
-        <Card className="shadow-xl border-[#7a97e3]/30">
+        <Card className="shadow-xl border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)]">
           <CardHeader>
-            <CardTitle className="text-xl text-[#7a97e3] flex items-center gap-3">
+            <CardTitle className="text-xl text-[var(--brand-primary)] flex items-center gap-3">
               <MapPin className="h-6 w-6" />
               Інтерактивна карта представництв
             </CardTitle>
@@ -112,9 +112,9 @@ export default function OfficesClient() {
         </Card>
       )}
 
-      <Card className="shadow-xl border-[#7a97e3]/30">
+      <Card className="shadow-xl border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)]">
         <CardHeader>
-          <CardTitle className="text-xl text-[#7a97e3] flex items-center gap-3">
+          <CardTitle className="text-xl text-[var(--brand-primary)] flex items-center gap-3">
             <Building2 className="h-6 w-6" />
             Список всіх представництв
             {filteredOffices.length !== regionalOffices.length && (
@@ -131,8 +131,8 @@ export default function OfficesClient() {
                 key={office.region}
                 className={`transition-all duration-300 hover:shadow-lg ${
                   selectedRegion === office.region
-                    ? "border-[#7a97e3] bg-gradient-to-r from-[#7a97e3]/5 to-purple-50 dark:from-[#7a97e3]/10 dark:to-purple-900/10"
-                    : "border-border hover:border-[#7a97e3]/50"
+                    ? "border-[var(--brand-primary)] bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_5%,transparent)] to-purple-50 dark:from-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] dark:to-purple-900/10"
+                    : "border-border hover:border-[color-mix(in_oklab,var(--brand-primary)_50%,transparent)]"
                 }`}
               >
                 <CardContent className="p-6">
@@ -141,23 +141,23 @@ export default function OfficesClient() {
                       <div className="flex flex-wrap items-center gap-2 mb-3">
                         <Badge
                           variant="outline"
-                          className={`$
-                            {selectedRegion === office.region
-                              ? "border-[#7a97e3] text-[#7a97e3] bg-[#7a97e3]/10"
-                              : "border-[#7a97e3]/30 text-[#7a97e3]"}
-                          `}
+                          className={`${
+                            selectedRegion === office.region
+                              ? "border-[var(--brand-primary)] text-[var(--brand-primary)] bg-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)]"
+                              : "border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] text-[var(--brand-primary)]"
+                          }`}
                         >
                           #{index + 1}
                         </Badge>
                         <Badge
                           variant="secondary"
-                          className="bg-gradient-to-r from-[#7a97e3]/20 to-purple-100 dark:from-[#7a97e3]/30 dark:to-purple-800/30 text-[#7a97e3]"
+                          className="bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] to-purple-100 dark:from-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] dark:to-purple-800/30 text-[var(--brand-primary)]"
                         >
                           {office.region}
                         </Badge>
                       </div>
 
-                      <h3 className="text-lg text-[#7a97e3] mb-2 leading-tight">
+                      <h3 className="text-lg text-[var(--brand-primary)] mb-2 leading-tight">
                         {office.name}
                       </h3>
 
@@ -167,14 +167,14 @@ export default function OfficesClient() {
 
                       <div className="space-y-3">
                         <div className="flex items-start gap-3">
-                          <MapPin className="h-5 w-5 text-[#7a97e3] mt-0.5 flex-shrink-0" />
+                          <MapPin className="h-5 w-5 text-[var(--brand-primary)] mt-0.5 flex-shrink-0" />
                           <span className="text-gray-700 dark:text-gray-300">
                             {office.address}
                           </span>
                         </div>
 
                         <div className="flex items-center gap-3">
-                          <Phone className="h-5 w-5 text-[#7a97e3] flex-shrink-0" />
+                          <Phone className="h-5 w-5 text-[var(--brand-primary)] flex-shrink-0" />
                           <span className="text-gray-700 dark:text-gray-300">
                             {office.phone}
                           </span>
@@ -186,7 +186,7 @@ export default function OfficesClient() {
                       <Button
                         variant="ghost"
                         size="sm"
-                        className="text-[#7a97e3] hover:bg-[#7a97e3]/10"
+                        className="text-[var(--brand-primary)] hover:bg-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)]"
                         onClick={() => {
                           const phoneNumber = office.phone
                             .split(",")[0]
@@ -214,7 +214,7 @@ export default function OfficesClient() {
               <Button
                 variant="outline"
                 onClick={() => setSearchQuery("")}
-                className="border-[#7a97e3]/30 text-[#7a97e3] hover:bg-[#7a97e3]/10"
+                className="border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] text-[var(--brand-primary)] hover:bg-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)]"
               >
                 Очистити пошук
               </Button>

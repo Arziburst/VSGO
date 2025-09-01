@@ -52,8 +52,8 @@ export function SearchInput({
     relative flex items-center transition-all duration-300 ease-in-out
     ${
       isFocused
-        ? "transform scale-105 shadow-xl shadow-[#7a97e3]/25"
-        : "shadow-lg shadow-[#7a97e3]/10 hover:shadow-xl hover:shadow-[#7a97e3]/20"
+        ? "transform scale-105 shadow-xl shadow-[color-mix(in_oklab,var(--brand-primary)_25%,transparent)]"
+        : "shadow-lg shadow-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] hover:shadow-xl hover:shadow-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]"
     }
   `}
       >
@@ -61,7 +61,9 @@ export function SearchInput({
         <div className="absolute left-4 z-10">
           <Search
             className={`h-5 w-5 transition-colors duration-200 ${
-              isFocused ? "text-[#7a97e3]" : "text-gray-400 dark:text-gray-500"
+              isFocused
+                ? "text-[var(--brand-primary)]"
+                : "text-gray-400 dark:text-gray-500"
             }`}
           />
         </div>
@@ -77,16 +79,16 @@ export function SearchInput({
           className={`
     w-full h-14 pl-12 pr-20 text-base
     bg-white dark:bg-gray-800/80
-    border-2 border-[#7a97e3]/20 dark:border-[#7a97e3]/30
+    border-2 border-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] dark:border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)]
     backdrop-blur-sm
     rounded-2xl
     transition-all duration-300 ease-in-out
     placeholder:text-gray-400 dark:placeholder:text-gray-500
-    focus:border-[#7a97e3]/60 focus:ring-4 focus:ring-[#7a97e3]/20
-    hover:border-[#7a97e3]/40
+    focus:border-[color-mix(in_oklab,var(--brand-primary)_60%,transparent)] focus:ring-4 focus:ring-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]
+    hover:border-[color-mix(in_oklab,var(--brand-primary)_40%,transparent)]
     ${
       isFocused
-        ? "bg-gradient-to-r from-white via-white to-[#7a97e3]/5 dark:from-gray-800/90 dark:via-gray-800/90 dark:to-[#7a97e3]/10"
+        ? "bg-gradient-to-r from-white via-white to-[color-mix(in_oklab,var(--brand-primary)_5%,transparent)] dark:from-gray-800/90 dark:via-gray-800/90 dark:to-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)]"
         : ""
     }
   `}
@@ -114,7 +116,7 @@ export function SearchInput({
     h-10 w-10 rounded-xl transition-all duration-200
     ${
       query.trim()
-        ? "bg-gradient-to-r from-[#7a97e3] to-purple-600 hover:from-[#7a97e3]/90 hover:to-purple-600/90 text-white shadow-lg hover:shadow-xl transform hover:scale-105"
+        ? "bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-secondary)] hover:from-[color-mix(in_oklab,var(--brand-primary)_90%,transparent)] hover:to-[color-mix(in_oklab,var(--brand-secondary)_90%,transparent)] text-white shadow-lg hover:shadow-xl transform hover:scale-105"
         : "text-gray-400 dark:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700/50"
     }
   `}
@@ -125,24 +127,24 @@ export function SearchInput({
 
         {/* Focus Ring Animation */}
         {isFocused && (
-          <div className="absolute inset-0 rounded-2xl border-2 border-[#7a97e3]/40 animate-pulse pointer-events-none" />
+          <div className="absolute inset-0 rounded-2xl border-2 border-[color-mix(in_oklab,var(--brand-primary)_40%,transparent)] animate-pulse pointer-events-none" />
         )}
       </div>
 
       {/* Search Suggestions/Results Preview */}
       {isFocused && query.length > 2 && (
         <div className="absolute top-full left-0 right-0 mt-2 z-50 animate-in fade-in-0 slide-in-from-top-2 duration-200">
-          <div className="bg-white dark:bg-gray-800/95 backdrop-blur-md border border-[#7a97e3]/20 rounded-xl shadow-xl shadow-[#7a97e3]/25 p-3 max-w-2xl mx-auto">
+          <div className="bg-white dark:bg-gray-800/95 backdrop-blur-md border border-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] rounded-xl shadow-xl shadow-[color-mix(in_oklab,var(--brand-primary)_25%,transparent)] p-3 max-w-2xl mx-auto">
             <div className="space-y-2">
               {/* Quick Suggestions */}
               <div className="space-y-1">
-                <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-[#7a97e3]/10 dark:hover:bg-[#7a97e3]/20 cursor-pointer transition-all duration-200 hover:transform hover:translate-x-1">
-                  <Search className="h-4 w-4 text-[#7a97e3]" />
+                <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-[var(--brand-primary-10)] dark:hover:bg-[var(--brand-primary-10)] cursor-pointer transition-all duration-200 hover:transform hover:translate-x-1">
+                  <Search className="h-4 w-4 text-[var(--brand-primary)]" />
                   <div className="flex-1">
                     <span className="text-sm text-gray-700 dark:text-gray-300">
                       Search: &quot;
                     </span>
-                    <span className="text-sm text-[#7a97e3] font-medium">
+                    <span className="text-sm text-[var(--brand-primary)] font-medium">
                       {query}
                     </span>
                     <span className="text-sm text-gray-700 dark:text-gray-300">
@@ -153,7 +155,7 @@ export function SearchInput({
 
                 {/* Quick Action Suggestions */}
                 <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/20 cursor-pointer transition-all duration-200 hover:transform hover:translate-x-1">
-                  <div className="h-4 w-4 rounded-full bg-gradient-to-r from-[#7a97e3] to-purple-600" />
+                  <div className="h-4 w-4 rounded-full bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-secondary)]" />
                   <span className="text-sm text-gray-700 dark:text-gray-300">
                     Search in documents
                   </span>
@@ -174,7 +176,7 @@ export function SearchInput({
                 </div>
               </div>
 
-              <div className="border-t border-[#7a97e3]/20 pt-2">
+              <div className="border-t border-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] pt-2">
                 <p className="text-xs text-gray-500 dark:text-gray-400 px-2 flex items-center gap-2">
                   <span className="inline-block w-4 h-3 bg-gray-200 dark:bg-gray-600 rounded-sm text-xs flex items-center justify-center text-gray-600 dark:text-gray-400">
                     ↵

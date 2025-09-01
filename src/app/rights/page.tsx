@@ -60,34 +60,35 @@ export default function Page() {
   return (
     <div className="max-w-6xl mx-auto space-y-8">
       {/* Header Section */}
-      <Card className="shadow-lg border-[#7a97e3]/30 bg-gradient-to-r from-[#7a97e3]/10 via-purple-50 to-violet-50 dark:from-[#7a97e3]/20 dark:via-purple-900/20 dark:to-violet-900/20">
+      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] via-purple-50 to-violet-50 dark:from-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] dark:via-purple-900/20 dark:to-violet-900/20">
         <CardHeader>
-          <CardTitle className="text-2xl text-[#7a97e3] flex items-center gap-3">
+          <CardTitle className="text-2xl text-[var(--brand-primary)] flex items-center gap-3">
             <Scale className="h-8 w-8" />
-            Права та обов'язки
+            Права та обов&#39;язки
           </CardTitle>
         </CardHeader>
         <CardContent>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
-            Члени (учасники) ВСГО «Конфедерація ГОІУ» мають права та обов'язки,
-            які регламентуються Статутом організації та внутрішніми положеннями.
+            Члени (учасники) ВСГО «Конфедерація ГОІУ» мають права та
+            обов&#39;язки, які регламентуються Статутом організації та
+            внутрішніми положеннями.
           </p>
         </CardContent>
       </Card>
 
       {/* Member Rights */}
-      <Card className="shadow-lg border-[#7a97e3]/30 bg-gradient-to-br from-[#7a97e3]/5 to-purple-25 dark:from-[#7a97e3]/15 dark:to-purple-900/15">
+      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-br from-[color-mix(in_oklab,var(--brand-primary)_5%,transparent)] to-purple-25 dark:from-[color-mix(in_oklab,var(--brand-primary)_15%,transparent)] dark:to-purple-900/15">
         <CardHeader>
           <div className="flex items-center gap-3 mb-4">
-            <Shield className="h-6 w-6 text-[#7a97e3]" />
+            <Shield className="h-6 w-6 text-[var(--brand-primary)]" />
             <Badge
               variant="secondary"
-              className="bg-gradient-to-r from-[#7a97e3]/20 to-purple-100 dark:from-[#7a97e3]/30 dark:to-purple-800/30 text-[#7a97e3]"
+              className="bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] to-purple-100 dark:from-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] dark:to-purple-800/30 text-[var(--brand-primary)]"
             >
               Права членів
             </Badge>
           </div>
-          <CardTitle className="text-xl text-[#7a97e3]">
+          <CardTitle className="text-xl text-[var(--brand-primary)]">
             Члени (учасники) ВСГО «Конфедерація ГОІУ» мають право:
           </CardTitle>
         </CardHeader>
@@ -96,7 +97,7 @@ export default function Page() {
             {memberRights.map((right, index) => (
               <div
                 key={index}
-                className="flex items-start gap-3 p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-[#7a97e3]/20"
+                className="flex items-start gap-3 p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]"
               >
                 <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
                 <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
@@ -109,9 +110,9 @@ export default function Page() {
       </Card>
 
       {/* Additional Rights */}
-      <Card className="shadow-lg border-[#7a97e3]/30 bg-gradient-to-br from-blue-50 to-[#7a97e3]/10 dark:from-blue-900/20 dark:to-[#7a97e3]/20">
+      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-br from-blue-50 to-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] dark:from-blue-900/20 dark:to-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]">
         <CardHeader>
-          <CardTitle className="text-xl text-[#7a97e3] flex items-center gap-3">
+          <CardTitle className="text-xl text-[var(--brand-primary)] flex items-center gap-3">
             <Users className="h-6 w-6" />
             Додаткові права
           </CardTitle>
@@ -121,16 +122,16 @@ export default function Page() {
             {memberResponsibilities.map((responsibility, index) => (
               <div
                 key={index}
-                className="flex items-start gap-3 p-4 bg-gradient-to-r from-blue-50 to-white dark:from-blue-900/20 dark:to-gray-800/50 rounded-lg border border-[#7a97e3]/20"
+                className="flex items-start gap-3 p-4 bg-gradient-to-r from-blue-50 to-white dark:from-blue-900/20 dark:to-gray-800/50 rounded-lg border border-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]"
               >
-                <Shield className="h-5 w-5 text-[#7a97e3] flex-shrink-0 mt-0.5" />
+                <Shield className="h-5 w-5 text-[var(--brand-primary)] flex-shrink-0 mt-0.5" />
                 <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
                   {responsibility}
                 </p>
               </div>
             ))}
           </div>
-          <div className="bg-gradient-to-r from-yellow-50 to-[#7a97e3]/5 dark:from-yellow-900/20 dark:to-[#7a97e3]/10 p-4 rounded-lg border border-[#7a97e3]/20">
+          <div className="bg-gradient-to-r from-yellow-50 to-[color-mix(in_oklab,var(--brand-primary)_5%,transparent)] dark:from-yellow-900/20 dark:to-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] p-4 rounded-lg border border-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]">
             <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
               У заходах, які проводить ВСГО «Конфедерація ГОІУ», мають право
               брати участь тільки його члени (учасники). Інші організації осіб з
@@ -142,19 +143,19 @@ export default function Page() {
       </Card>
 
       {/* Member Obligations */}
-      <Card className="shadow-lg border-[#7a97e3]/30 bg-gradient-to-br from-orange-50 to-[#7a97e3]/10 dark:from-orange-900/20 dark:to-[#7a97e3]/20">
+      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-br from-orange-50 to-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] dark:from-orange-900/20 dark:to-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]">
         <CardHeader>
           <div className="flex items-center gap-3 mb-4">
-            <FileText className="h-6 w-6 text-[#7a97e3]" />
+            <FileText className="h-6 w-6 text-[var(--brand-primary)]" />
             <Badge
               variant="secondary"
-              className="bg-gradient-to-r from-orange-200 to-[#7a97e3]/20 dark:from-orange-800/50 dark:to-[#7a97e3]/30 text-[#7a97e3]"
+              className="bg-gradient-to-r from-orange-200 to-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] dark:from-orange-800/50 dark:to-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] text-[var(--brand-primary)]"
             >
-              Обов'язки членів
+              Обов&#39;язки членів
             </Badge>
           </div>
-          <CardTitle className="text-xl text-[#7a97e3]">
-            Члени (учасники) ВСГО «Конфедерація ГОІУ» зобов'язані:
+          <CardTitle className="text-xl text-[var(--brand-primary)]">
+            Члени (учасники) ВСГО «Конфедерація ГОІУ» зобов&#39;язані:
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -162,7 +163,7 @@ export default function Page() {
             {obligations.map((obligation, index) => (
               <div
                 key={index}
-                className="flex items-start gap-3 p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-[#7a97e3]/20"
+                className="flex items-start gap-3 p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]"
               >
                 <CheckCircle className="h-5 w-5 text-orange-500 flex-shrink-0 mt-0.5" />
                 <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
@@ -175,12 +176,12 @@ export default function Page() {
       </Card>
 
       {/* Additional Obligations */}
-      <Card className="shadow-lg border-[#7a97e3]/30 bg-gradient-to-r from-green-50 to-[#7a97e3]/10 dark:from-green-900/20 dark:to-[#7a97e3]/20">
+      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-r from-green-50 to-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] dark:from-green-900/20 dark:to-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]">
         <CardContent className="p-6 space-y-4">
           <div className="flex items-center gap-4 mb-4">
             <Badge
               variant="secondary"
-              className="bg-gradient-to-r from-green-200 to-[#7a97e3]/20 dark:from-green-800/50 dark:to-[#7a97e3]/30 text-[#7a97e3]"
+              className="bg-gradient-to-r from-green-200 to-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] dark:from-green-800/50 dark:to-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] text-[var(--brand-primary)]"
             >
               Важливо
             </Badge>
@@ -191,9 +192,9 @@ export default function Page() {
           </p>
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
             За порушення Статуту або неналежне виконання своїх членських
-            обов'язків, вчинення дій, які завдали або можуть завдати матеріальну
-            чи моральну шкоду честі, гідності та діловій репутації ВСГО
-            «Конфедерація ГОІУ», її членам (учасникам), іншим учасникам
+            обов&#39;язків, вчинення дій, які завдали або можуть завдати
+            матеріальну чи моральну шкоду честі, гідності та діловій репутації
+            ВСГО «Конфедерація ГОІУ», її членам (учасникам), іншим учасникам
             громадського руху осіб з інвалідністю, членство (участь) у ВСГО
             «Конфедерація ГОІУ» може бути призупинено на деякий термін за
             рішенням Ради ВСГО «Конфедерація ГОІУ».
@@ -202,9 +203,9 @@ export default function Page() {
       </Card>
 
       {/* Disciplinary Measures */}
-      <Card className="shadow-lg border-[#7a97e3]/30 bg-gradient-to-r from-red-50 to-[#7a97e3]/10 dark:from-red-900/20 dark:to-[#7a97e3]/20">
+      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-r from-red-50 to-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] dark:from-red-900/20 dark:to-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]">
         <CardHeader>
-          <CardTitle className="text-xl text-[#7a97e3] flex items-center gap-3">
+          <CardTitle className="text-xl text-[var(--brand-primary)] flex items-center gap-3">
             <AlertTriangle className="h-6 w-6" />
             Дисциплінарні санкції
           </CardTitle>
@@ -236,9 +237,9 @@ export default function Page() {
       </Card>
 
       {/* Membership Termination */}
-      <Card className="shadow-lg border-[#7a97e3]/30 bg-gradient-to-r from-purple-50 to-[#7a97e3]/10 dark:from-purple-900/20 dark:to-[#7a97e3]/20">
+      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-r from-purple-50 to-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] dark:from-purple-900/20 dark:to-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]">
         <CardHeader>
-          <CardTitle className="text-xl text-[#7a97e3] flex items-center gap-3">
+          <CardTitle className="text-xl text-[var(--brand-primary)] flex items-center gap-3">
             <XCircle className="h-6 w-6" />
             Припинення членства
           </CardTitle>
@@ -247,10 +248,10 @@ export default function Page() {
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
             Членство (участь) припиняється у випадках:
           </p>
-          <div className="bg-gradient-to-r from-purple-50 to-white dark:from-purple-900/20 dark:to-gray-800/50 p-4 rounded-lg border border-[#7a97e3]/20">
+          <div className="bg-gradient-to-r from-purple-50 to-white dark:from-purple-900/20 dark:to-gray-800/50 p-4 rounded-lg border border-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]">
             <ul className="space-y-2 text-gray-700 dark:text-gray-300">
               <li className="flex items-start gap-3">
-                <span className="text-[#7a97e3] text-sm">•</span>
+                <span className="text-[var(--brand-primary)] text-sm">•</span>
                 <span className="text-sm">
                   Виходу за власним бажанням — члени (учасники) ВСГО
                   «Конфедерація ГОІУ» мають право добровільно у будь-який час
@@ -259,7 +260,7 @@ export default function Page() {
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-[#7a97e3] text-sm">•</span>
+                <span className="text-[var(--brand-primary)] text-sm">•</span>
                 <span className="text-sm">
                   З подання такої заяви не потребує платежних рішень. З цього
                   самого дня припиняється перебування члена (учасника) ВСГО
@@ -267,7 +268,7 @@ export default function Page() {
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-[#7a97e3] text-sm">•</span>
+                <span className="text-[var(--brand-primary)] text-sm">•</span>
                 <span className="text-sm">
                   На підставі керівника ВСГО «Конфедерація ГОІУ», обраних на
                   посаді керівника ВСГО «Конфедерація ГОІУ», що поширюється на
@@ -275,7 +276,7 @@ export default function Page() {
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-[#7a97e3] text-sm">•</span>
+                <span className="text-[var(--brand-primary)] text-sm">•</span>
                 <span className="text-sm">
                   Виключення зі ВСГО «Конфедерація ГОІУ» здійснюється тільки з
                   рішенням Ради ВСГО «Конфедерація ГОІУ» (по 3-х схвалених
@@ -283,7 +284,7 @@ export default function Page() {
                 </span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-[#7a97e3] text-sm">•</span>
+                <span className="text-[var(--brand-primary)] text-sm">•</span>
                 <span className="text-sm">
                   Ліквідації ВСГО «Конфедерація ГОІУ»
                 </span>
