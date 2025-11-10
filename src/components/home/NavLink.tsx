@@ -82,10 +82,10 @@ export function NavLink({ href, label, iconKey, sub }: NavLinkProps) {
         <Link
           href={href}
           aria-current={isActive ? "page" : undefined}
-          className="flex items-start gap-3 w-full"
+          className="flex items-start gap-3 w-full min-w-0"
         >
           <Icon className="h-4 w-4 flex-shrink-0 mt-[2px]" />
-          <span className="text-left leading-tight whitespace-normal break-words flex-1">
+          <span className="text-left leading-tight whitespace-normal break-words flex-1 min-w-0">
             {label}
           </span>
         </Link>
@@ -107,10 +107,10 @@ export function NavLink({ href, label, iconKey, sub }: NavLinkProps) {
       <Link
         href={href}
         aria-current={isActive ? "page" : undefined}
-        className="flex items-start gap-3 w-full"
+        className="flex items-start gap-3 w-full min-w-0"
       >
         <Icon className="h-5 w-5 flex-shrink-0 mt-[2px]" />
-        <span className="text-left whitespace-normal break-words flex-1">
+        <span className="text-left whitespace-normal break-words flex-1 min-w-0">
           {label}
         </span>
       </Link>

@@ -109,10 +109,10 @@ export default function RootLayout({
               <MobileChrome />
               <div className="mx-auto max-w-7xl px-4 py-6">
                 <div className="grid grid-cols-12 gap-6">
-                  <aside className="hidden md:block md:col-span-3">
+                  <aside className="hidden lg:block lg:col-span-3">
                     <Sidebar />
                   </aside>
-                  <div className="col-span-12 md:col-span-9 space-y-6">
+                  <div className="col-span-12 lg:col-span-9 space-y-6">
                     <TooltipProvider>{children}</TooltipProvider>
                   </div>
                 </div>

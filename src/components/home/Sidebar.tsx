@@ -126,14 +126,14 @@ export function Sidebar() {
   }, [q]);
 
   return (
-    <div className="pt-0 px-4 pb-4">
-      <div className="rounded-2xl border border-[color-mix(in_oklab,var(--brand-primary)_35%,transparent)]/70">
-        <Card className="p-4 shadow-lg border-0 rounded-2xl bg-card">
+    <div className="pt-0 px-4 pb-4 min-w-0">
+      <div className="rounded-2xl border border-[color-mix(in_oklab,var(--brand-primary)_35%,transparent)]/70 min-w-0">
+        <Card className="p-4 shadow-lg border-0 rounded-2xl bg-card min-w-0 overflow-hidden">
           <h3 className="text-lg text-[var(--brand-primary)] mb-4 text-center">
             Меню
           </h3>
 
-          <nav className="space-y-2">
+          <nav className="space-y-2 min-w-0">
             {/* Home */}
             <NavLink href="/" label="Головна" iconKey="home" />
 
@@ -144,9 +144,11 @@ export function Sidebar() {
                 variant="ghost"
                 className="w-full justify-start gap-3 h-auto py-3 px-4 text-[var(--brand-primary)] hover:bg-[var(--brand-primary-10)]"
               >
-                <div className="flex items-center w-full">
+                <div className="flex items-center w-full min-w-0">
                   <Info className="h-5 w-5 flex-shrink-0" />
-                  <span className="text-left flex-1">Про Конфедерацію</span>
+                  <span className="text-left flex-1 whitespace-normal break-words min-w-0">
+                    Про Конфедерацію
+                  </span>
                 </div>
               </Button>
               <div className="space-y-1 mt-1">

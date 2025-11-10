@@ -8,7 +8,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto">
         <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-br from-[var(--brand-primary-10)] to-[var(--brand-secondary-10)]">
           <div className="p-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
               <div>
                 <h3 className="text-lg text-[var(--brand-primary)] mb-2">
                   All‑Ukrainian Union of Public Organizations
@@ -36,17 +36,25 @@ export function Footer() {
                     <span className="text-foreground">vsgo@ukr.net</span>
                   </div>
                 </div>
-              </div>
 
-              {/* Social Media */}
-              <div className="flex justify-center md:justify-end">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-secondary)] text-white hover:from-[color-mix(in_oklab,var(--brand-primary)_90%,transparent)] hover:to-[color-mix(in_oklab,var(--brand-secondary)_90%,transparent)] border-[var(--brand-primary)]"
-                >
-                  <Facebook className="h-6 w-6" />
-                </Button>
+                {/* Social Media */}
+                <div className="flex items-center gap-3 mt-4">
+                  <h4 className="text-[var(--brand-primary)]">Follow us:</h4>
+                  <a
+                    href="https://www.facebook.com/KonfederaciaVSGO/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block"
+                  >
+                    <Button
+                      variant="outline"
+                      size="default"
+                      className="bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-secondary)] text-white hover:from-[color-mix(in_oklab,var(--brand-primary)_90%,transparent)] hover:to-[color-mix(in_oklab,var(--brand-secondary)_90%,transparent)] border-[var(--brand-primary)]"
+                    >
+                      <Facebook className="h-6 w-6" />
+                    </Button>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

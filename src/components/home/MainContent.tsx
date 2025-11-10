@@ -43,25 +43,25 @@ export function MainContent() {
       <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] via-purple-50 to-violet-50 dark:from-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] dark:via-purple-900/20 dark:to-violet-900/20">
         <CardHeader>
           <CardTitle className="text-xl text-[var(--brand-primary)]">
-            Dear friends!
+            Шановні друзі!
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-            Welcome to the website of the All‑Ukrainian Union of Public
-            Organizations &quot;Confederation of Organizations of Persons with
-            Disabilities of Ukraine&quot;. The creation of this resource is a
-            necessary and purposeful step to provide information and
-            consultation support to people with special needs.
+            Вітаємо Вас на сайті Всеукраїнської спілки громадських організацій
+            «Конфедерація громадських організацій інвалідів України». Створення
+            нашого ресурсу є необхідним та цілеспрямованим кроком для надання
+            інформаційної та консультаційної допомоги людям з особливими
+            потребами.
           </p>
 
           <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-            The Internet is an integral part of the disability movement
-            worldwide. We have paid special attention to this process. Today we
-            are making another step aimed at improving communication and the
-            exchange of information among people with disabilities across
-            Ukraine and beyond. We hope our resource will become a helpful
-            source of relevant and interesting information.
+            Internet є невід’ємною частиною інвалідного руху в усьому світі. Ми
+            також вирішили приділити особливу увагу цьому процесу. І сьогодні
+            нами зроблено ще один крок, спрямований на покращення спілкування та
+            обміну інформацією між інвалідами в кожному куточку нашої країни та
+            далеко за її межами. Сподіваємось, що наш ресурс стане корисним
+            джерелом цікавої та актуальної інформації.
           </p>
         </CardContent>
       </Card>
