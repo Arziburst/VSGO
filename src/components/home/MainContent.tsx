@@ -1,44 +1,39 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink } from "lucide-react";
+import Image from "next/image";
 
 export function MainContent() {
   const partnerOrganizations = [
     {
       title: "Fund for Social Protection of Persons with Disabilities",
-      color:
-        "bg-gradient-to-br from-[var(--brand-primary)] to-[var(--brand-secondary)]",
-      textColor: "text-white",
+      image: "/partners/fund-social-protection.jpg",
+      url: "https://www.ispf.gov.ua/",
     },
     {
       title: "Ministry of Social Policy of Ukraine",
-      color: "bg-gradient-to-br from-[var(--brand-primary-20)] to-purple-100",
-      textColor: "text-[var(--brand-primary)]",
+      image: "/partners/MinistrySocial.jpg",
+      url: "https://www.msp.gov.ua/",
     },
     {
       title: "Government Portal",
-      color: "bg-gradient-to-br from-[var(--brand-primary)] to-purple-700",
-      textColor: "text-white",
-      subtitle: "Unified web portal of Ukraine's executive authorities",
+      image: "/partners/government-portal.jpg",
+      url: "https://www.kmu.gov.ua/",
     },
     {
-      title: "President of Ukraine",
-      color: "bg-gradient-to-br from-yellow-100 to-[var(--brand-primary-20)]",
-      textColor: "text-[var(--brand-primary)]",
-      subtitle: "Official Internet Representation",
+      title: "Fund for Social Protection of Persons with Disabilities",
+      image: "/partners/Prez.jpg",
+      url: "https://www.president.gov.ua/",
     },
     {
-      title: "Verkhovna Rada of Ukraine",
-      color:
-        "bg-gradient-to-br from-[var(--brand-primary)] to-[var(--brand-secondary)]",
-      textColor: "text-white",
-      subtitle: "Official web portal of the Parliament of Ukraine",
+      title: "Fund for Social Protection of Persons with Disabilities",
+      image: "/partners/Rada.jpg",
+      url: "https://www.rada.gov.ua/", // TODO: don't work url
     },
     {
-      title: "prozorro",
-      color: "bg-gradient-to-br from-white to-[var(--brand-primary-10)]",
-      textColor: "text-[var(--brand-primary)]",
-      subtitle: "Public procurement",
+      title: "Fund for Social Protection of Persons with Disabilities",
+      image: "/partners/Prozoro.jpg",
+      url: "https://prozorro.gov.ua/uk",
     },
   ];
 
@@ -78,22 +73,27 @@ export function MainContent() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {partnerOrganizations.map((org, index) => (
-            <Card
+            <a
               key={index}
-              className={`${org.color} shadow-lg hover:shadow-xl transition-shadow duration-200 cursor-pointer group`}
+              href={org.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block relative group"
             >
-              <CardContent className="p-6 flex flex-col items-center justify-center text-center min-h-[120px]">
-                <h3 className={`text-lg ${org.textColor} mb-2`}>{org.title}</h3>
-                {org.subtitle && (
-                  <p className={`text-sm ${org.textColor} opacity-80`}>
-                    {org.subtitle}
-                  </p>
-                )}
-                <ExternalLink
-                  className={`h-4 w-4 ${org.textColor} mt-2 opacity-0 group-hover:opacity-100 transition-opacity`}
+              <div className="h-[180px] w-full">
+                <Image
+                  src={org.image}
+                  alt={org.title}
+                  width={250}
+                  height={300}
+                  className="object-contain w-full h-full group-hover:scale-[1.03] transition-transform duration-500 ease-out will-change-transform"
+                  sizes="450px"
                 />
-              </CardContent>
-            </Card>
+              </div>
+              <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none">
+                <ExternalLink className="h-5 w-5 text-white bg-black/50 rounded-full p-1" />
+              </div>
+            </a>
           ))}
         </div>
       </div>
