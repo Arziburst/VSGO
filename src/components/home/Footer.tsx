@@ -14,8 +14,8 @@ export function Footer() {
                   All‑Ukrainian Union of Public Organizations
                 </h3>
                 <p className="text-[var(--brand-secondary)]">
-                  "Confederation of Organizations of Persons with Disabilities
-                  of Ukraine"
+                  &quot;Confederation of Organizations of Persons with
+                  Disabilities of Ukraine&quot;
                 </p>
               </div>
 

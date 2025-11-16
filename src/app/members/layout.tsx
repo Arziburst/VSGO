@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { ReactNode } from "react";
 
 export const metadata: Metadata = {
   title: "Члени Конфедерації",
@@ -11,10 +12,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function MembersLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function MembersLayout({ children }: { children: ReactNode }) {
   return children;
 }
