@@ -4,9 +4,6 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Menu, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-// removed FontSizeSelect per request
-import { SearchInput } from "@/components/SearchInput";
-import { useSidebarSearch } from "@/context/SidebarSearchContext";
 
 interface HeaderProps {
   onMenuToggle?: () => void;
@@ -14,13 +11,12 @@ interface HeaderProps {
 
 export function Header({ onMenuToggle }: HeaderProps) {
   const { theme, setTheme } = useTheme();
-  const { setQuery } = useSidebarSearch();
 
   const isDark = theme === "dark";
 
   return (
-    <header className="bg-gradient-to-r from-[var(--brand-primary-10)] via-[var(--brand-secondary-10)] to-[var(--brand-primary-20)] border-b border-border/50 p-4 lg:p-6">
-      <div className="max-w-7xl mx-auto grid grid-cols-[auto_1fr_auto] items-center gap-4 lg:gap-6">
+    <header className="w-full bg-gradient-to-r from-[var(--brand-primary-10)] via-[var(--brand-secondary-10)] to-[var(--brand-primary-20)] border-b border-border/50 p-4 lg:p-6">
+      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[auto_1fr_auto] items-center gap-4 lg:gap-6">
         {/* Left controls + Logo */}
         <div className="flex items-center gap-2">
           {/* Mobile Menu Button */}
@@ -44,14 +40,14 @@ export function Header({ onMenuToggle }: HeaderProps) {
         </div>
 
         {/* Organization Name */}
-        <div className="flex-1 text-center">
-          <h1 className="text-lg md:text-3xl lg:text-4xl text-[var(--brand-primary)] leading-tight uppercase font-extrabold">
+        <div className="flex-1 text-left md:text-center">
+          <h1 className="text-lg md:text-3xl lg:text-4xl text-[var(--brand-primary)] leading-tight uppercase font-extrabold text-balance">
             All-Ukrainian Union
             <br className="hidden sm:block" />
             <span className="sm:hidden"> </span>
             of Public Organizations
           </h1>
-          <h2 className="text-base md:text-xl lg:text-3xl text-[var(--brand-secondary)] mt-1 uppercase font-bold">
+          <h2 className="text-base md:text-xl lg:text-3xl text-[var(--brand-secondary)] mt-1 uppercase font-bold text-balance">
             &quot;Confederation of
             <br className="hidden sm:block" />
             <span className="sm:hidden"> </span>

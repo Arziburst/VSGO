@@ -148,6 +148,13 @@
   --sidebar-ring: oklch(0.439 0 0);
 }
 
+/* Reduce global font scale on very small screens to avoid overflow */
+@media (max-width: 360px) {
+  :root {
+    --font-scale: 1;
+  }
+}
+
 @layer base {
   html {
     font-size: calc(16px * var(--font-scale, 1));
@@ -156,7 +163,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply m-0 bg-background text-foreground;
     font-family: var(--font-hanken-grotesk), sans-serif;
   }
 }

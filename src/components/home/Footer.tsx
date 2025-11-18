@@ -4,7 +4,7 @@ import { Phone, Mail, Facebook } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="bg-gradient-to-r from-[var(--brand-primary-10)] via-[var(--brand-secondary-10)] to-[var(--brand-primary-10)] border-t border-border/50 p-6">
+    <footer className="w-full bg-gradient-to-r from-[var(--brand-primary-10)] via-[var(--brand-secondary-10)] to-[var(--brand-primary-10)] border-t border-border/50 p-6">
       <div className="max-w-7xl mx-auto">
         <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-br from-[var(--brand-primary-10)] to-[var(--brand-secondary-10)]">
           <div className="p-6">
