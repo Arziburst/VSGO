@@ -45,18 +45,42 @@ export function SearchInput({
     return () => clearTimeout(id);
   }, [internal, onSearch]);
 
+  const focusBackgroundClass = isFocused
+    ? "bg-gradient-to-r from-white via-white to-[color-mix(in_oklab,var(--brand-primary)_5%,transparent)] dark:from-gray-800/90 dark:via-gray-800/90 dark:to-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)]"
+    : "";
+
+  const containerClassName = [
+    "relative flex items-center transition-all duration-300 ease-in-out",
+    isFocused
+      ? "transform scale-105 shadow-xl shadow-[color-mix(in_oklab,var(--brand-primary)_25%,transparent)]"
+      : "shadow-lg shadow-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] hover:shadow-xl hover:shadow-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]",
+  ].join(" ");
+
+  const inputClassName = [
+    "w-full h-14 pl-12 pr-20 text-base",
+    "bg-white dark:bg-gray-800/80",
+    "border-2 border-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] dark:border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)]",
+    "backdrop-blur-sm",
+    "rounded-2xl",
+    "transition-all duration-300 ease-in-out",
+    "placeholder:text-gray-400 dark:placeholder:text-gray-500",
+    "focus:border-[color-mix(in_oklab,var(--brand-primary)_60%,transparent)] focus:ring-4 focus:ring-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]",
+    "hover:border-[color-mix(in_oklab,var(--brand-primary)_40%,transparent)]",
+    focusBackgroundClass,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  const actionButtonClassName = [
+    "h-10 w-10 rounded-xl transition-all duration-200",
+    query.trim()
+      ? "bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-secondary)] hover:from-[color-mix(in_oklab,var(--brand-primary)_90%,transparent)] hover:to-[color-mix(in_oklab,var(--brand-secondary)_90%,transparent)] text-white shadow-lg hover:shadow-xl transform hover:scale-105"
+      : "text-gray-400 dark:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700/50",
+  ].join(" ");
+
   return (
     <div className="w-full max-w-2xl mx-auto">
-      <div
-        className={`
-    relative flex items-center transition-all duration-300 ease-in-out
-    ${
-      isFocused
-        ? "transform scale-105 shadow-xl shadow-[color-mix(in_oklab,var(--brand-primary)_25%,transparent)]"
-        : "shadow-lg shadow-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] hover:shadow-xl hover:shadow-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]"
-    }
-  `}
-      >
+      <div className={containerClassName}>
         {/* Search Icon */}
         <div className="absolute left-4 z-10">
           <Search
@@ -76,22 +100,7 @@ export function SearchInput({
           onBlur={() => setIsFocused(false)}
           onKeyDown={handleKeyDown}
           placeholder={placeholder}
-          className={`
-    w-full h-14 pl-12 pr-20 text-base
-    bg-white dark:bg-gray-800/80
-    border-2 border-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] dark:border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)]
-    backdrop-blur-sm
-    rounded-2xl
-    transition-all duration-300 ease-in-out
-    placeholder:text-gray-400 dark:placeholder:text-gray-500
-    focus:border-[color-mix(in_oklab,var(--brand-primary)_60%,transparent)] focus:ring-4 focus:ring-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]
-    hover:border-[color-mix(in_oklab,var(--brand-primary)_40%,transparent)]
-    ${
-      isFocused
-        ? "bg-gradient-to-r from-white via-white to-[color-mix(in_oklab,var(--brand-primary)_5%,transparent)] dark:from-gray-800/90 dark:via-gray-800/90 dark:to-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)]"
-        : ""
-    }
-  `}
+          className={inputClassName}
         />
 
         {/* Action Buttons */}
@@ -112,14 +121,7 @@ export function SearchInput({
             size="icon"
             onClick={handleSearch}
             disabled={!query.trim()}
-            className={`
-    h-10 w-10 rounded-xl transition-all duration-200
-    ${
-      query.trim()
-        ? "bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-secondary)] hover:from-[color-mix(in_oklab,var(--brand-primary)_90%,transparent)] hover:to-[color-mix(in_oklab,var(--brand-secondary)_90%,transparent)] text-white shadow-lg hover:shadow-xl transform hover:scale-105"
-        : "text-gray-400 dark:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700/50"
-    }
-  `}
+            className={actionButtonClassName}
           >
             <Search className="h-4 w-4" />
           </Button>
