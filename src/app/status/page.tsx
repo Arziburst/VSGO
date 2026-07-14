@@ -31,7 +31,7 @@ export default function Page() {
             <Scale className="h-5 w-5 text-[var(--brand-primary)]" />
             <PageBadge>Правові засади</PageBadge>
           </div>
-          <h3 className="text-base font-bold text-[var(--brand-primary)] mb-2">
+          <h3 className="text-base font-black text-[var(--brand-primary)] mb-2">
             Діяльність у відповідності із законодавством
           </h3>
           <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -48,7 +48,7 @@ export default function Page() {
         <PageCard className="p-5">
           <div className="flex items-center gap-2 mb-2">
             <Users className="h-5 w-5 text-[var(--brand-primary)]" />
-            <h3 className="text-base font-bold text-[var(--brand-primary)]">
+            <h3 className="text-base font-black text-[var(--brand-primary)]">
               Принципи діяльності
             </h3>
           </div>
@@ -62,7 +62,7 @@ export default function Page() {
         <PageCard className="p-5">
           <div className="flex items-center gap-2 mb-2">
             <Building2 className="h-5 w-5 text-[var(--brand-primary)]" />
-            <h3 className="text-base font-bold text-[var(--brand-primary)]">
+            <h3 className="text-base font-black text-[var(--brand-primary)]">
               Організаційна форма
             </h3>
           </div>

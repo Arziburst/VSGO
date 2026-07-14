@@ -94,8 +94,10 @@
 
   /* brand tokens — navy / sky / gold from confederation logo */
   --brand-primary: #00308e;
+  --brand-surface: #00308e;
   --brand-secondary: #fed941;
   --brand-sky: #2f9fe0;
+  --brand-link: #00308e;
   --brand-primary-10: color-mix(
     in oklab,
     var(--brand-primary) 10%,
@@ -165,6 +167,14 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
+
+  --brand-primary: #ffffff;
+  --brand-surface: #00308e;
+  --brand-sky: #7dd3fc;
+  --brand-link: #7dd3fc;
+  --brand-primary-10: color-mix(in oklab, #ffffff 12%, transparent);
+  --brand-primary-20: color-mix(in oklab, #ffffff 20%, transparent);
+  --brand-primary-30: color-mix(in oklab, #ffffff 30%, transparent);
 }
 
 html.a11y {
@@ -212,6 +222,12 @@ html.a11y a {
     font-weight: 500;
     line-height: 1.7;
     letter-spacing: 0.01em;
+  }
+  a[href^="http"] {
+    color: var(--brand-link);
+  }
+  a[href^="http"]:hover {
+    opacity: 0.85;
   }
 }
 

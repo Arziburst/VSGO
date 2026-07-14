@@ -74,7 +74,7 @@ export function SearchInput({
   const actionButtonClassName = [
     "h-10 w-10 rounded-xl transition-all duration-200",
     query.trim()
-      ? "bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-secondary)] hover:from-[color-mix(in_oklab,var(--brand-primary)_90%,transparent)] hover:to-[color-mix(in_oklab,var(--brand-secondary)_90%,transparent)] text-white shadow-lg hover:shadow-xl transform hover:scale-105"
+      ? "bg-gradient-to-r from-[var(--brand-surface)] to-[var(--brand-secondary)] hover:from-[color-mix(in_oklab,var(--brand-surface)_90%,transparent)] hover:to-[color-mix(in_oklab,var(--brand-secondary)_90%,transparent)] text-white shadow-lg hover:shadow-xl transform hover:scale-105"
       : "text-gray-400 dark:text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700/50",
   ].join(" ");
 
@@ -143,13 +143,13 @@ export function SearchInput({
                 <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-[var(--brand-primary-10)] dark:hover:bg-[var(--brand-primary-10)] cursor-pointer transition-all duration-200 hover:transform hover:translate-x-1">
                   <Search className="h-4 w-4 text-[var(--brand-primary)]" />
                   <div className="flex-1">
-                    <span className="text-sm text-gray-700 dark:text-gray-300">
+                    <span className="text-sm text-gray-700 dark:text-white">
                       Search: &quot;
                     </span>
                     <span className="text-sm text-[var(--brand-primary)] font-medium">
                       {query}
                     </span>
-                    <span className="text-sm text-gray-700 dark:text-gray-300">
+                    <span className="text-sm text-gray-700 dark:text-white">
                       &quot; across the site
                     </span>
                   </div>
@@ -157,22 +157,22 @@ export function SearchInput({
 
                 {/* Quick Action Suggestions */}
                 <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-sky-50 dark:hover:bg-sky-900/20 cursor-pointer transition-all duration-200 hover:transform hover:translate-x-1">
-                  <div className="h-4 w-4 rounded-full bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-secondary)]" />
-                  <span className="text-sm text-gray-700 dark:text-gray-300">
+                  <div className="h-4 w-4 rounded-full bg-gradient-to-r from-[var(--brand-surface)] to-[var(--brand-secondary)]" />
+                  <span className="text-sm text-gray-700 dark:text-white">
                     Search in documents
                   </span>
                 </div>
 
                 <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-green-50 dark:hover:bg-green-900/20 cursor-pointer transition-all duration-200 hover:transform hover:translate-x-1">
                   <div className="h-4 w-4 rounded-full bg-gradient-to-r from-green-500 to-emerald-600" />
-                  <span className="text-sm text-gray-700 dark:text-gray-300">
+                  <span className="text-sm text-gray-700 dark:text-white">
                     Search members
                   </span>
                 </div>
 
                 <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-orange-50 dark:hover:bg-orange-900/20 cursor-pointer transition-all duration-200 hover:transform hover:translate-x-1">
                   <div className="h-4 w-4 rounded-full bg-gradient-to-r from-orange-500 to-yellow-600" />
-                  <span className="text-sm text-gray-700 dark:text-gray-300">
+                  <span className="text-sm text-gray-700 dark:text-white">
                     Search contacts
                   </span>
                 </div>

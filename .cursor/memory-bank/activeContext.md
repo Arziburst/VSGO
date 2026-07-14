@@ -3,5 +3,7 @@
 - Header «Доступність» toggles `html.a11y`: grayscale/B&W; when on, shows A−/A+ with 4 scale steps (`1 → 1.15 → 1.3 → 1.45`, three enlarge clicks). «Стандартна версія» exits a11y and resets `--font-scale` to 1.
 - Site font is **Proba Pro** via `next/font/local`; base `html` **18px**, body weight 500; page body copy `text-base md:text-lg` (was `text-sm`).
 - Header: large stork; title fits via `cqi` clamp; a11y + theme pinned top-right (`lg:absolute`) like reference screenshot.
-- Stork in dark mode on white circle; tagline `dark:text-white`.
+- Dark theme: `--brand-primary` → white; solid navy UI uses `--brand-surface`; external links use `--brand-link` / light sky `#7dd3fc`. Header title/tagline stay gold.
+- Sidebar/drawer nav: `font-black` + stroke; content titles via `ContentTitle`/`ContentSubtitle` (`font-black` + stroke).
+- Dark theme uses `/stork-dark.png` (circular text recolored white); light uses `/stork.png`.
 - Home partners/info copy translated to Ukrainian.

@@ -5,6 +5,7 @@ import {
   PageHeading,
   PageCard,
   PageBadge,
+  ContentTitle,
 } from "@/components/home/PageChrome";
 
 export function MainContent() {
@@ -46,9 +47,7 @@ export function MainContent() {
       <PageHeading title="Головна" />
 
       <PageCard tone="soft" className="p-5 md:p-6">
-        <h3 className="text-lg md:text-xl font-bold text-[var(--brand-primary)] mb-3">
-          Шановні друзі!
-        </h3>
+        <ContentTitle className="mb-3 normal-case">Шановні друзі!</ContentTitle>
         <div className="space-y-3 text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
           <p>
             Вітаємо Вас на сайті Всеукраїнської спілки громадських організацій
@@ -69,9 +68,9 @@ export function MainContent() {
       </PageCard>
 
       <div>
-        <h3 className="text-lg md:text-xl font-extrabold text-[var(--brand-primary)] uppercase tracking-wide mb-4">
+        <ContentTitle className="mb-4 tracking-wide">
           Партнерські організації
-        </h3>
+        </ContentTitle>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {partnerOrganizations.map((org, index) => (
             <a

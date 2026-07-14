@@ -75,14 +75,20 @@ function NavItem({
       href={href}
       aria-current={isActive ? "page" : undefined}
       onClick={onSelect}
-      className={`flex items-center gap-3 px-4 py-3 transition-colors uppercase ${
+      className={`flex items-center gap-3 px-4 py-3 font-black uppercase transition-colors ${
         isActive
-          ? "bg-[var(--nav-active)] text-[var(--nav-active-text)] font-bold"
+          ? "bg-[var(--nav-active)] text-[var(--nav-active-text)]"
           : "text-[var(--nav-text)] hover:bg-[var(--nav-hover)]"
       }`}
     >
-      <Icon className="h-5 w-5 flex-shrink-0" />
-      <span className="text-base leading-snug whitespace-normal break-words">
+      <Icon className="h-5 w-5 shrink-0" strokeWidth={2.75} />
+      <span
+        className="text-base leading-snug break-words whitespace-normal"
+        style={{
+          WebkitTextStroke: "0.55px currentColor",
+          paintOrder: "stroke fill",
+        }}
+      >
         {label}
       </span>
     </Link>
@@ -111,18 +117,26 @@ function ExpandableItem({
       <button
         type="button"
         onClick={onToggle}
-        className={`w-full flex items-center gap-3 px-4 py-3 transition-colors uppercase ${
+        className={`flex w-full items-center gap-3 px-4 py-3 font-black uppercase transition-colors ${
           isHighlighted
-            ? "bg-[var(--nav-active)] text-[var(--nav-active-text)] font-bold"
+            ? "bg-[var(--nav-active)] text-[var(--nav-active-text)]"
             : "text-[var(--nav-text)] hover:bg-[var(--nav-hover)]"
         }`}
       >
-        <Icon className="h-5 w-5 flex-shrink-0" />
-        <span className="flex-1 text-left text-base leading-snug">{label}</span>
+        <Icon className="h-5 w-5 shrink-0" strokeWidth={2.75} />
+        <span
+          className="flex-1 text-left text-base leading-snug"
+          style={{
+            WebkitTextStroke: "0.55px currentColor",
+            paintOrder: "stroke fill",
+          }}
+        >
+          {label}
+        </span>
         {isExpanded ? (
-          <ChevronDown className="h-4 w-4 flex-shrink-0 opacity-70" />
+          <ChevronDown className="h-4 w-4 shrink-0 opacity-70" strokeWidth={2.75} />
         ) : (
-          <ChevronRight className="h-4 w-4 flex-shrink-0 opacity-70" />
+          <ChevronRight className="h-4 w-4 shrink-0 opacity-70" strokeWidth={2.75} />
         )}
       </button>
       {isExpanded && children && (
@@ -188,13 +202,17 @@ export function Sidebar() {
               key={item.label}
               href={item.href}
               onClick={() => setPendingPath(item.href)}
-              className={`flex items-center gap-2 pl-11 pr-4 py-2.5 text-sm transition-colors ${
+              className={`flex items-center gap-2 py-2.5 pr-4 pl-11 text-base font-extrabold transition-colors ${
                 currentPath === item.href
-                  ? "text-[var(--nav-submenu-text)] font-semibold"
-                  : "text-[var(--nav-submenu-text)]/80 hover:bg-black/5"
+                  ? "text-[var(--nav-submenu-text)]"
+                  : "text-[var(--nav-submenu-text)]/90 hover:bg-black/5"
               }`}
+              style={{
+                WebkitTextStroke: "0.4px currentColor",
+                paintOrder: "stroke fill",
+              }}
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-sky)] flex-shrink-0" />
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--brand-sky)]" />
               {item.label}
             </Link>
           ))}
@@ -224,13 +242,17 @@ export function Sidebar() {
               key={item.label}
               href={item.href}
               onClick={() => setPendingPath(item.href)}
-              className={`flex items-center gap-2 pl-11 pr-4 py-2.5 text-sm transition-colors ${
+              className={`flex items-center gap-2 py-2.5 pr-4 pl-11 text-base font-extrabold transition-colors ${
                 currentPath === item.href
-                  ? "text-[var(--nav-submenu-text)] font-semibold"
-                  : "text-[var(--nav-submenu-text)]/85 hover:bg-black/5"
+                  ? "text-[var(--nav-submenu-text)]"
+                  : "text-[var(--nav-submenu-text)]/90 hover:bg-black/5"
               }`}
+              style={{
+                WebkitTextStroke: "0.4px currentColor",
+                paintOrder: "stroke fill",
+              }}
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-sky)] flex-shrink-0" />
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--brand-sky)]" />
               {item.label}
             </Link>
           ))}

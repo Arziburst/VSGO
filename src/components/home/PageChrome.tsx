@@ -24,9 +24,15 @@ export function PageHeading({
   return (
     <div className="flex flex-col sm:flex-row sm:items-center gap-3">
       <div className="flex flex-wrap items-center gap-2 flex-1 min-w-0">
-        <h2 className="text-xl md:text-2xl font-extrabold text-[var(--brand-primary)] dark:text-white uppercase tracking-wide flex items-center gap-2">
+        <h2
+          className="flex items-center gap-2 text-xl font-black tracking-wide text-[var(--brand-primary)] uppercase md:text-2xl dark:text-white"
+          style={{
+            WebkitTextStroke: "0.5px currentColor",
+            paintOrder: "stroke fill",
+          }}
+        >
           {Icon ? (
-            <Icon className="h-6 w-6 md:h-7 md:w-7 flex-shrink-0" />
+            <Icon className="h-6 w-6 shrink-0 md:h-7 md:w-7" strokeWidth={2.5} />
           ) : null}
           {title}
         </h2>
@@ -60,6 +66,52 @@ export function PageCard({
   );
 }
 
+export function ContentTitle({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <h3
+      className={cn(
+        "text-lg font-black uppercase text-[var(--brand-primary)] md:text-xl",
+        className,
+      )}
+      style={{
+        WebkitTextStroke: "0.5px currentColor",
+        paintOrder: "stroke fill",
+      }}
+    >
+      {children}
+    </h3>
+  );
+}
+
+export function ContentSubtitle({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <p
+      className={cn(
+        "text-base font-black text-[var(--brand-primary)] md:text-lg",
+        className,
+      )}
+      style={{
+        WebkitTextStroke: "0.35px currentColor",
+        paintOrder: "stroke fill",
+      }}
+    >
+      {children}
+    </p>
+  );
+}
+
 export function PageBadge({
   children,
   variant = "solid",
@@ -74,7 +126,7 @@ export function PageBadge({
       className={cn(
         "inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-xs font-medium",
         variant === "solid"
-          ? "bg-[var(--brand-primary)] text-white"
+          ? "bg-[var(--brand-surface)] text-white"
           : "border border-[var(--brand-primary)] text-[var(--brand-primary)] dark:border-gray-500 dark:text-gray-300",
         className,
       )}

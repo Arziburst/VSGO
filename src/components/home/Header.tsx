@@ -106,9 +106,9 @@ export function Header({ onMenuToggle }: HeaderProps) {
               <Menu className="h-6 w-6" />
             </Button>
 
-            <div className="relative h-20 w-20 shrink-0 rounded-full sm:h-28 sm:w-28 md:h-[150px] md:w-[150px] lg:h-[180px] lg:w-[180px] xl:h-[200px] xl:w-[200px] 2xl:h-[220px] 2xl:w-[220px] dark:bg-white dark:p-1.5 dark:shadow-[0_0_0_3px_rgba(255,255,255,0.95)]">
+            <div className="relative h-20 w-20 shrink-0 sm:h-28 sm:w-28 md:h-[150px] md:w-[150px] lg:h-[180px] lg:w-[180px] xl:h-[200px] xl:w-[200px] 2xl:h-[220px] 2xl:w-[220px]">
               <Image
-                src="/stork.png"
+                src={isDark ? "/stork-dark.png" : "/stork.png"}
                 alt="VSGO confederation logo"
                 fill
                 sizes="(max-width: 640px) 80px, (max-width: 768px) 112px, (max-width: 1024px) 150px, (max-width: 1280px) 180px, (max-width: 1536px) 200px, 220px"
@@ -137,12 +137,11 @@ export function Header({ onMenuToggle }: HeaderProps) {
             style={{ containerType: "inline-size" }}
           >
             <h1
-              className="mx-auto w-full max-w-full font-[family-name:var(--font-proba-pro)] font-black uppercase leading-[1.1] tracking-[0.01em] text-[var(--brand-primary)] dark:text-white"
+              className="mx-auto w-full max-w-full font-[family-name:var(--font-proba-pro)] font-black uppercase leading-[1.1] tracking-[0.01em] text-[var(--brand-primary)] dark:text-[var(--brand-secondary)] dark:[text-shadow:0_1px_3px_rgba(0,0,0,0.75),0_0_2px_rgba(0,0,0,0.55)]"
               style={{
                 fontSize: "clamp(1.15rem, 4.9cqi, 2.6rem)",
                 WebkitTextStroke: "1px currentColor",
                 paintOrder: "stroke fill",
-                textShadow: "0.5px 0 currentColor, -0.5px 0 currentColor",
               }}
             >
               <span className="block whitespace-nowrap">
@@ -153,7 +152,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
               </span>
             </h1>
             <p
-              className="mt-2 font-[family-name:var(--font-proba-pro)] font-black uppercase tracking-[0.12em] text-[var(--brand-primary)] dark:text-white"
+              className="mt-2 font-[family-name:var(--font-proba-pro)] font-black uppercase tracking-[0.12em] text-[var(--brand-primary)] dark:text-[var(--brand-secondary)] dark:[text-shadow:0_1px_3px_rgba(0,0,0,0.75),0_0_2px_rgba(0,0,0,0.55)]"
               style={{
                 fontSize: "clamp(0.8rem, 2.4cqi, 1.45rem)",
                 WebkitTextStroke: "0.45px currentColor",
@@ -171,7 +170,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
                 onClick={toggleA11y}
                 aria-pressed={a11yOn}
                 aria-label={a11yOn ? "Стандартна версія" : "Доступність"}
-                className="inline-flex items-center gap-1.5 rounded-sm bg-[var(--brand-primary)] px-2.5 py-1.5 text-xs font-bold text-white transition-opacity hover:opacity-90 sm:px-3 sm:text-sm"
+                className="inline-flex items-center gap-1.5 rounded-sm bg-[var(--brand-surface)] px-2.5 py-1.5 text-xs font-bold text-white transition-opacity hover:opacity-90 sm:px-3 sm:text-sm"
               >
                 <Eye className="h-4 w-4 shrink-0" strokeWidth={2.25} />
                 <span className="whitespace-nowrap">
@@ -186,7 +185,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
                     aria-label="Зменшити шрифт"
                     disabled={fontStep <= 0}
                     onClick={() => changeFontStep(-1)}
-                    className="flex h-8 w-8 items-center justify-center border-2 border-[var(--brand-primary)] text-sm font-bold text-[var(--brand-primary)] transition-colors hover:bg-black/5 disabled:border-gray-300 disabled:text-gray-300"
+                    className="flex h-8 w-8 items-center justify-center border-2 border-[var(--brand-primary)] text-sm font-black text-[var(--brand-primary)] transition-colors hover:bg-black/5 disabled:border-gray-300 disabled:text-gray-300"
                   >
                     A-
                   </button>
@@ -195,7 +194,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
                     aria-label="Збільшити шрифт"
                     disabled={fontStep >= FONT_STEPS.length - 1}
                     onClick={() => changeFontStep(1)}
-                    className="flex h-8 w-8 items-center justify-center border-2 border-[var(--brand-primary)] text-sm font-bold text-[var(--brand-primary)] transition-colors hover:bg-black/5 disabled:border-gray-300 disabled:text-gray-300"
+                    className="flex h-8 w-8 items-center justify-center border-2 border-[var(--brand-primary)] text-sm font-black text-[var(--brand-primary)] transition-colors hover:bg-black/5 disabled:border-gray-300 disabled:text-gray-300"
                   >
                     A+
                   </button>
@@ -214,7 +213,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
                 aria-label="Toggle theme"
                 aria-pressed={isDark}
                 onClick={() => setTheme(isDark ? "light" : "dark")}
-                className="relative h-6 w-11 shrink-0 rounded-full bg-[var(--brand-primary)] transition-colors duration-200 dark:bg-sky-700"
+                className="relative h-6 w-11 shrink-0 rounded-full bg-[var(--brand-surface)] transition-colors duration-200 dark:bg-sky-700"
               >
                 <span
                   className={`absolute top-1 h-4 w-4 rounded-full bg-white shadow transition-all duration-200 ${

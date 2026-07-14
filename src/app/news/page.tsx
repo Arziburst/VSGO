@@ -4,6 +4,8 @@ import {
   PageShell,
   PageHeading,
   PageCard,
+  ContentTitle,
+  ContentSubtitle,
 } from "@/components/home/PageChrome";
 
 export const metadata: Metadata = {
@@ -19,23 +21,23 @@ export default function Page() {
       <PageHeading title="Новини" icon={FileText} />
 
       <PageCard className="p-5 md:p-6 space-y-5">
-        <div className="text-center space-y-2">
-          <h3 className="text-lg md:text-xl font-extrabold text-[var(--brand-primary)] uppercase">
+        <div className="space-y-2 text-center">
+          <ContentTitle>
             Соціальні послуги без черг та зайвих витрат
-          </h3>
-          <p className="text-base font-bold text-[var(--brand-primary)]">
+          </ContentTitle>
+          <ContentSubtitle>
             Електронний кабінет особи з інвалідністю
-          </p>
+          </ContentSubtitle>
         </div>
 
-        <div className="pt-4 border-t border-border space-y-4 text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+        <div className="space-y-4 border-t border-border pt-4 text-base leading-relaxed text-gray-700 md:text-lg dark:text-white">
           <p>
             Інформація розміщена на офіційній сторінці Фонду{" "}
             <a
               href="https://www.ispf.gov.ua/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[var(--brand-primary)] underline hover:opacity-80"
+              className="text-[var(--brand-link)] underline hover:opacity-80"
             >
               https://www.ispf.gov.ua/
             </a>{" "}
@@ -45,7 +47,7 @@ export default function Page() {
               href="https://ek-cbi.msp.gov.ua/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[var(--brand-primary)] underline hover:opacity-80"
+              className="text-[var(--brand-link)] underline hover:opacity-80"
             >
               https://ek-cbi.msp.gov.ua/
             </a>
@@ -72,9 +74,9 @@ export default function Page() {
         </div>
 
         <div className="pt-4 border-t border-border">
-          <h4 className="text-base font-bold text-[var(--brand-primary)] mb-3">
+          <ContentSubtitle className="mb-3 text-left">
             Електронний кабінет особи з інвалідністю забезпечує:
-          </h4>
+          </ContentSubtitle>
           <ul className="space-y-2 text-base md:text-lg text-gray-700 dark:text-gray-300">
             {[
               "доступ громадянам до електронного кабінету за кваліфікованим електронним підписом (КЕП);",

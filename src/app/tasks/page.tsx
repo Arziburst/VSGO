@@ -96,7 +96,7 @@ export default function Page() {
 
       <PageCard className="p-5 md:p-6 space-y-4">
         <PageBadge>Місія організації</PageBadge>
-        <h3 className="text-base font-bold text-[var(--brand-primary)]">
+        <h3 className="text-base font-black text-[var(--brand-primary)]">
           ВСГО «Конфедерація ГОІУ» ставить перед собою наступні завдання:
         </h3>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
@@ -109,7 +109,7 @@ export default function Page() {
               >
                 <div className="flex items-center gap-2 mb-2">
                   <Icon className="h-5 w-5 text-[var(--brand-primary)]" />
-                  <h4 className="text-sm font-bold text-[var(--brand-primary)]">
+                  <h4 className="text-sm font-black text-[var(--brand-primary)]">
                     {task.title}
                   </h4>
                 </div>
@@ -134,7 +134,7 @@ export default function Page() {
               >
                 <div className="flex items-center gap-2 mb-2">
                   <Icon className="h-4 w-4 text-[var(--brand-primary)]" />
-                  <h4 className="text-sm font-bold text-[var(--brand-primary)]">
+                  <h4 className="text-sm font-black text-[var(--brand-primary)]">
                     {task.title}
                   </h4>
                 </div>
@@ -150,7 +150,7 @@ export default function Page() {
       <PageCard className="p-5 md:p-6 space-y-4">
         <div className="flex items-center gap-2">
           <Gavel className="h-5 w-5 text-[var(--brand-primary)]" />
-          <h3 className="text-base font-bold text-[var(--brand-primary)]">
+          <h3 className="text-base font-black text-[var(--brand-primary)]">
             Для реалізації своєї мети і завдань ВСГО «Конфедерація ГОІУ» може:
           </h3>
         </div>
@@ -160,7 +160,7 @@ export default function Page() {
               key={goal}
               className="flex items-start gap-3 rounded-lg border border-border p-3"
             >
-              <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[var(--brand-primary)] text-white text-xs font-bold flex-shrink-0">
+              <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[var(--brand-surface)] text-white text-xs font-bold flex-shrink-0">
                 {index + 1}
               </span>
               <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -175,7 +175,7 @@ export default function Page() {
         <PageCard className="p-5">
           <div className="flex items-center gap-2 mb-2">
             <Globe className="h-5 w-5 text-[var(--brand-primary)]" />
-            <h3 className="text-base font-bold text-[var(--brand-primary)]">
+            <h3 className="text-base font-black text-[var(--brand-primary)]">
               Міжнародна діяльність
             </h3>
           </div>
@@ -188,7 +188,7 @@ export default function Page() {
         <PageCard className="p-5">
           <div className="flex items-center gap-2 mb-2">
             <Building className="h-5 w-5 text-[var(--brand-primary)]" />
-            <h3 className="text-base font-bold text-[var(--brand-primary)]">
+            <h3 className="text-base font-black text-[var(--brand-primary)]">
               Розширення мережі
             </h3>
           </div>

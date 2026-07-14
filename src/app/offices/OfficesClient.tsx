@@ -67,7 +67,7 @@ function RightPanel({ selectedRegion, onClear }: RightPanelProps) {
       </div>
 
       <div className="px-3 pt-3 pb-2 border-b border-border">
-        <p className="text-2xl font-bold text-[var(--brand-primary)] dark:text-white uppercase">
+        <p className="text-2xl font-black text-[var(--brand-primary)] dark:text-white uppercase">
           {office?.region ?? selectedRegion}
         </p>
         <p className="mt-0.5 flex items-center gap-1 text-base text-gray-500 dark:text-gray-400">
@@ -143,10 +143,10 @@ export default function OfficesClient() {
     <div className="space-y-4">
       <div className="flex flex-col sm:flex-row sm:items-center gap-3">
         <div className="flex flex-wrap items-center gap-2 flex-1 min-w-0">
-          <h2 className="text-xl md:text-2xl font-extrabold text-[var(--brand-primary)] dark:text-white uppercase tracking-wide">
+          <h2 className="text-xl md:text-2xl font-black text-[var(--brand-primary)] dark:text-white uppercase tracking-wide">
             Відокремлені підрозділи
           </h2>
-          <Badge className="bg-[var(--brand-primary)] text-white border-0 text-base">
+          <Badge className="bg-[var(--brand-surface)] text-white border-0 text-base">
             <Users className="h-3 w-3 mr-1" />
             {regionalOffices.length} представництв
           </Badge>
@@ -240,7 +240,7 @@ export default function OfficesClient() {
               <div className="flex flex-col lg:flex-row lg:items-start gap-4">
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-wrap items-center gap-2 mb-2">
-                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[var(--brand-primary)] text-white text-base font-bold flex-shrink-0">
+                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[var(--brand-surface)] text-white text-base font-bold flex-shrink-0">
                       {index + 1}
                     </span>
                     <Badge

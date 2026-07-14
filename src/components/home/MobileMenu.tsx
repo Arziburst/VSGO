@@ -88,11 +88,11 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 <div key={index} className="space-y-1">
                   <Button
                     variant="ghost"
-                    className="w-full justify-start gap-3 h-auto py-3 px-4 text-[var(--brand-primary)] hover:bg-[var(--brand-primary-10)]"
+                    className="h-auto w-full justify-start gap-3 px-4 py-3 font-black text-[var(--brand-primary)] hover:bg-[var(--brand-primary-10)]"
                     onClick={() => setOpenAbout((v) => !v)}
                   >
-                    <Icon className="h-5 w-5 flex-shrink-0" />
-                    <span className="text-left flex-1">Про Конфедерацію</span>
+                    <Icon className="h-5 w-5 shrink-0" strokeWidth={2.4} />
+                    <span className="flex-1 text-left">Про Конфедерацію</span>
                     {openAbout ? (
                       <ChevronDown className="h-4 w-4" />
                     ) : (
@@ -108,11 +108,11 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                             asChild
                             key={i}
                             variant="ghost"
-                            className="w-full justify-start gap-3 h-auto py-2 px-4 ml-6 text-[var(--brand-primary)] hover:bg-[var(--brand-primary-10)] text-sm"
+                            className="ml-6 h-auto w-full justify-start gap-3 px-4 py-2 text-base font-black text-[var(--brand-primary)] hover:bg-[var(--brand-primary-10)]"
                             onClick={onClose}
                           >
                             <Link href={sub.href}>
-                              <SubIcon className="h-4 w-4 flex-shrink-0" />
+                              <SubIcon className="h-4 w-4 shrink-0" strokeWidth={2.4} />
                               <span className="text-left leading-tight">
                                 {sub.label}
                               </span>
@@ -131,9 +131,9 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 asChild
                 key={index}
                 variant={isActive ? "default" : "ghost"}
-                className={`w-full justify-start gap-3 h-auto py-3 px-4 ${
+                className={`h-auto w-full justify-start gap-3 px-4 py-3 font-black ${
                   isActive
-                    ? "bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-secondary)] hover:from-[color-mix(in_oklab,var(--brand-primary)_90%,transparent)] hover:to-[color-mix(in_oklab,var(--brand-secondary)_90%,transparent)] text-white"
+                    ? "bg-gradient-to-r from-[var(--brand-surface)] to-[var(--brand-secondary)] text-white hover:from-[color-mix(in_oklab,var(--brand-surface)_90%,transparent)] hover:to-[color-mix(in_oklab,var(--brand-secondary)_90%,transparent)]"
                     : "text-[var(--brand-primary)] hover:bg-[var(--brand-primary-10)]"
                 }`}
                 onClick={onClose}
@@ -141,10 +141,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 <Link
                   href={item.href ?? "/"}
                   aria-current={isActive ? "page" : undefined}
-                  className="flex items-start gap-3 w-full"
+                  className="flex w-full items-start gap-3"
                 >
-                  <Icon className="h-5 w-5 flex-shrink-0 mt-[2px]" />
-                  <span className="text-left whitespace-normal break-words flex-1">
+                  <Icon className="mt-[2px] h-5 w-5 shrink-0" strokeWidth={2.4} />
+                  <span className="flex-1 text-left break-words whitespace-normal">
                     {item.label}
                   </span>
                 </Link>

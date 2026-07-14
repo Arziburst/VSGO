@@ -59,7 +59,7 @@ export default function Page() {
 
         <div className="pt-4 border-t border-[var(--brand-primary)]/15">
           <PageBadge className="mb-3">Основні вимоги</PageBadge>
-          <h3 className="text-base font-bold text-[var(--brand-primary)] mb-3">
+          <h3 className="text-base font-black text-[var(--brand-primary)] mb-3">
             Хто може бути членом організації
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -68,7 +68,7 @@ export default function Page() {
                 key={requirement.title}
                 className="rounded-lg border border-border bg-white dark:bg-gray-900 p-4"
               >
-                <h4 className="text-sm font-bold text-[var(--brand-primary)] mb-2">
+                <h4 className="text-sm font-black text-[var(--brand-primary)] mb-2">
                   {requirement.title}
                 </h4>
                 <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -80,7 +80,7 @@ export default function Page() {
         </div>
 
         <div className="pt-4 border-t border-[var(--brand-primary)]/15">
-          <h3 className="text-base font-bold text-[var(--brand-primary)] mb-2">
+          <h3 className="text-base font-black text-[var(--brand-primary)] mb-2">
             Кількісні вимоги до членства
           </h3>
           <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
@@ -102,7 +102,7 @@ export default function Page() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {membershipTypes.map((membership) => (
           <PageCard key={membership.type} className="p-5">
-            <h3 className="text-base font-bold text-[var(--brand-primary)] mb-2">
+            <h3 className="text-base font-black text-[var(--brand-primary)] mb-2">
               {membership.type}
             </h3>
             <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -113,7 +113,7 @@ export default function Page() {
       </div>
 
       <PageCard className="p-5 md:p-6 space-y-3">
-        <h3 className="text-base font-bold text-[var(--brand-primary)]">
+        <h3 className="text-base font-black text-[var(--brand-primary)]">
           Процедура вступу
         </h3>
         <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
