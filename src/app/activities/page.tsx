@@ -18,7 +18,7 @@ export default function Page() {
     <PageShell>
       <PageHeading title="Наша діяльність" icon={Activity} />
       <PageCard tone="soft" className="p-5 md:p-6">
-        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+        <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
           Content will be added soon.
         </p>
       </PageCard>

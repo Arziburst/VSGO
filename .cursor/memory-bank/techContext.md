@@ -2,8 +2,9 @@
 
 Runtime & Frameworks
 
-- Next.js 15.3 (App Router), React 19, TypeScript 5.
+- Next.js 15.5.18 (App Router), React 19, TypeScript 5.
 - Tailwind CSS v4 with `tailwindcss-animate` plugin; next-themes for theming.
+- Primary UI font: **Proba Pro** (`next/font/local`, files in `src/fonts/proba-pro/`). Geist Mono kept for mono.
 - TanStack Query 5 with `@tanstack/react-query-next-experimental` for streamed hydration.
 
 Key Packages

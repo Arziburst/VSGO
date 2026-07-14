@@ -71,7 +71,7 @@ export default function Page() {
       <PageHeading title="Права та обов'язки" icon={Scale} />
 
       <PageCard tone="soft" className="p-5 md:p-6">
-        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+        <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
           Члени (учасники) ВСГО «Конфедерація ГОІУ» мають права та обов&apos;язки,
           які регламентуються Статутом організації та внутрішніми положеннями.
         </p>
@@ -92,7 +92,7 @@ export default function Page() {
               className="flex items-start gap-2 rounded-lg border border-border p-3"
             >
               <CheckCircle className="h-4 w-4 text-[var(--brand-sky)] flex-shrink-0 mt-0.5" />
-              <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                 {right}
               </p>
             </div>
@@ -110,13 +110,13 @@ export default function Page() {
             className="flex items-start gap-2 rounded-lg border border-border p-3"
           >
             <Shield className="h-4 w-4 text-[var(--brand-primary)] flex-shrink-0 mt-0.5" />
-            <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
               {item}
             </p>
           </div>
         ))}
         <div className="rounded-lg border border-[var(--brand-secondary)]/40 bg-[var(--nav-submenu)] p-4">
-          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+          <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
             У заходах, які проводить ВСГО «Конфедерація ГОІУ», мають право брати
             участь тільки його члени (учасники). Інші організації осіб з
             інвалідністю беруть участь у таких заходах тільки за згодою Ради ВСГО
@@ -137,7 +137,7 @@ export default function Page() {
               className="flex items-start gap-2 rounded-lg border border-border p-3"
             >
               <CheckCircle className="h-4 w-4 text-[var(--nav-active)] flex-shrink-0 mt-0.5" />
-              <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                 {obligation}
               </p>
             </div>
@@ -147,11 +147,11 @@ export default function Page() {
 
       <PageCard className="p-5 md:p-6 space-y-3">
         <PageBadge>Важливо</PageBadge>
-        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+        <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
           ВСГО «Конфедерація ГОІУ» здійснює свою діяльність без втручання у
           питання, що входять виключно до компетенції її членів (учасників).
         </p>
-        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+        <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
           За порушення Статуту або неналежне виконання своїх членських
           обов&apos;язків, вчинення дій, які завдали або можуть завдати
           матеріальну чи моральну шкоду честі, гідності та діловій репутації ВСГО
@@ -169,7 +169,7 @@ export default function Page() {
             Дисциплінарні санкції
           </h3>
         </div>
-        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+        <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
           До членів (учасників) ВСГО «Конфедерація ГОІУ» можуть бути застосовані
           такі дисциплінарні санкції:
         </p>
@@ -184,7 +184,7 @@ export default function Page() {
                 <h4 className="text-sm font-bold text-[var(--brand-primary)] mb-1">
                   {measure.title}
                 </h4>
-                <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                   {measure.description}
                 </p>
               </div>
@@ -197,14 +197,14 @@ export default function Page() {
         <h3 className="text-base font-bold text-[var(--brand-primary)]">
           Припинення членства
         </h3>
-        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+        <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
           Членство (участь) припиняється у випадках:
         </p>
         <ul className="space-y-2">
           {terminationCases.map((item) => (
             <li key={item} className="flex items-start gap-2">
               <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--brand-sky)] flex-shrink-0" />
-              <span className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+              <span className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                 {item}
               </span>
             </li>

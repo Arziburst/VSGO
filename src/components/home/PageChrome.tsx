@@ -48,7 +48,7 @@ export function PageCard({
   return (
     <div
       className={cn(
-        "rounded-xl border shadow-sm overflow-hidden",
+        "rounded-xl border shadow-sm overflow-hidden text-base md:text-lg leading-relaxed font-medium",
         tone === "soft"
           ? "border-[var(--brand-secondary)]/40 bg-[var(--nav-submenu)] dark:bg-[var(--nav-submenu)]/15 dark:border-[var(--nav-active)]/30"
           : "border-border bg-white dark:bg-gray-900",

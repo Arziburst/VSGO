@@ -1,6 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Hanken_Grotesk, Oswald } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -14,28 +15,46 @@ import { Sidebar } from "@/components/home/Sidebar";
 import { Footer } from "@/components/home/Footer";
 import { SidebarSearchProvider } from "@/context/SidebarSearchContext";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const probaPro = localFont({
+  src: [
+    {
+      path: "../fonts/proba-pro/ProbaPro-Regular.woff",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../fonts/proba-pro/ProbaPro-Medium.woff",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../fonts/proba-pro/ProbaPro-SemiBold.woff",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../fonts/proba-pro/ProbaPro-Bold.woff",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../fonts/proba-pro/ProbaPro-Bold.woff",
+      weight: "800",
+      style: "normal",
+    },
+    {
+      path: "../fonts/proba-pro/ProbaPro-Bold.woff",
+      weight: "900",
+      style: "normal",
+    },
+  ],
+  variable: "--font-proba-pro",
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
-
-const hankenGrotesk = Hanken_Grotesk({
-  variable: "--font-hanken-grotesk",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-const oswald = Oswald({
-  variable: "--font-oswald",
-  subsets: ["latin", "latin-ext", "cyrillic", "cyrillic-ext"],
-  weight: ["500", "600", "700"],
-  display: "swap",
-  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -103,7 +122,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${hankenGrotesk.variable} ${oswald.variable} antialiased`}
+        className={`${probaPro.variable} ${geistMono.variable} antialiased`}
       >
         <TanstackQueryClientProvider>
           <ThemeProvider

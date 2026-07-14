@@ -34,7 +34,7 @@ export default function Page() {
           <h3 className="text-base font-bold text-[var(--brand-primary)] mb-2">
             Діяльність у відповідності із законодавством
           </h3>
-          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+          <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
             ВСГО «Конфедерація ГОІУ» створена та діє у відповідності з Конституцією
             України, Законами України «Про основи соціального захищеності інвалідів
             в Україні», «Про громадські об&apos;єднання», цього Статуту,
@@ -52,7 +52,7 @@ export default function Page() {
               Принципи діяльності
             </h3>
           </div>
-          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+          <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
             Діяльність ВСГО «Конфедерація ГОІУ» здійснюється за принципом
             самоврядування та співробітництва з державними та громадськими та
             іншими організаціями, на засадах незалежності та добропіялі.
@@ -66,7 +66,7 @@ export default function Page() {
               Організаційна форма
             </h3>
           </div>
-          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+          <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
             ВСГО «Конфедерація ГОІУ» є неприбутковим громадським об&apos;єднанням,
             що не має на меті отримання прибутку.
           </p>
@@ -75,7 +75,7 @@ export default function Page() {
 
       <PageCard className="p-5 md:p-6">
         <PageBadge className="mb-3">Важлива інформація</PageBadge>
-        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+        <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
           ВСГО «Конфедерація ГОІУ» є неприбутковим громадським об&apos;єднанням,
           що не має на меті отримання прибутку. Основним призначенням організації
           є захист прав та інтересів людей з інвалідністю, сприяння їх соціальній

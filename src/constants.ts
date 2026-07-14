@@ -13,6 +13,8 @@ export const ROUTE_ROOT = "/" as const;
 export const DEFAULT_THEME = "system" as const;
 
 export const THEME_STORAGE_KEY = "vsgo-theme" as const;
+export const A11Y_STORAGE_KEY = "vsgo-a11y" as const;
+export const FONT_SCALE_STORAGE_KEY = "vsgo-font-scale" as const;
 
 export const ROUTE_MEMBERS = "/members" as const;
 export const ROUTE_OFFICES = "/offices" as const;

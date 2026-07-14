@@ -83,7 +83,7 @@ export default function Page() {
       <PageHeading title="Завдання Конфедерації" icon={Target} />
 
       <PageCard tone="soft" className="p-5 md:p-6">
-        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+        <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
           ВСГО «Конфедерація ГОІУ» створена з метою об&apos;єднання організацій
           осіб з інвалідністю для узгодження дій та консолідації їх зусиль,
           спрямованих на поліпшення становища осіб з інвалідністю в Україні,
@@ -113,7 +113,7 @@ export default function Page() {
                     {task.title}
                   </h4>
                 </div>
-                <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                   {task.description}
                 </p>
               </div>
@@ -138,7 +138,7 @@ export default function Page() {
                     {task.title}
                   </h4>
                 </div>
-                <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                   {task.description}
                 </p>
               </div>
@@ -163,7 +163,7 @@ export default function Page() {
               <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[var(--brand-primary)] text-white text-xs font-bold flex-shrink-0">
                 {index + 1}
               </span>
-              <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
                 {goal}
               </p>
             </div>
@@ -179,7 +179,7 @@ export default function Page() {
               Міжнародна діяльність
             </h3>
           </div>
-          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+          <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
             Співпрацювання з іншими організаціями та міжнародними громадськими
             (неурядовими) організаціями осіб з інвалідністю; сприяти правовіданню
             та навчанню осіб з інвалідністю.
@@ -192,7 +192,7 @@ export default function Page() {
               Розширення мережі
             </h3>
           </div>
-          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+          <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
             Створювати Представництва та Філії ВСГО «Конфедерація ГОІУ» для
             розширення можливостей допомоги особам з інвалідністю у різних
             регіонах України.
@@ -202,7 +202,7 @@ export default function Page() {
 
       <PageCard className="p-5 md:p-6">
         <PageBadge className="mb-3">Важливо</PageBadge>
-        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+        <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
           Усі завдання та цілі ВСГО «Конфедерація ГОІУ» спрямовані на поліпшення
           якості життя осіб з інвалідністю в Україні, захист їх прав та
           інтересів, а також створення умов для повноцінної участі у суспільному

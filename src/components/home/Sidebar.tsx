@@ -82,7 +82,7 @@ function NavItem({
       }`}
     >
       <Icon className="h-5 w-5 flex-shrink-0" />
-      <span className="text-sm leading-snug whitespace-normal break-words">
+      <span className="text-base leading-snug whitespace-normal break-words">
         {label}
       </span>
     </Link>
@@ -118,7 +118,7 @@ function ExpandableItem({
         }`}
       >
         <Icon className="h-5 w-5 flex-shrink-0" />
-        <span className="flex-1 text-left text-sm leading-snug">{label}</span>
+        <span className="flex-1 text-left text-base leading-snug">{label}</span>
         {isExpanded ? (
           <ChevronDown className="h-4 w-4 flex-shrink-0 opacity-70" />
         ) : (
@@ -188,7 +188,7 @@ export function Sidebar() {
               key={item.label}
               href={item.href}
               onClick={() => setPendingPath(item.href)}
-              className={`flex items-center gap-2 pl-11 pr-4 py-2.5 text-xs transition-colors ${
+              className={`flex items-center gap-2 pl-11 pr-4 py-2.5 text-sm transition-colors ${
                 currentPath === item.href
                   ? "text-[var(--nav-submenu-text)] font-semibold"
                   : "text-[var(--nav-submenu-text)]/80 hover:bg-black/5"
@@ -224,7 +224,7 @@ export function Sidebar() {
               key={item.label}
               href={item.href}
               onClick={() => setPendingPath(item.href)}
-              className={`flex items-center gap-2 pl-11 pr-4 py-2.5 text-xs transition-colors ${
+              className={`flex items-center gap-2 pl-11 pr-4 py-2.5 text-sm transition-colors ${
                 currentPath === item.href
                   ? "text-[var(--nav-submenu-text)] font-semibold"
                   : "text-[var(--nav-submenu-text)]/85 hover:bg-black/5"

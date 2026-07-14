@@ -28,7 +28,7 @@ export default function Page() {
           </p>
         </div>
 
-        <div className="pt-4 border-t border-border space-y-4 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+        <div className="pt-4 border-t border-border space-y-4 text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
           <p>
             Інформація розміщена на офіційній сторінці Фонду{" "}
             <a
@@ -75,7 +75,7 @@ export default function Page() {
           <h4 className="text-base font-bold text-[var(--brand-primary)] mb-3">
             Електронний кабінет особи з інвалідністю забезпечує:
           </h4>
-          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+          <ul className="space-y-2 text-base md:text-lg text-gray-700 dark:text-gray-300">
             {[
               "доступ громадянам до електронного кабінету за кваліфікованим електронним підписом (КЕП);",
               "особам, зареєстрованим в ЦБІ, можливість подачі заяв про потребу в забезпеченні ТЗР та пакету документів шляхом заповнення стандартизованих форм, прикріпленні сканованих копій документів та підписання КЕП;",

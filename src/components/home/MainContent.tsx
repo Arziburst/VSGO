@@ -49,7 +49,7 @@ export function MainContent() {
         <h3 className="text-lg md:text-xl font-bold text-[var(--brand-primary)] mb-3">
           Шановні друзі!
         </h3>
-        <div className="space-y-3 text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+        <div className="space-y-3 text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
           <p>
             Вітаємо Вас на сайті Всеукраїнської спілки громадських організацій
             «Конфедерація громадських організацій інвалідів України». Створення
@@ -101,7 +101,7 @@ export function MainContent() {
 
       <PageCard className="p-5 md:p-6">
         <PageBadge className="mb-3">Інформація</PageBadge>
-        <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+        <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
           Наша організація працює над покращенням життя людей з інвалідністю в
           Україні через розвиток громадських ініціатив, захист прав людини та
           створення рівних можливостей для всіх громадян.

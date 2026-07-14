@@ -8,3 +8,5 @@
 - Sidebar sticky yellow after expandable→leaf fixed via optimistic `pendingPath` + close-on-select.
 - Push `1e6ca03` to main triggered Vercel Production deploy that **failed**; https://vsgo.vercel.app still serves previous build (`/stork.png` 404).
 - Upgraded `next` + `eslint-config-next` to `15.5.18` (May 2026 security release); local build OK.
+- Proba Pro wired as primary font; a11y A−/A+ only when «Доступність» is on (3 enlarge steps from base).
+- Base type raised to 18px; content pages use `text-base md:text-lg`; header title larger/extrabold; no logo overlap.
