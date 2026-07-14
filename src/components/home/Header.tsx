@@ -95,7 +95,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
       }}
     >
       <div className="relative z-10 mx-auto w-full max-w-7xl px-3 py-3 sm:px-4 md:py-4">
-        <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-4 xl:gap-6 relative">
+        <div className="relative flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-10 xl:gap-12">
           <div className="flex shrink-0 items-center justify-between gap-2 lg:justify-start">
             <Button
               variant="ghost"
@@ -106,12 +106,12 @@ export function Header({ onMenuToggle }: HeaderProps) {
               <Menu className="h-6 w-6" />
             </Button>
 
-            <div className="relative h-20 w-20 shrink-0 sm:h-28 sm:w-28 md:h-[150px] md:w-[150px] lg:h-[180px] lg:w-[180px] xl:h-[200px] xl:w-[200px] 2xl:h-[220px] 2xl:w-[220px]">
+            <div className="relative h-20 w-20 shrink-0 sm:h-28 sm:w-28 md:h-[150px] md:w-[150px] lg:h-[170px] lg:w-[170px] xl:h-[190px] xl:w-[190px] 2xl:h-[210px] 2xl:w-[210px]">
               <Image
                 src={isDark ? "/stork-dark.png" : "/stork.png"}
                 alt="VSGO confederation logo"
                 fill
-                sizes="(max-width: 640px) 80px, (max-width: 768px) 112px, (max-width: 1024px) 150px, (max-width: 1280px) 180px, (max-width: 1536px) 200px, 220px"
+                sizes="(max-width: 640px) 80px, (max-width: 768px) 112px, (max-width: 1024px) 150px, (max-width: 1280px) 170px, (max-width: 1536px) 190px, 210px"
                 priority
                 className="object-contain"
               />
@@ -133,34 +133,36 @@ export function Header({ onMenuToggle }: HeaderProps) {
           </div>
 
           <div
-            className="min-w-0 flex-1 px-1 text-center lg:px-2 lg:pr-[230px] xl:pr-[250px]"
+            className="flex min-w-0 flex-1 justify-center overflow-hidden px-1 pl-3 lg:px-2 lg:pl-5 lg:pr-[230px] xl:pl-8 xl:pr-[250px]"
             style={{ containerType: "inline-size" }}
           >
-            <h1
-              className="mx-auto w-full max-w-full font-[family-name:var(--font-e-ukraine)] font-black uppercase leading-[1.1] tracking-[0.01em] text-[var(--brand-primary)] dark:text-[var(--brand-secondary)] dark:[text-shadow:0_1px_3px_rgba(0,0,0,0.75),0_0_2px_rgba(0,0,0,0.55)]"
-              style={{
-                fontSize: "clamp(1.15rem, 4.9cqi, 2.6rem)",
-                WebkitTextStroke: "1px currentColor",
-                paintOrder: "stroke fill",
-              }}
-            >
-              <span className="block whitespace-nowrap">
-                Конфедерація громадських
-              </span>
-              <span className="block whitespace-nowrap">
-                організацій осіб з інвалідністю України
-              </span>
-            </h1>
-            <p
-              className="mt-2 font-[family-name:var(--font-e-ukraine)] font-black uppercase tracking-[0.12em] text-[var(--brand-primary)] dark:text-[var(--brand-secondary)] dark:[text-shadow:0_1px_3px_rgba(0,0,0,0.75),0_0_2px_rgba(0,0,0,0.55)]"
-              style={{
-                fontSize: "clamp(0.8rem, 2.4cqi, 1.45rem)",
-                WebkitTextStroke: "0.45px currentColor",
-                paintOrder: "stroke fill",
-              }}
-            >
-              Єдність. Підтримка. Можливості.
-            </p>
+            <div className="flex w-fit max-w-full flex-col items-center text-center">
+              <h1
+                className="flex w-full max-w-full flex-col items-center font-[family-name:var(--font-e-ukraine)] font-black uppercase leading-[1.1] tracking-[0.01em] text-[var(--brand-primary)] dark:text-[var(--brand-secondary)] dark:[text-shadow:0_1px_3px_rgba(0,0,0,0.75),0_0_2px_rgba(0,0,0,0.55)]"
+                style={{
+                  fontSize: "clamp(1rem, 4.05cqi, 2.1rem)",
+                  WebkitTextStroke: "1px currentColor",
+                  paintOrder: "stroke fill",
+                }}
+              >
+                <span className="whitespace-nowrap">
+                  Конфедерація громадських
+                </span>
+                <span className="whitespace-nowrap">
+                  організацій осіб з інвалідністю України
+                </span>
+              </h1>
+              <p
+                className="mt-2 font-[family-name:var(--font-e-ukraine)] font-black uppercase tracking-[0.12em] text-[var(--brand-primary)] dark:text-[var(--brand-secondary)] dark:[text-shadow:0_1px_3px_rgba(0,0,0,0.75),0_0_2px_rgba(0,0,0,0.55)]"
+                style={{
+                  fontSize: "clamp(0.8rem, 2.4cqi, 1.45rem)",
+                  WebkitTextStroke: "0.45px currentColor",
+                  paintOrder: "stroke fill",
+                }}
+              >
+                Єдність. Підтримка. Можливості.
+              </p>
+            </div>
           </div>
 
           <div className="flex shrink-0 flex-wrap items-center justify-center gap-2 sm:gap-3 lg:absolute lg:right-0 lg:top-0 lg:flex-row lg:items-start lg:justify-end xl:gap-3">
