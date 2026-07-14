@@ -36,7 +36,7 @@ export const FormSelect = forwardRef<HTMLButtonElement, FormSelectProps>(
         <SelectTrigger
           ref={ref}
           className={cn(
-            "px-6 w-full h-16 bg-card dark:bg-secondary rounded-2xl border focus:border-primary dark:focus:border-primary focus:outline-none shadow-sm font-[family-name:var(--font-hanken-grotesk)]",
+            "px-6 w-full h-16 bg-card dark:bg-secondary rounded-2xl border focus:border-primary dark:focus:border-primary focus:outline-none shadow-sm font-[family-name:var(--font-onest)]",
             className
           )}
         >

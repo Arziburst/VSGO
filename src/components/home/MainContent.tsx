@@ -10,32 +10,32 @@ import {
 export function MainContent() {
   const partnerOrganizations = [
     {
-      title: "Fund for Social Protection of Persons with Disabilities",
+      title: "Фонд соціального захисту осіб з інвалідністю",
       image: "/partners/fund-social-protection.jpg",
       url: "https://www.ispf.gov.ua/",
     },
     {
-      title: "Ministry of Social Policy of Ukraine",
+      title: "Міністерство соціальної політики України",
       image: "/partners/MinistrySocial.jpg",
       url: "https://www.msp.gov.ua/",
     },
     {
-      title: "Government Portal",
+      title: "Урядовий портал",
       image: "/partners/government-portal.jpg",
       url: "https://www.kmu.gov.ua/",
     },
     {
-      title: "Fund for Social Protection of Persons with Disabilities",
+      title: "Президент України",
       image: "/partners/Prez.jpg",
       url: "https://www.president.gov.ua/",
     },
     {
-      title: "Fund for Social Protection of Persons with Disabilities",
+      title: "Верховна Рада України",
       image: "/partners/Rada.jpg",
       url: "https://www.rada.gov.ua/",
     },
     {
-      title: "Fund for Social Protection of Persons with Disabilities",
+      title: "Prozorro",
       image: "/partners/Prozoro.jpg",
       url: "https://prozorro.gov.ua/uk",
     },
@@ -70,7 +70,7 @@ export function MainContent() {
 
       <div>
         <h3 className="text-lg md:text-xl font-extrabold text-[var(--brand-primary)] uppercase tracking-wide mb-4">
-          Partner organizations
+          Партнерські організації
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {partnerOrganizations.map((org, index) => (
@@ -102,9 +102,9 @@ export function MainContent() {
       <PageCard className="p-5 md:p-6">
         <PageBadge className="mb-3">Інформація</PageBadge>
         <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
-          Our organization works to improve the lives of people with disabilities
-          in Ukraine through the development of public initiatives, protection of
-          human rights and the creation of equal opportunities for all citizens.
+          Наша організація працює над покращенням життя людей з інвалідністю в
+          Україні через розвиток громадських ініціатив, захист прав людини та
+          створення рівних можливостей для всіх громадян.
         </p>
       </PageCard>
     </PageShell>

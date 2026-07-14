@@ -21,7 +21,7 @@ export function FormLink({
       variant="link" 
       onClick={onClick}
       className={cn(
-        "text-primary hover:text-primary/80 p-0 h-auto font-[family-name:var(--font-hanken-grotesk)]",
+        "text-primary hover:text-primary/80 p-0 h-auto font-[family-name:var(--font-onest)]",
         className
       )}
     >

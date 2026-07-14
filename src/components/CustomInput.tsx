@@ -21,7 +21,7 @@ export function CustomInput({
         </div>
         <Input
           className={cn(
-            "h-9 px-3 border border-border focus:border-ring focus:outline-none shadow-sm font-[family-name:var(--font-hanken-grotesk)] placeholder:text-muted-foreground bg-card",
+            "h-9 px-3 border border-border focus:border-ring focus:outline-none shadow-sm font-[family-name:var(--font-onest)] placeholder:text-muted-foreground bg-card",
             className
           )}
           {...props}
@@ -33,7 +33,7 @@ export function CustomInput({
   return (
     <Input
       className={cn(
-        "h-9 px-3 border border-border focus:border-ring focus:outline-none shadow-sm font-[family-name:var(--font-hanken-grotesk)] placeholder:text-muted-foreground bg-card",
+        "h-9 px-3 border border-border focus:border-ring focus:outline-none shadow-sm font-[family-name:var(--font-onest)] placeholder:text-muted-foreground bg-card",
         className
       )}
       {...props}

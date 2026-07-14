@@ -6,3 +6,5 @@
 - Palette: footer `#012e91`, drawer `#00308e`, active `#fed941`, pale `#fff6da`.
 - All pages unified via PageChrome to match offices style.
 - Sidebar sticky yellow after expandable→leaf fixed via optimistic `pendingPath` + close-on-select.
+- Push `1e6ca03` to main triggered Vercel Production deploy that **failed**; https://vsgo.vercel.app still serves previous build (`/stork.png` 404).
+- Upgraded `next` + `eslint-config-next` to `15.5.18` (May 2026 security release); local build OK.

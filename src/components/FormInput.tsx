@@ -21,7 +21,7 @@ export function FormInput({
         </div>
         <Input
           className={cn(
-            "px-6 h-14 bg-card dark:bg-secondary rounded-2xl border focus:border-primary dark:focus:border-primary focus:outline-none shadow-sm font-[family-name:var(--font-hanken-grotesk)]",
+            "px-6 h-14 bg-card dark:bg-secondary rounded-2xl border focus:border-primary dark:focus:border-primary focus:outline-none shadow-sm font-[family-name:var(--font-onest)]",
             className
           )}
           {...props}
@@ -33,7 +33,7 @@ export function FormInput({
   return (
     <Input
       className={cn(
-        "px-6 h-16 bg-card dark:bg-secondary rounded-2xl border focus:border-primary dark:focus:border-primary focus:outline-none shadow-sm font-[family-name:var(--font-hanken-grotesk)]",
+        "px-6 h-16 bg-card dark:bg-secondary rounded-2xl border focus:border-primary dark:focus:border-primary focus:outline-none shadow-sm font-[family-name:var(--font-onest)]",
         className
       )}
       {...props}
