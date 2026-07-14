@@ -137,7 +137,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
             style={{ containerType: "inline-size" }}
           >
             <h1
-              className="mx-auto w-full max-w-full font-[family-name:var(--font-proba-pro)] font-black uppercase leading-[1.1] tracking-[0.01em] text-[var(--brand-primary)] dark:text-[var(--brand-secondary)] dark:[text-shadow:0_1px_3px_rgba(0,0,0,0.75),0_0_2px_rgba(0,0,0,0.55)]"
+              className="mx-auto w-full max-w-full font-[family-name:var(--font-e-ukraine)] font-black uppercase leading-[1.1] tracking-[0.01em] text-[var(--brand-primary)] dark:text-[var(--brand-secondary)] dark:[text-shadow:0_1px_3px_rgba(0,0,0,0.75),0_0_2px_rgba(0,0,0,0.55)]"
               style={{
                 fontSize: "clamp(1.15rem, 4.9cqi, 2.6rem)",
                 WebkitTextStroke: "1px currentColor",
@@ -152,7 +152,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
               </span>
             </h1>
             <p
-              className="mt-2 font-[family-name:var(--font-proba-pro)] font-black uppercase tracking-[0.12em] text-[var(--brand-primary)] dark:text-[var(--brand-secondary)] dark:[text-shadow:0_1px_3px_rgba(0,0,0,0.75),0_0_2px_rgba(0,0,0,0.55)]"
+              className="mt-2 font-[family-name:var(--font-e-ukraine)] font-black uppercase tracking-[0.12em] text-[var(--brand-primary)] dark:text-[var(--brand-secondary)] dark:[text-shadow:0_1px_3px_rgba(0,0,0,0.75),0_0_2px_rgba(0,0,0,0.55)]"
               style={{
                 fontSize: "clamp(0.8rem, 2.4cqi, 1.45rem)",
                 WebkitTextStroke: "0.45px currentColor",

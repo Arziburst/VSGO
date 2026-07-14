@@ -15,40 +15,55 @@ import { Sidebar } from "@/components/home/Sidebar";
 import { Footer } from "@/components/home/Footer";
 import { SidebarSearchProvider } from "@/context/SidebarSearchContext";
 
-const probaPro = localFont({
+const eUkraine = localFont({
   src: [
     {
-      path: "../fonts/proba-pro/ProbaPro-Regular.woff",
+      path: "../fonts/e-ukraine/e-Ukraine-Thin.otf",
+      weight: "100",
+      style: "normal",
+    },
+    {
+      path: "../fonts/e-ukraine/e-Ukraine-UltraLight.otf",
+      weight: "200",
+      style: "normal",
+    },
+    {
+      path: "../fonts/e-ukraine/e-Ukraine-Light.otf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "../fonts/e-ukraine/e-Ukraine-Regular.otf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../fonts/proba-pro/ProbaPro-Medium.woff",
+      path: "../fonts/e-ukraine/e-Ukraine-Medium.otf",
       weight: "500",
       style: "normal",
     },
     {
-      path: "../fonts/proba-pro/ProbaPro-SemiBold.woff",
+      path: "../fonts/e-ukraine/e-Ukraine-Bold.otf",
       weight: "600",
       style: "normal",
     },
     {
-      path: "../fonts/proba-pro/ProbaPro-Bold.woff",
+      path: "../fonts/e-ukraine/e-Ukraine-Bold.otf",
       weight: "700",
       style: "normal",
     },
     {
-      path: "../fonts/proba-pro/ProbaPro-Bold.woff",
+      path: "../fonts/e-ukraine/e-Ukraine-Bold.otf",
       weight: "800",
       style: "normal",
     },
     {
-      path: "../fonts/proba-pro/ProbaPro-Bold.woff",
+      path: "../fonts/e-ukraine/e-Ukraine-Bold.otf",
       weight: "900",
       style: "normal",
     },
   ],
-  variable: "--font-proba-pro",
+  variable: "--font-e-ukraine",
   display: "swap",
 });
 
@@ -122,7 +137,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${probaPro.variable} ${geistMono.variable} antialiased`}
+        className={`${eUkraine.variable} ${geistMono.variable} antialiased`}
       >
         <TanstackQueryClientProvider>
           <ThemeProvider
