@@ -20,6 +20,7 @@ import {
   Target,
   ChevronDown,
   ChevronRight,
+  type LucideIcon,
 } from "lucide-react";
 import {
   ROUTE_ROOT,
@@ -58,7 +59,7 @@ const ABOUT_ROUTES = new Set<string>([
 interface NavItemProps {
   href: string;
   label: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: LucideIcon;
   isActive: boolean;
   onSelect: () => void;
 }
@@ -97,7 +98,7 @@ function NavItem({
 
 interface ExpandableItemProps {
   label: string;
-  icon: React.ComponentType<{ className?: string }>;
+  icon: LucideIcon;
   isHighlighted: boolean;
   isExpanded: boolean;
   onToggle: () => void;
