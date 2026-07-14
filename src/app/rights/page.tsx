@@ -82,7 +82,7 @@ export default function Page() {
           <Shield className="h-5 w-5 text-[var(--brand-primary)]" />
           <PageBadge>Права членів</PageBadge>
         </div>
-        <h3 className="text-base font-black text-[var(--brand-primary)]">
+        <h3 className="text-base font-black text-[var(--brand-heading)]">
           Члени (учасники) ВСГО «Конфедерація ГОІУ» мають право:
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -101,7 +101,7 @@ export default function Page() {
       </PageCard>
 
       <PageCard className="p-5 md:p-6 space-y-3">
-        <h3 className="text-base font-black text-[var(--brand-primary)]">
+        <h3 className="text-base font-black text-[var(--brand-heading)]">
           Додаткові права
         </h3>
         {memberResponsibilities.map((item) => (
@@ -127,7 +127,7 @@ export default function Page() {
 
       <PageCard className="p-5 md:p-6 space-y-4">
         <PageBadge>Обов&apos;язки членів</PageBadge>
-        <h3 className="text-base font-black text-[var(--brand-primary)]">
+        <h3 className="text-base font-black text-[var(--brand-heading)]">
           Члени (учасники) ВСГО «Конфедерація ГОІУ» зобов&apos;язані:
         </h3>
         <div className="space-y-3">
@@ -165,7 +165,7 @@ export default function Page() {
       <PageCard className="p-5 md:p-6 space-y-4">
         <div className="flex items-center gap-2">
           <AlertTriangle className="h-5 w-5 text-[var(--brand-primary)]" />
-          <h3 className="text-base font-black text-[var(--brand-primary)]">
+          <h3 className="text-base font-black text-[var(--brand-heading)]">
             Дисциплінарні санкції
           </h3>
         </div>
@@ -181,7 +181,7 @@ export default function Page() {
             >
               <XCircle className="h-4 w-4 text-red-500 flex-shrink-0 mt-0.5" />
               <div>
-                <h4 className="text-sm font-black text-[var(--brand-primary)] mb-1">
+                <h4 className="text-sm font-black text-[var(--brand-heading)] mb-1">
                   {measure.title}
                 </h4>
                 <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -194,7 +194,7 @@ export default function Page() {
       </PageCard>
 
       <PageCard className="p-5 md:p-6 space-y-3">
-        <h3 className="text-base font-black text-[var(--brand-primary)]">
+        <h3 className="text-base font-black text-[var(--brand-heading)]">
           Припинення членства
         </h3>
         <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">

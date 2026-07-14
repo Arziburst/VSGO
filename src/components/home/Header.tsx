@@ -86,9 +86,9 @@ export function Header({ onMenuToggle }: HeaderProps) {
 
   return (
     <header
-      className="relative w-full bg-white dark:bg-[#071845]"
+      className="relative w-full bg-white dark:bg-black"
       style={{
-        backgroundImage: "url(/fon.png)",
+        backgroundImage: `url(${isDark ? "/fonDark.png" : "/fon.png"})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center center",

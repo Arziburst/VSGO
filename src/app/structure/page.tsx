@@ -42,7 +42,7 @@ export default function Page() {
         </div>
 
         <div className="pt-4 border-t border-[var(--brand-primary)]/15">
-          <h3 className="text-base font-black text-[var(--brand-primary)] mb-2">
+          <h3 className="text-base font-black text-[var(--brand-heading)] mb-2">
             Загальні Збори
           </h3>
           <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
@@ -63,7 +63,7 @@ export default function Page() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <PageCard className="p-5">
-          <h3 className="text-base font-black text-[var(--brand-primary)] mb-2">
+          <h3 className="text-base font-black text-[var(--brand-heading)] mb-2">
             Президент ВСГО
           </h3>
           <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -74,7 +74,7 @@ export default function Page() {
           </p>
         </PageCard>
         <PageCard className="p-5">
-          <h3 className="text-base font-black text-[var(--brand-primary)] mb-2">
+          <h3 className="text-base font-black text-[var(--brand-heading)] mb-2">
             Віце-Президент ВСГО
           </h3>
           <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -84,7 +84,7 @@ export default function Page() {
           </p>
         </PageCard>
         <PageCard className="p-5">
-          <h3 className="text-base font-black text-[var(--brand-primary)] mb-2">
+          <h3 className="text-base font-black text-[var(--brand-heading)] mb-2">
             Виконавчий секретар
           </h3>
           <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
@@ -94,7 +94,7 @@ export default function Page() {
           </p>
         </PageCard>
         <PageCard className="p-5">
-          <h3 className="text-base font-black text-[var(--brand-primary)] mb-2">
+          <h3 className="text-base font-black text-[var(--brand-heading)] mb-2">
             Виконавчий комітет
           </h3>
           <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-2">

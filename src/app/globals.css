@@ -95,6 +95,7 @@
   /* brand tokens — navy / sky / gold from confederation logo */
   --brand-primary: #00308e;
   --brand-surface: #00308e;
+  --brand-heading: #2b67bb;
   --brand-secondary: #fed941;
   --brand-sky: #2f9fe0;
   --brand-link: #00308e;
@@ -170,6 +171,7 @@
 
   --brand-primary: #ffffff;
   --brand-surface: #00308e;
+  --brand-heading: #2b67bb;
   --brand-sky: #7dd3fc;
   --brand-link: #7dd3fc;
   --brand-primary-10: color-mix(in oklab, #ffffff 12%, transparent);

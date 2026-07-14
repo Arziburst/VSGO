@@ -4,6 +4,6 @@
 - Site font is **Proba Pro** via `next/font/local`; base `html` **18px**, body weight 500; page body copy `text-base md:text-lg` (was `text-sm`).
 - Header: large stork; title fits via `cqi` clamp; a11y + theme pinned top-right (`lg:absolute`) like reference screenshot.
 - Dark theme: `--brand-primary` → white; solid navy UI uses `--brand-surface`; external links use `--brand-link` / light sky `#7dd3fc`. Header title/tagline stay gold.
-- Sidebar/drawer nav: `font-black` + stroke; content titles via `ContentTitle`/`ContentSubtitle` (`font-black` + stroke).
-- Dark theme uses `/stork-dark.png` (circular text recolored white); light uses `/stork.png`.
+- Titles/subtitles use `--brand-heading: #2b67bb` (`PageHeading`, `ContentTitle`, `ContentSubtitle`, section headings).
+- Dark theme: header bg `/fonDark.png`, stork `/stork-dark.png`; light: `/fon.png`, `/stork.png`.
 - Home partners/info copy translated to Ukrainian.

@@ -25,7 +25,7 @@ export function PageHeading({
     <div className="flex flex-col sm:flex-row sm:items-center gap-3">
       <div className="flex flex-wrap items-center gap-2 flex-1 min-w-0">
         <h2
-          className="flex items-center gap-2 text-xl font-black tracking-wide text-[var(--brand-primary)] uppercase md:text-2xl dark:text-white"
+          className="flex items-center gap-2 text-xl font-black tracking-wide text-[var(--brand-heading)] uppercase md:text-2xl"
           style={{
             WebkitTextStroke: "0.5px currentColor",
             paintOrder: "stroke fill",
@@ -76,7 +76,7 @@ export function ContentTitle({
   return (
     <h3
       className={cn(
-        "text-lg font-black uppercase text-[var(--brand-primary)] md:text-xl",
+        "text-lg font-black uppercase text-[var(--brand-heading)] md:text-xl",
         className,
       )}
       style={{
@@ -99,7 +99,7 @@ export function ContentSubtitle({
   return (
     <p
       className={cn(
-        "text-base font-black text-[var(--brand-primary)] md:text-lg",
+        "text-base font-black text-[var(--brand-heading)] md:text-lg",
         className,
       )}
       style={{
