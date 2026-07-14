@@ -45,9 +45,7 @@ const ABOUT_ITEMS = [
   { label: "Завдання Конфедерації", href: ROUTE_TASKS, icon: Target },
 ];
 
-const OFFICES_ITEMS = [
-  { label: "Обласні організації", href: ROUTE_OFFICES },
-];
+const OFFICES_ITEMS = [{ label: "Обласні організації", href: ROUTE_OFFICES }];
 
 const ABOUT_ROUTES = new Set<string>([
   ROUTE_STATUS,
@@ -65,7 +63,13 @@ interface NavItemProps {
   onSelect: () => void;
 }
 
-function NavItem({ href, label, icon: Icon, isActive, onSelect }: NavItemProps) {
+function NavItem({
+  href,
+  label,
+  icon: Icon,
+  isActive,
+  onSelect,
+}: NavItemProps) {
   return (
     <Link
       href={href}
@@ -152,8 +156,7 @@ export function Sidebar() {
     setPendingPath(href);
   };
 
-  const isLeafActive = (href: string) =>
-    currentPath === href && !accordionOpen;
+  const isLeafActive = (href: string) => currentPath === href && !accordionOpen;
 
   return (
     <div

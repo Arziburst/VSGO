@@ -18,7 +18,7 @@ export function FormButton({
     <Button 
       type={type}
       className={cn(
-        "w-full h-14 bg-primary dark:bg-primary text-primary-foreground dark:text-primary-foreground py-6 rounded-2xl hover:bg-primary/90 dark:hover:bg-primary/80 transition-colors font-[family-name:var(--font-onest)]",
+        "w-full h-14 bg-primary dark:bg-primary text-primary-foreground dark:text-primary-foreground py-6 rounded-2xl hover:bg-primary/90 dark:hover:bg-primary/80 transition-colors font-[family-name:var(--font-inter)]",
         className
       )}
       {...props}

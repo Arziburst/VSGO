@@ -34,6 +34,8 @@ const oswald = Oswald({
   variable: "--font-oswald",
   subsets: ["latin", "latin-ext", "cyrillic", "cyrillic-ext"],
   weight: ["500", "600", "700"],
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {

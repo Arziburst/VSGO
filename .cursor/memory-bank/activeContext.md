@@ -1,5 +1,5 @@
 - Sidebar: leaf clicks close accordions + set `pendingPath` so yellow moves immediately (before Next.js pathname updates). Expandable yellow only when `aboutOpen`/`officesOpen`, not from route alone.
 - Layout uses `max-w-7xl` (~1280px); on wide monitors content looks “small” with large side gutters.
-- Header: Oswald + vw + scale-to-fit; on mobile title is a full-width row under logo (no side-by-side overlap).
+- Header simplified: no JS scale/ResizeObserver; plain flex like Footer + responsive Oswald sizes.
 - Stork in dark mode on white circle; tagline `dark:text-white`.
 - Home partners/info copy translated to Ukrainian.

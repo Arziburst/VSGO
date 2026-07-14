@@ -11,7 +11,7 @@ export function PasswordInput(props: ComponentProps<'input'>) {
       <Input
         {...props}
         type={show ? "text" : "password"}
-        className="px-6 h-14 bg-card dark:bg-secondary rounded-2xl border focus:border-primary dark:focus:border-primary focus:outline-none shadow-sm font-[family-name:var(--font-onest)]"
+        className="px-6 h-14 bg-card dark:bg-secondary rounded-2xl border focus:border-primary dark:focus:border-primary focus:outline-none shadow-sm font-[family-name:var(--font-inter)]"
       />
       <div
         className="absolute right-6 top-1/2 transform -translate-y-1/2 p-0 h-auto w-auto hover:bg-transparent cursor-pointer"

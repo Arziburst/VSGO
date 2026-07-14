@@ -52,7 +52,7 @@ export function PageCard({
         tone === "soft"
           ? "border-[var(--brand-secondary)]/40 bg-[var(--nav-submenu)] dark:bg-[var(--nav-submenu)]/15 dark:border-[var(--nav-active)]/30"
           : "border-border bg-white dark:bg-gray-900",
-        className
+        className,
       )}
     >
       {children}
@@ -76,7 +76,7 @@ export function PageBadge({
         variant === "solid"
           ? "bg-[var(--brand-primary)] text-white"
           : "border border-[var(--brand-primary)] text-[var(--brand-primary)] dark:border-gray-500 dark:text-gray-300",
-        className
+        className,
       )}
     >
       {children}
