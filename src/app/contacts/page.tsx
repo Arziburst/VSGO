@@ -1,4 +1,10 @@
 import type { Metadata } from "next";
+import { Phone } from "lucide-react";
+import {
+  PageShell,
+  PageHeading,
+  PageCard,
+} from "@/components/home/PageChrome";
 
 export const metadata: Metadata = {
   title: "Contacts",
@@ -9,9 +15,13 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="max-w-6xl mx-auto space-y-6">
-      <h1 className="text-xl text-[var(--brand-primary)]">Contacts</h1>
-      <p className="text-gray-700">Content will be added soon.</p>
-    </div>
+    <PageShell>
+      <PageHeading title="Контакти" icon={Phone} />
+      <PageCard tone="soft" className="p-5 md:p-6">
+        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+          Content will be added soon.
+        </p>
+      </PageCard>
+    </PageShell>
   );
 }

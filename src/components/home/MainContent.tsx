@@ -1,7 +1,11 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
+import {
+  PageShell,
+  PageHeading,
+  PageCard,
+  PageBadge,
+} from "@/components/home/PageChrome";
 
 export function MainContent() {
   const partnerOrganizations = [
@@ -28,7 +32,7 @@ export function MainContent() {
     {
       title: "Fund for Social Protection of Persons with Disabilities",
       image: "/partners/Rada.jpg",
-      url: "https://www.rada.gov.ua/", // TODO: don't work url
+      url: "https://www.rada.gov.ua/",
     },
     {
       title: "Fund for Social Protection of Persons with Disabilities",
@@ -38,49 +42,46 @@ export function MainContent() {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto space-y-8">
-      {/* Welcome Section */}
-      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] via-purple-50 to-violet-50 dark:from-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] dark:via-purple-900/20 dark:to-violet-900/20">
-        <CardHeader>
-          <CardTitle className="text-xl text-[var(--brand-primary)]">
-            Шановні друзі!
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+    <PageShell>
+      <PageHeading title="Головна" />
+
+      <PageCard tone="soft" className="p-5 md:p-6">
+        <h3 className="text-lg md:text-xl font-bold text-[var(--brand-primary)] mb-3">
+          Шановні друзі!
+        </h3>
+        <div className="space-y-3 text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+          <p>
             Вітаємо Вас на сайті Всеукраїнської спілки громадських організацій
             «Конфедерація громадських організацій інвалідів України». Створення
             нашого ресурсу є необхідним та цілеспрямованим кроком для надання
             інформаційної та консультаційної допомоги людям з особливими
             потребами.
           </p>
-
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-            Internet є невід’ємною частиною інвалідного руху в усьому світі. Ми
-            також вирішили приділити особливу увагу цьому процесу. І сьогодні
+          <p>
+            Internet є невід&apos;ємною частиною інвалідного руху в усьому світі.
+            Ми також вирішили приділити особливу увагу цьому процесу. І сьогодні
             нами зроблено ще один крок, спрямований на покращення спілкування та
             обміну інформацією між інвалідами в кожному куточку нашої країни та
             далеко за її межами. Сподіваємось, що наш ресурс стане корисним
             джерелом цікавої та актуальної інформації.
           </p>
-        </CardContent>
-      </Card>
+        </div>
+      </PageCard>
 
-      {/* Partner Organizations Grid */}
       <div>
-        <h2 className="text-xl text-[var(--brand-primary)] mb-6">
+        <h3 className="text-lg md:text-xl font-extrabold text-[var(--brand-primary)] uppercase tracking-wide mb-4">
           Partner organizations
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {partnerOrganizations.map((org, index) => (
             <a
               key={index}
               href={org.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="block relative group"
+              className="relative group rounded-xl border border-border bg-white dark:bg-gray-900 shadow-sm p-4 hover:shadow-md transition-shadow"
             >
-              <div className="h-[180px] w-full">
+              <div className="h-[140px] w-full">
                 <Image
                   src={org.image}
                   alt={org.title}
@@ -90,7 +91,7 @@ export function MainContent() {
                   sizes="450px"
                 />
               </div>
-              <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out pointer-events-none">
+              <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                 <ExternalLink className="h-5 w-5 text-white bg-black/50 rounded-full p-1" />
               </div>
             </a>
@@ -98,26 +99,14 @@ export function MainContent() {
         </div>
       </div>
 
-      {/* Additional Info Section */}
-      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] to-purple-50 dark:from-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] dark:to-purple-900/20">
-        {" "}
-        <CardContent className="p-6">
-          <div className="flex items-center gap-4 mb-4">
-            <Badge
-              variant="secondary"
-              className="bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] to-purple-100 dark:from-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] dark:to-purple-800/30 text-[var(--brand-primary)]"
-            >
-              Інформація
-            </Badge>
-          </div>
-          <p className="text-gray-700 dark:text-gray-300">
-            Our organization works to improve the lives of people with
-            disabilities in Ukraine through the development of public
-            initiatives, protection of human rights and the creation of equal
-            opportunities for all citizens.
-          </p>
-        </CardContent>
-      </Card>
-    </div>
+      <PageCard className="p-5 md:p-6">
+        <PageBadge className="mb-3">Інформація</PageBadge>
+        <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed">
+          Our organization works to improve the lives of people with disabilities
+          in Ukraine through the development of public initiatives, protection of
+          human rights and the creation of equal opportunities for all citizens.
+        </p>
+      </PageCard>
+    </PageShell>
   );
 }

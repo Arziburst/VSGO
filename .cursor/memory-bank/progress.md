@@ -1,2 +1,8 @@
 - Global font size selector added; no lints.
 - Sidebar search connected to header input; provider in layout; no lints.
+- Header mobile grid changed to single column; titles get full width and align with content; lints clean.
+- Full visual redesign: dark navy sidebar, stork logo header, yellow active nav, redesigned footer, interactive map, new offices page layout. Build clean.
+- Color pass vs third screenshot: new stork icon, gold active+dark text, pale-yellow submenu, sky/gold brand tokens, purple removed site-wide.
+- Palette: footer `#012e91`, drawer `#00308e`, active `#fed941`, pale `#fff6da`.
+- All pages unified via PageChrome to match offices style.
+- Sidebar sticky yellow after expandable→leaf fixed via optimistic `pendingPath` + close-on-select.

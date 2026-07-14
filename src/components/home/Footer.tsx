@@ -1,64 +1,48 @@
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Phone, Mail, Facebook } from "lucide-react";
+import Link from "next/link";
+import { Facebook, Mail } from "lucide-react";
 
 export function Footer() {
   return (
-    <footer className="w-full bg-gradient-to-r from-[var(--brand-primary-10)] via-[var(--brand-secondary-10)] to-[var(--brand-primary-10)] border-t border-border/50 p-6">
-      <div className="max-w-7xl mx-auto">
-        <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-br from-[var(--brand-primary-10)] to-[var(--brand-secondary-10)]">
-          <div className="p-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-              <div>
-                <h3 className="text-lg text-[var(--brand-primary)] mb-2">
-                  All‑Ukrainian Union of Public Organizations
-                </h3>
-                <p className="text-[var(--brand-secondary)]">
-                  &quot;Confederation of Organizations of Persons with
-                  Disabilities of Ukraine&quot;
-                </p>
-              </div>
+    <footer className="w-full" style={{ background: "var(--footer-bg)" }}>
+      <div className="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm">
+        <p className="text-white/70 text-xs text-center sm:text-left leading-relaxed">
+          © 2026 Конфедерація громадських організацій осіб з інвалідністю України.
+          Усі права захищені.
+        </p>
 
-              <div className="space-y-3">
-                <h4 className="text-[var(--brand-primary)] mb-3">Call us:</h4>
+        <div className="flex items-center gap-4 text-white/70">
+          <Link
+            href="#"
+            className="hover:text-white transition-colors whitespace-nowrap text-xs"
+          >
+            Карта сайту
+          </Link>
+          <Link
+            href="#"
+            className="hover:text-white transition-colors whitespace-nowrap text-xs"
+          >
+            Політика конфіденційності
+          </Link>
+        </div>
 
-                <div className="flex items-center gap-3">
-                  <Phone className="h-5 w-5 text-[var(--brand-primary)]" />
-                  <span className="text-foreground">+380730420452</span>
-                </div>
-
-                <div>
-                  <h4 className="text-[var(--brand-primary)] mb-2">
-                    Email us:
-                  </h4>
-                  <div className="flex items-center gap-3">
-                    <Mail className="h-5 w-5 text-[var(--brand-primary)]" />
-                    <span className="text-foreground">vsgo@ukr.net</span>
-                  </div>
-                </div>
-
-                {/* Social Media */}
-                <div className="flex items-center gap-3 mt-4">
-                  <h4 className="text-[var(--brand-primary)]">Follow us:</h4>
-                  <a
-                    href="https://www.facebook.com/KonfederaciaVSGO/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block"
-                  >
-                    <Button
-                      variant="outline"
-                      size="default"
-                      className="bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-secondary)] text-white hover:from-[color-mix(in_oklab,var(--brand-primary)_90%,transparent)] hover:to-[color-mix(in_oklab,var(--brand-secondary)_90%,transparent)] border-[var(--brand-primary)]"
-                    >
-                      <Facebook className="h-6 w-6" />
-                    </Button>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Card>
+        <div className="flex items-center gap-2">
+          <a
+            href="https://www.facebook.com/KonfederaciaVSGO/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            className="w-8 h-8 rounded-full bg-[#1877f2] flex items-center justify-center text-white hover:opacity-80 transition-opacity"
+          >
+            <Facebook className="h-4 w-4" />
+          </a>
+          <a
+            href="mailto:vsgo@ukr.net"
+            aria-label="Email"
+            className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center text-white hover:bg-white/25 transition-colors"
+          >
+            <Mail className="h-4 w-4" />
+          </a>
+        </div>
       </div>
     </footer>
   );

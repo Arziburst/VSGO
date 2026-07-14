@@ -156,7 +156,7 @@ export function SearchInput({
                 </div>
 
                 {/* Quick Action Suggestions */}
-                <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-purple-50 dark:hover:bg-purple-900/20 cursor-pointer transition-all duration-200 hover:transform hover:translate-x-1">
+                <div className="flex items-center gap-3 p-3 rounded-lg hover:bg-sky-50 dark:hover:bg-sky-900/20 cursor-pointer transition-all duration-200 hover:transform hover:translate-x-1">
                   <div className="h-4 w-4 rounded-full bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-secondary)]" />
                   <span className="text-sm text-gray-700 dark:text-gray-300">
                     Search in documents

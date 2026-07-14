@@ -87,10 +87,10 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
 
-  /* brand tokens still used by UI */
-  /* Stronger, crisper blue */
-  --brand-primary: #2563eb; /* tailwind blue-600 */
-  --brand-secondary: #9333ea; /* tailwind purple-600 */
+  /* brand tokens — navy / sky / gold from confederation logo */
+  --brand-primary: #00308e;
+  --brand-secondary: #fed941;
+  --brand-sky: #2f9fe0;
   --brand-primary-10: color-mix(
     in oklab,
     var(--brand-primary) 10%,
@@ -111,6 +111,20 @@
     var(--brand-secondary) 10%,
     transparent
   );
+
+  /* Sidebar navigation (always dark, theme-independent) */
+  --nav-bg: #00308e;
+  --nav-bg-deep: #002670;
+  --nav-active: #fed941;
+  --nav-active-hover: #ffe56a;
+  --nav-active-text: #00308e;
+  --nav-submenu: #fff6da;
+  --nav-submenu-text: #00308e;
+  --nav-hover: rgba(255, 255, 255, 0.08);
+  --nav-text: rgba(255, 255, 255, 0.95);
+  --nav-text-muted: rgba(255, 255, 255, 0.6);
+  --nav-border: rgba(255, 255, 255, 0.1);
+  --footer-bg: #012e91;
 }
 
 .dark {

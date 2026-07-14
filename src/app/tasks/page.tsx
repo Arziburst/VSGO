@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import {
   Target,
   Users,
@@ -11,6 +9,12 @@ import {
   Lightbulb,
   Globe,
 } from "lucide-react";
+import {
+  PageShell,
+  PageHeading,
+  PageCard,
+  PageBadge,
+} from "@/components/home/PageChrome";
 
 export const metadata: Metadata = {
   title: "Confederation tasks",
@@ -75,193 +79,136 @@ export default function Page() {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto space-y-8">
-      {/* Header Section */}
-      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] via-purple-50 to-violet-50 dark:from-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] dark:via-purple-900/20 dark:to-violet-900/20">
-        <CardHeader>
-          <CardTitle className="text-2xl text-[var(--brand-primary)] flex items-center gap-3">
-            <Target className="h-8 w-8" />
-            Завдання ВСГО «Конфедерація ГОІУ»
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
-            ВСГО «Конфедерація ГОІУ» створена з метою об&apos;єднання
-            організацій осіб з інвалідністю для узгодження дій та консолідації
-            їх зусиль, спрямованих на поліпшення становища осіб з інвалідністю в
-            Україні, підвищенню ролі і соціального статусу організацій ВСГО з
-            інвалідністю, утвердження та захисту конституційних прав осіб з
-            інвалідністю, законних соціальних, економічних, творчих,
-            національно-культурних та інших спільних інтересів своїх членів
-            (учасників).
-          </p>
-        </CardContent>
-      </Card>
+    <PageShell>
+      <PageHeading title="Завдання Конфедерації" icon={Target} />
 
-      {/* Mission Statement */}
-      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_5%,transparent)] to-purple-25 dark:from-[color-mix(in_oklab,var(--brand-primary)_15%,transparent)] dark:to-purple-900/15">
-        <CardHeader>
-          <div className="flex items-center gap-3 mb-4">
-            <Badge
-              variant="secondary"
-              className="bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] to-purple-100 dark:from-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] dark:to-purple-800/30 text-[var(--brand-primary)]"
-            >
-              Місія організації
-            </Badge>
-          </div>
-          <CardTitle className="text-xl text-[var(--brand-primary)]">
-            ВСГО «Конфедерація ГОІУ» ставить перед собою наступні завдання:
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {mainTasks.map((task, index) => {
-              const Icon = task.icon;
-              return (
-                <div
-                  key={index}
-                  className="p-6 bg-white dark:bg-gray-800/50 rounded-lg border border-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]"
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <Icon className="h-6 w-6 text-[var(--brand-primary)]" />
-                    <h4 className="text-[var(--brand-primary)] text-lg">
-                      {task.title}
-                    </h4>
-                  </div>
-                  <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                    {task.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </CardContent>
-      </Card>
+      <PageCard tone="soft" className="p-5 md:p-6">
+        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+          ВСГО «Конфедерація ГОІУ» створена з метою об&apos;єднання організацій
+          осіб з інвалідністю для узгодження дій та консолідації їх зусиль,
+          спрямованих на поліпшення становища осіб з інвалідністю в Україні,
+          підвищенню ролі і соціального статусу організацій ВСГО з інвалідністю,
+          утвердження та захисту конституційних прав осіб з інвалідністю,
+          законних соціальних, економічних, творчих, національно-культурних та
+          інших спільних інтересів своїх членів (учасників).
+        </p>
+      </PageCard>
 
-      {/* Additional Tasks */}
-      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-br from-green-50 to-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] dark:from-green-900/20 dark:to-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]">
-        <CardHeader>
-          <div className="flex items-center gap-3 mb-4">
-            <Badge
-              variant="secondary"
-              className="bg-gradient-to-r from-green-200 to-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] dark:from-green-800/50 dark:to-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] text-[var(--brand-primary)]"
-            >
-              Додаткові завдання
-            </Badge>
-          </div>
-          <CardTitle className="text-xl text-[var(--brand-primary)]">
-            Інші важливі напрямки діяльності
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {additionalTasks.map((task, index) => {
-              const Icon = task.icon;
-              return (
-                <div
-                  key={index}
-                  className="p-4 bg-white dark:bg-gray-800/50 rounded-lg border border-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]"
-                >
-                  <div className="flex items-center gap-3 mb-3">
-                    <Icon className="h-5 w-5 text-[var(--brand-primary)]" />
-                    <h4 className="text-[var(--brand-primary)] text-sm">
-                      {task.title}
-                    </h4>
-                  </div>
-                  <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                    {task.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Legal Framework */}
-      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-r from-blue-50 to-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] dark:from-blue-900/20 dark:to-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]">
-        <CardHeader>
-          <CardTitle className="text-xl text-[var(--brand-primary)] flex items-center gap-3">
-            <Gavel className="h-6 w-6" />
-            Для реалізації своєї мети і завдань ВСГО «Конфедерація ГОІУ» у
-            встановленому законодавством порядку може:
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="space-y-4">
-            {organizationalGoals.map((goal, index) => (
+      <PageCard className="p-5 md:p-6 space-y-4">
+        <PageBadge>Місія організації</PageBadge>
+        <h3 className="text-base font-bold text-[var(--brand-primary)]">
+          ВСГО «Конфедерація ГОІУ» ставить перед собою наступні завдання:
+        </h3>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+          {mainTasks.map((task) => {
+            const Icon = task.icon;
+            return (
               <div
-                key={index}
-                className="flex items-start gap-3 p-4 bg-gradient-to-r from-blue-50 to-white dark:from-blue-900/20 dark:to-gray-800/50 rounded-lg border border-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]"
+                key={task.title}
+                className="rounded-lg border border-border p-4"
               >
-                <div className="w-6 h-6 rounded-full bg-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <span className="text-[var(--brand-primary)] text-xs">
-                    {index + 1}
-                  </span>
+                <div className="flex items-center gap-2 mb-2">
+                  <Icon className="h-5 w-5 text-[var(--brand-primary)]" />
+                  <h4 className="text-sm font-bold text-[var(--brand-primary)]">
+                    {task.title}
+                  </h4>
                 </div>
-                <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                  {goal}
+                <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                  {task.description}
                 </p>
               </div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+            );
+          })}
+        </div>
+      </PageCard>
 
-      {/* Additional Activities */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-br from-purple-50 to-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] dark:from-purple-900/20 dark:to-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]">
-          <CardHeader>
-            <CardTitle className="text-lg text-[var(--brand-primary)] flex items-center gap-3">
-              <Globe className="h-6 w-6" />
+      <PageCard className="p-5 md:p-6 space-y-4">
+        <PageBadge>Додаткові завдання</PageBadge>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+          {additionalTasks.map((task) => {
+            const Icon = task.icon;
+            return (
+              <div
+                key={task.title}
+                className="rounded-lg border border-border p-4"
+              >
+                <div className="flex items-center gap-2 mb-2">
+                  <Icon className="h-4 w-4 text-[var(--brand-primary)]" />
+                  <h4 className="text-sm font-bold text-[var(--brand-primary)]">
+                    {task.title}
+                  </h4>
+                </div>
+                <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                  {task.description}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </PageCard>
+
+      <PageCard className="p-5 md:p-6 space-y-4">
+        <div className="flex items-center gap-2">
+          <Gavel className="h-5 w-5 text-[var(--brand-primary)]" />
+          <h3 className="text-base font-bold text-[var(--brand-primary)]">
+            Для реалізації своєї мети і завдань ВСГО «Конфедерація ГОІУ» може:
+          </h3>
+        </div>
+        <div className="space-y-3">
+          {organizationalGoals.map((goal, index) => (
+            <div
+              key={goal}
+              className="flex items-start gap-3 rounded-lg border border-border p-3"
+            >
+              <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[var(--brand-primary)] text-white text-xs font-bold flex-shrink-0">
+                {index + 1}
+              </span>
+              <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                {goal}
+              </p>
+            </div>
+          ))}
+        </div>
+      </PageCard>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <PageCard className="p-5">
+          <div className="flex items-center gap-2 mb-2">
+            <Globe className="h-5 w-5 text-[var(--brand-primary)]" />
+            <h3 className="text-base font-bold text-[var(--brand-primary)]">
               Міжнародна діяльність
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-              Співпрацювання з іншими організаціями та міжнародними громадськими
-              (неурядовими) організаціями осіб з інвалідністю; сприяти
-              правовіданню та навчанню осіб з інвалідністю.
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-br from-orange-50 to-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] dark:from-orange-900/20 dark:to-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]">
-          <CardHeader>
-            <CardTitle className="text-lg text-[var(--brand-primary)] flex items-center gap-3">
-              <Building className="h-6 w-6" />
+            </h3>
+          </div>
+          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+            Співпрацювання з іншими організаціями та міжнародними громадськими
+            (неурядовими) організаціями осіб з інвалідністю; сприяти правовіданню
+            та навчанню осіб з інвалідністю.
+          </p>
+        </PageCard>
+        <PageCard className="p-5">
+          <div className="flex items-center gap-2 mb-2">
+            <Building className="h-5 w-5 text-[var(--brand-primary)]" />
+            <h3 className="text-base font-bold text-[var(--brand-primary)]">
               Розширення мережі
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-              Створювати Представництва та Філії ВСГО «Конфедерація ГОІУ» для
-              розширення можливостей допомоги особам з інвалідністю у різних
-              регіонах України.
-            </p>
-          </CardContent>
-        </Card>
+            </h3>
+          </div>
+          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+            Створювати Представництва та Філії ВСГО «Конфедерація ГОІУ» для
+            розширення можливостей допомоги особам з інвалідністю у різних
+            регіонах України.
+          </p>
+        </PageCard>
       </div>
 
-      {/* Final Note */}
-      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-r from-yellow-50 to-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] dark:from-yellow-900/20 dark:to-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]">
-        <CardContent className="p-6">
-          <div className="flex items-center gap-4 mb-4">
-            <Badge
-              variant="secondary"
-              className="bg-gradient-to-r from-yellow-200 to-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] dark:from-yellow-800/50 dark:to-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] text-[var(--brand-primary)]"
-            >
-              Важливо
-            </Badge>
-          </div>
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-            Усі завдання та цілі ВСГО «Конфедерація ГОІУ» спрямовані на
-            поліпшення якості життя осіб з інвалідністю в Україні, захист їх
-            прав та інтересів, а також створення умов для повноцінної участі у
-            суспільному житті.
-          </p>
-        </CardContent>
-      </Card>
-    </div>
+      <PageCard className="p-5 md:p-6">
+        <PageBadge className="mb-3">Важливо</PageBadge>
+        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+          Усі завдання та цілі ВСГО «Конфедерація ГОІУ» спрямовані на поліпшення
+          якості життя осіб з інвалідністю в Україні, захист їх прав та
+          інтересів, а також створення умов для повноцінної участі у суспільному
+          житті.
+        </p>
+      </PageCard>
+    </PageShell>
   );
 }

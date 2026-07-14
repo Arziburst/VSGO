@@ -1,7 +1,11 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Network } from "lucide-react";
 import { Metadata } from "next";
+import {
+  PageShell,
+  PageHeading,
+  PageCard,
+  PageBadge,
+} from "@/components/home/PageChrome";
 
 export const metadata: Metadata = {
   title: "Structure",
@@ -18,149 +22,105 @@ export default function Page() {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto space-y-8">
-      {/* Combined Information Section */}
-      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] via-purple-50 to-violet-50 dark:from-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] dark:via-purple-900/20 dark:to-violet-900/20">
-        <CardHeader>
-          <CardTitle className="text-2xl text-[var(--brand-primary)] flex items-center gap-3">
-            <Network className="h-8 w-8" />
-            Структура
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          {/* Management Organs */}
-          <div>
-            <div className="flex items-center gap-4 mb-4">
-              <Badge
-                variant="secondary"
-                className="bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] to-purple-100 dark:from-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] dark:to-purple-800/30 text-[var(--brand-primary)]"
-              >
-                Органи управління
-              </Badge>
-            </div>
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg mb-3">
-              Органи управління ВСГО «Конфедерація ГОІУ» є:
-            </p>
-            <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
-              {managementOrgans.map((organ, index) => (
-                <li key={index}>
-                  <span>{organ};</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+    <PageShell>
+      <PageHeading title="Структура" icon={Network} />
 
-          {/* General Assembly */}
-          <div className="pt-4 border-t border-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]">
-            <h3 className="text-xl text-[var(--brand-primary)] mb-3">
-              Загальні Збори
-            </h3>
-            <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-              Загальні Збори є вищим статутним органом ВСГО «Конфедерація ГОІУ»
-              та збираються не менш як раз на п&#39;ять років.
-            </p>
-            <div className="bg-gradient-to-r from-yellow-50 to-[color-mix(in_oklab,var(--brand-primary)_5%,transparent)] dark:from-yellow-900/20 dark:to-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] p-4 rounded-lg border border-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]">
-              <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
-                У період між Загальними Зборами ВСГО «Конфедерація ГОІУ» керує
-                Рада ВСГО «Конфедерація ГОІУ», яка забезпечує виконання
-                статутних завдань, регламентуючих документів ВСГО «Конфедерація
-                ГОІУ», прийнятих Загальними Зборами ВСГО «Конфедерація ГОІУ»,
-                наказів та розпоряджень.
-              </p>
-            </div>
-          </div>
-
-          {/* Management Structure */}
-          <div className="pt-4 border-t border-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {/* President */}
-              <div>
-                <h3 className="text-lg text-[var(--brand-primary)] mb-3">
-                  Президент ВСГО
-                </h3>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  Президент ВСГО «Конфедерація ГОІУ» очолює ВСГО «Конфедерація
-                  ГОІУ», обирається Загальними Зборами ВСГО «Конфедерація ГОІУ»
-                  терміном на п&#39;ять років, підзвітний Загальним Зборам ВСГО
-                  «Конфедерація ГОІУ» та головує на засіданнях Ради ВСГО
-                  «Конфедерація ГОІУ».
-                </p>
-              </div>
-
-              {/* Vice-President */}
-              <div>
-                <h3 className="text-lg text-[var(--brand-primary)] mb-3">
-                  Віце-Президент ВСГО
-                </h3>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  Віце-Президент ВСГО «Конфедерація ГОІУ» обирається Загальними
-                  Зборами ВСГО «Конфедерація ГОІУ» терміном на п&#39;ять років,
-                  підзвітний Загальним Зборам ВСГО «Конфедерація ГОІУ».
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Executive Structure */}
-          <div className="pt-4 border-t border-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {/* Executive Secretary */}
-              <div>
-                <h3 className="text-lg text-[var(--brand-primary)] mb-3">
-                  Виконавчий секретар
-                </h3>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  Виконавчий секретар ВСГО «Конфедерація ГОІУ» обирається
-                  Загальними Зборами ВСГО «Конфедерація ГОІУ» терміном на
-                  п&#39;ять років, підзвітний Загальним Зборам ВСГО
-                  «Конфедерація ГОІУ».
-                </p>
-              </div>
-
-              {/* Executive Committee */}
-              <div>
-                <h3 className="text-lg text-[var(--brand-primary)] mb-3">
-                  Виконавчий комітет
-                </h3>
-                <div className="space-y-3">
-                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                    Виконавчий комітет ВСГО «Конфедерація ГОІУ» призначається
-                    Радою ВСГО «Конфедерація ГОІУ» строком на п&#39;ять років,
-                    підзвітний Загальним Зборам ВСГО «Конфедерація ГОІУ».
-                  </p>
-                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-sm">
-                    Виконавчий секретар ВСГО «Конфедерація ГОІУ» виконує
-                    контрольно-ревізійні функції та діє згідно із Положенням про
-                    Виконавчий секретар ВСГО «Конфедерація ГОІУ» затвердженим
-                    Радою ВСГО «Конфедерація ГОІУ».
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Additional Information */}
-      <Card className="shadow-lg border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-r from-blue-50 to-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] dark:from-blue-900/20 dark:to-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)]">
-        <CardContent className="p-6">
-          <div className="flex items-center gap-4 mb-4">
-            <Badge
-              variant="secondary"
-              className="bg-gradient-to-r from-blue-200 to-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] dark:from-blue-800/50 dark:to-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] text-[var(--brand-primary)]"
-            >
-              Важливо
-            </Badge>
-          </div>
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-            Виконавчий комітет ВСГО «Конфедерація ГОІУ» призначається Радою ВСГО
-            «Конфедерація ГОІУ» строком на п&#39;ять років, підзвітний Загальним
-            Зборам ВСГО «Конфедерація ГОІУ», та Раді ВСГО «Конфедерація ГОІУ»,
-            діє згідно із Положенням про Виконавчий комітет ВСГО «Конфедерація
-            ГОІУ» затвердженим Радою ВСГО «Конфедерація ГОІУ».
+      <PageCard tone="soft" className="p-5 md:p-6 space-y-5">
+        <div>
+          <PageBadge className="mb-3">Органи управління</PageBadge>
+          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
+            Органи управління ВСГО «Конфедерація ГОІУ» є:
           </p>
-        </CardContent>
-      </Card>
-    </div>
+          <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+            {managementOrgans.map((organ) => (
+              <li key={organ} className="flex items-start gap-2">
+                <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[var(--brand-sky)] flex-shrink-0" />
+                <span>{organ};</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="pt-4 border-t border-[var(--brand-primary)]/15">
+          <h3 className="text-base font-bold text-[var(--brand-primary)] mb-2">
+            Загальні Збори
+          </h3>
+          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
+            Загальні Збори є вищим статутним органом ВСГО «Конфедерація ГОІУ»
+            та збираються не менш як раз на п&apos;ять років.
+          </p>
+          <div className="rounded-lg border border-[var(--brand-secondary)]/40 bg-white/70 dark:bg-black/20 p-4">
+            <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+              У період між Загальними Зборами ВСГО «Конфедерація ГОІУ» керує Рада
+              ВСГО «Конфедерація ГОІУ», яка забезпечує виконання статутних
+              завдань, регламентуючих документів ВСГО «Конфедерація ГОІУ»,
+              прийнятих Загальними Зборами ВСГО «Конфедерація ГОІУ», наказів та
+              розпоряджень.
+            </p>
+          </div>
+        </div>
+      </PageCard>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <PageCard className="p-5">
+          <h3 className="text-base font-bold text-[var(--brand-primary)] mb-2">
+            Президент ВСГО
+          </h3>
+          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+            Президент ВСГО «Конфедерація ГОІУ» очолює ВСГО «Конфедерація ГОІУ»,
+            обирається Загальними Зборами ВСГО «Конфедерація ГОІУ» терміном на
+            п&apos;ять років, підзвітний Загальним Зборам ВСГО «Конфедерація
+            ГОІУ» та головує на засіданнях Ради ВСГО «Конфедерація ГОІУ».
+          </p>
+        </PageCard>
+        <PageCard className="p-5">
+          <h3 className="text-base font-bold text-[var(--brand-primary)] mb-2">
+            Віце-Президент ВСГО
+          </h3>
+          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+            Віце-Президент ВСГО «Конфедерація ГОІУ» обирається Загальними Зборами
+            ВСГО «Конфедерація ГОІУ» терміном на п&apos;ять років, підзвітний
+            Загальним Зборам ВСГО «Конфедерація ГОІУ».
+          </p>
+        </PageCard>
+        <PageCard className="p-5">
+          <h3 className="text-base font-bold text-[var(--brand-primary)] mb-2">
+            Виконавчий секретар
+          </h3>
+          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+            Виконавчий секретар ВСГО «Конфедерація ГОІУ» обирається Загальними
+            Зборами ВСГО «Конфедерація ГОІУ» терміном на п&apos;ять років,
+            підзвітний Загальним Зборам ВСГО «Конфедерація ГОІУ».
+          </p>
+        </PageCard>
+        <PageCard className="p-5">
+          <h3 className="text-base font-bold text-[var(--brand-primary)] mb-2">
+            Виконавчий комітет
+          </h3>
+          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-2">
+            Виконавчий комітет ВСГО «Конфедерація ГОІУ» призначається Радою ВСГО
+            «Конфедерація ГОІУ» строком на п&apos;ять років, підзвітний Загальним
+            Зборам ВСГО «Конфедерація ГОІУ».
+          </p>
+          <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+            Виконавчий секретар ВСГО «Конфедерація ГОІУ» виконує
+            контрольно-ревізійні функції та діє згідно із Положенням про
+            Виконавчий секретар ВСГО «Конфедерація ГОІУ» затвердженим Радою ВСГО
+            «Конфедерація ГОІУ».
+          </p>
+        </PageCard>
+      </div>
+
+      <PageCard className="p-5 md:p-6">
+        <PageBadge className="mb-3">Важливо</PageBadge>
+        <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+          Виконавчий комітет ВСГО «Конфедерація ГОІУ» призначається Радою ВСГО
+          «Конфедерація ГОІУ» строком на п&apos;ять років, підзвітний Загальним
+          Зборам ВСГО «Конфедерація ГОІУ», та Раді ВСГО «Конфедерація ГОІУ», діє
+          згідно із Положенням про Виконавчий комітет ВСГО «Конфедерація ГОІУ»
+          затвердженим Радою ВСГО «Конфедерація ГОІУ».
+        </p>
+      </PageCard>
+    </PageShell>
   );
 }

@@ -1,8 +1,9 @@
 "use client";
 
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, Moon, Sun } from "lucide-react";
+import { Menu, Sun, Moon, Eye } from "lucide-react";
 import { useTheme } from "next-themes";
 
 interface HeaderProps {
@@ -10,72 +11,104 @@ interface HeaderProps {
 }
 
 export function Header({ onMenuToggle }: HeaderProps) {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-  const isDark = theme === "dark";
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isDark = mounted && resolvedTheme === "dark";
 
   return (
-    <header className="w-full bg-gradient-to-r from-[var(--brand-primary-10)] via-[var(--brand-secondary-10)] to-[var(--brand-primary-20)] border-b border-border/50 p-4 lg:p-6">
-      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[auto_1fr_auto] items-center gap-4 lg:gap-6">
-        {/* Left controls + Logo */}
-        <div className="flex items-center gap-2">
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="lg:hidden text-[var(--brand-primary)] hover:bg-[var(--brand-primary-10)]"
-            onClick={onMenuToggle}
-          >
-            <Menu className="h-6 w-6" />
-          </Button>
-          {/* Logo Placeholder */}
-          <Avatar className="h-30 w-30 rounded-full border-2 border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)]">
-            <AvatarFallback className="bg-gradient-to-br from-[var(--brand-primary-20)] to-[var(--brand-secondary-10)] text-[var(--brand-primary)]">
-              <div className="flex flex-col items-center">
-                <div className="text-xs">CONF</div>
-                <div className="text-xs">EDER</div>
-              </div>
-            </AvatarFallback>
-          </Avatar>
+    <header
+      className="relative w-full overflow-hidden bg-white dark:bg-[#071845]"
+      style={{
+        backgroundImage: "url(/fon.png)",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center center",
+      }}
+    >
+      <div className="relative z-10 max-w-7xl mx-auto px-4 py-2 md:py-3 flex items-center gap-4 min-h-[120px] md:min-h-[170px] lg:min-h-[200px]">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="lg:hidden text-[var(--brand-primary)] dark:text-white/80 flex-shrink-0"
+          onClick={onMenuToggle}
+        >
+          <Menu className="h-6 w-6" />
+        </Button>
+
+        <div className="relative flex-shrink-0 h-[104px] w-[104px] sm:h-[136px] sm:w-[136px] md:h-[156px] md:w-[156px] lg:h-[184px] lg:w-[184px]">
+          <Image
+            src="/stork.png"
+            alt="VSGO confederation logo"
+            fill
+            sizes="(max-width: 640px) 104px, (max-width: 768px) 136px, (max-width: 1024px) 156px, 184px"
+            priority
+            className="object-contain"
+          />
         </div>
 
-        {/* Organization Name */}
-        <div className="flex-1 text-left md:text-center">
-          <h1 className="text-lg md:text-3xl lg:text-4xl text-[var(--brand-primary)] leading-tight uppercase font-extrabold text-balance">
-            All-Ukrainian Union
+        <div className="flex-1 text-center px-2">
+          <h1 className="text-base sm:text-lg md:text-2xl lg:text-[1.85rem] xl:text-[2.15rem] font-black text-[var(--brand-primary)] dark:text-white uppercase leading-[1.15] tracking-wide">
+            Конфедерація громадських
+            <br />
+            організацій
             <br className="hidden sm:block" />
-            <span className="sm:hidden"> </span>
-            of Public Organizations
+            осіб з інвалідністю України
           </h1>
-          <h2 className="text-base md:text-xl lg:text-3xl text-[var(--brand-secondary)] mt-1 uppercase font-bold text-balance">
-            &quot;Confederation of
-            <br className="hidden sm:block" />
-            <span className="sm:hidden"> </span>
-            Organizations of Persons with Disabilities of Ukraine&quot;
-          </h2>
-
-          {/* Optional: mobile search below title */}
-          {/* <div className="mt-3 md:hidden">
-            <SearchInput placeholder="Search menu..." onSearch={setQuery} />
-          </div> */}
+          <p className="text-sm sm:text-base md:text-lg text-[var(--brand-primary)] dark:text-sky-200 mt-2 font-semibold tracking-[0.18em] uppercase">
+            Єдність. Підтримка. Можливості.
+          </p>
         </div>
 
-        <div className="hidden md:flex items-center gap-2 justify-self-end">
-          {/* Theme Toggle */}
-          <Button
-            variant="ghost"
-            size="icon"
-            aria-label="Toggle theme"
-            className="icon-theme"
-            onClick={() => setTheme(isDark ? "light" : "dark")}
+        <div className="hidden md:flex items-start gap-3 flex-shrink-0 self-start pt-1">
+          <button
+            type="button"
+            className="hidden lg:inline-flex items-center gap-1.5 rounded-full bg-sky-100/90 px-3 py-1.5 text-xs font-medium text-[var(--brand-primary)] hover:bg-sky-200 transition-colors dark:bg-white/10 dark:text-white/80 dark:hover:bg-white/15"
           >
-            {isDark ? (
-              <Sun className="h-5 w-5" />
-            ) : (
-              <Moon className="h-5 w-5" />
-            )}
-          </Button>
+            <Eye className="h-4 w-4 flex-shrink-0" />
+            <span className="whitespace-nowrap">Версія для слабозорих</span>
+          </button>
+
+          <div className="flex items-center gap-2">
+            <Sun
+              className={`h-4 w-4 flex-shrink-0 ${
+                isDark ? "text-amber-500/50" : "text-amber-500"
+              }`}
+            />
+            <button
+              type="button"
+              aria-label="Toggle theme"
+              aria-pressed={isDark}
+              onClick={() => setTheme(isDark ? "light" : "dark")}
+              className="relative h-6 w-11 flex-shrink-0 rounded-full bg-[var(--brand-primary)] dark:bg-sky-700 transition-colors duration-200"
+            >
+              <span
+                className={`absolute top-1 h-4 w-4 rounded-full bg-white shadow transition-all duration-200 ${
+                  isDark ? "left-6" : "left-1"
+                }`}
+              />
+            </button>
+            <Moon
+              className={`h-4 w-4 flex-shrink-0 ${
+                isDark ? "text-sky-300" : "text-[var(--brand-primary)]/50"
+              }`}
+            />
+          </div>
         </div>
+
+        <Button
+          variant="ghost"
+          size="icon"
+          aria-label="Toggle theme"
+          className="md:hidden text-[var(--brand-primary)] dark:text-white/80"
+          onClick={() => setTheme(isDark ? "light" : "dark")}
+        >
+          {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+        </Button>
       </div>
     </header>
   );

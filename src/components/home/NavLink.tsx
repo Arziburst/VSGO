@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
 import type { ComponentType, SVGProps } from "react";
 import {
@@ -63,57 +62,39 @@ interface NavLinkProps {
 }
 
 export function NavLink({ href, label, iconKey, sub }: NavLinkProps) {
-  const Icon = ICONS[iconKey];
+  const Icon = ICONS[iconKey] as ComponentType<{ className?: string }>;
   const pathname = usePathname();
   const isActive = pathname === href;
 
   if (sub) {
     return (
-      <Button
-        asChild
-        variant={isActive ? "default" : "ghost"}
-        className={`w-full justify-start gap-3 h-auto py-2 px-4 ml-6 text-sm ${
+      <Link
+        href={href}
+        aria-current={isActive ? "page" : undefined}
+        className={`flex items-center gap-2 pl-11 pr-4 py-2.5 text-xs transition-colors ${
           isActive
-            ? "bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-secondary)] hover:from-[color-mix(in_oklab,var(--brand-primary)_90%,transparent)] hover:to-[color-mix(in_oklab,var(--brand-secondary)_90%,transparent)] text-white"
-            : "text-[var(--brand-primary)] hover:bg-[var(--brand-primary-10)]"
+            ? "text-[var(--nav-submenu-text)] font-semibold"
+            : "text-[var(--nav-text-muted)] hover:text-[var(--nav-text)] hover:bg-[var(--nav-hover)]"
         }`}
-        data-active={isActive || undefined}
       >
-        <Link
-          href={href}
-          aria-current={isActive ? "page" : undefined}
-          className="flex items-start gap-3 w-full min-w-0"
-        >
-          <Icon className="h-4 w-4 flex-shrink-0 mt-[2px]" />
-          <span className="text-left leading-tight whitespace-normal break-words flex-1 min-w-0">
-            {label}
-          </span>
-        </Link>
-      </Button>
+        <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-sky)] flex-shrink-0" />
+        <span className="leading-tight whitespace-normal break-words">{label}</span>
+      </Link>
     );
   }
 
   return (
-    <Button
-      asChild
-      variant={isActive ? "default" : "ghost"}
-      className={`w-full justify-start gap-3 h-auto py-3 px-4 ${
+    <Link
+      href={href}
+      aria-current={isActive ? "page" : undefined}
+      className={`flex items-center gap-3 px-4 py-3 uppercase transition-colors ${
         isActive
-          ? "bg-gradient-to-r from-[var(--brand-primary)] to-[var(--brand-secondary)] hover:from-[color-mix(in_oklab,var(--brand-primary)_90%,transparent)] hover:to-[color-mix(in_oklab,var(--brand-secondary)_90%,transparent)] text-white"
-          : "text-[var(--brand-primary)] hover:bg-[var(--brand-primary-10)]"
+          ? "bg-[var(--nav-active)] text-[var(--nav-active-text)] font-bold"
+          : "text-[var(--nav-text)] hover:bg-[var(--nav-hover)]"
       }`}
-      data-active={isActive || undefined}
     >
-      <Link
-        href={href}
-        aria-current={isActive ? "page" : undefined}
-        className="flex items-start gap-3 w-full min-w-0"
-      >
-        <Icon className="h-5 w-5 flex-shrink-0 mt-[2px]" />
-        <span className="text-left whitespace-normal break-words flex-1 min-w-0">
-          {label}
-        </span>
-      </Link>
-    </Button>
+      <Icon className="h-5 w-5 flex-shrink-0" />
+      <span className="text-sm leading-snug whitespace-normal break-words">{label}</span>
+    </Link>
   );
 }

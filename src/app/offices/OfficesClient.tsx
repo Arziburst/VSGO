@@ -1,13 +1,112 @@
 "use client";
 
 import { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { MapPin, Phone, Search, Building2, Eye, EyeOff } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Search,
+  Building2,
+  Eye,
+  EyeOff,
+  Filter,
+  Users,
+} from "lucide-react";
 import UkraineStaticMap from "./UkraineStaticMap";
 import { regionalOffices } from "@/constants";
+
+function findOffice(selectedRegion: string | null) {
+  if (!selectedRegion) return null;
+  const q = selectedRegion.toLowerCase();
+  return (
+    regionalOffices.find((o) => {
+      const r = o.region.toLowerCase().replace(" область", "");
+      return r === q || o.region.toLowerCase().includes(q) || q.includes(r);
+    }) ?? null
+  );
+}
+
+interface RightPanelProps {
+  selectedRegion: string | null;
+  onClear: () => void;
+}
+
+function RightPanel({ selectedRegion, onClear }: RightPanelProps) {
+  const office = findOffice(selectedRegion);
+
+  if (!selectedRegion) {
+    return (
+      <div className="flex flex-col items-center justify-center gap-3 py-12 px-4 text-center bg-gray-50 dark:bg-gray-900/50 border-l border-border">
+        <MapPin className="h-10 w-10 text-gray-300 dark:text-gray-600" />
+        <p className="text-sm text-gray-400 dark:text-gray-500">
+          Оберіть область або місто на карті
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex flex-col border-l border-border bg-white dark:bg-gray-900 min-h-[400px]">
+      <div
+        className="px-3 py-2.5 flex items-center gap-2"
+        style={{ background: "var(--nav-active)" }}
+      >
+        <MapPin className="h-4 w-4 text-[var(--nav-active-text)] flex-shrink-0" />
+        <span className="text-[var(--nav-active-text)] text-xs font-bold uppercase tracking-wide">
+          Обрана область / місто
+        </span>
+        <button
+          onClick={onClear}
+          className="ml-auto text-[var(--nav-active-text)]/60 hover:text-[var(--nav-active-text)] text-xs"
+          aria-label="Clear selection"
+        >
+          ✕
+        </button>
+      </div>
+
+      <div className="px-3 pt-3 pb-2 border-b border-border">
+        <p className="text-lg font-bold text-[var(--brand-primary)] dark:text-white uppercase">
+          {office?.region ?? selectedRegion}
+        </p>
+        <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 flex items-center gap-1">
+          <Users className="h-3 w-3" />
+          Організацій у регіоні: {office ? 1 : 0}
+        </p>
+      </div>
+
+      {office ? (
+        <div className="mx-3 my-3 rounded-lg border border-[var(--brand-sky)]/30 bg-[var(--brand-sky)]/10 px-3 py-3 space-y-2">
+          <div className="flex items-start gap-2">
+            <Building2 className="h-4 w-4 text-[var(--brand-primary)] mt-0.5 flex-shrink-0" />
+            <p className="text-xs font-semibold text-[var(--brand-primary)] dark:text-sky-200 leading-snug">
+              {office.contact}
+            </p>
+          </div>
+          <div className="flex items-start gap-2">
+            <MapPin className="h-4 w-4 text-[var(--brand-sky)] mt-0.5 flex-shrink-0" />
+            <span className="text-xs text-gray-600 dark:text-gray-400 leading-snug">
+              {office.address}
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Phone className="h-4 w-4 text-[var(--brand-sky)] flex-shrink-0" />
+            <span className="text-xs text-gray-600 dark:text-gray-400">
+              {office.phone}
+            </span>
+          </div>
+        </div>
+      ) : (
+        <div className="flex-1 flex items-center justify-center p-4">
+          <p className="text-xs text-gray-400 text-center">
+            Представництво не знайдено
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function OfficesClient() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -41,187 +140,178 @@ export default function OfficesClient() {
   });
 
   return (
-    <div className="max-w-7xl mx-auto space-y-8">
-      <Card className="shadow-xl border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] via-purple-50 to-violet-50 dark:from-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] dark:via-purple-900/20 dark:to-violet-900/20">
-        <CardHeader>
-          <CardTitle className="text-3xl text-[var(--brand-primary)] flex items-center gap-3">
-            <Building2 className="h-8 w-8" />
+    <div className="space-y-4">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2 flex-1 min-w-0">
+          <h2 className="text-xl md:text-2xl font-extrabold text-[var(--brand-primary)] dark:text-white uppercase tracking-wide">
             Відокремлені підрозділи
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-wrap items-center gap-4 mb-6">
-            <Badge
-              variant="secondary"
-              className="bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] to-purple-100 dark:from-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] dark:to-purple-800/30 text-[var(--brand-primary)]"
-            >
-              {regionalOffices.length} представництв
-            </Badge>
-            <Badge
-              variant="outline"
-              className="border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] text-[var(--brand-primary)]"
-            >
-              24 області України
-            </Badge>
+          </h2>
+          <Badge className="bg-[var(--brand-primary)] text-white border-0 text-xs">
+            <Users className="h-3 w-3 mr-1" />
+            {regionalOffices.length} представництв
+          </Badge>
+          <Badge
+            variant="outline"
+            className="border-[var(--brand-primary)] text-[var(--brand-primary)] dark:border-gray-500 dark:text-gray-300 text-xs"
+          >
+            <MapPin className="h-3 w-3 mr-1" />
+            24 областей України
+          </Badge>
+        </div>
+        <div className="flex gap-2">
+          <div className="relative">
+            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-400" />
+            <Input
+              placeholder="Пошук за областю, містом або назвою організації..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-9 h-9 text-sm w-64 lg:w-80"
+            />
           </div>
+          <Button
+            variant="outline"
+            size="sm"
+            className="h-9 gap-1.5 text-sm border-gray-300 dark:border-gray-600"
+          >
+            <Filter className="h-4 w-4" />
+            Фільтри
+          </Button>
+        </div>
+      </div>
 
-          <p className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg mb-6">
-            Мережа представництв Всеукраїнської спілки громадських організацій
-            «Конфедерація громадських організацій інвалідів України» охоплює всі
-            області України.
-          </p>
+      <div className="rounded-xl border border-border overflow-hidden bg-white dark:bg-gray-900 shadow-sm">
+        <div className="flex items-center justify-between px-4 py-2.5 border-b border-border bg-gray-50 dark:bg-gray-800/50">
+          <h3 className="text-xs font-bold uppercase text-[var(--brand-primary)] dark:text-gray-300 tracking-widest flex items-center gap-2">
+            <MapPin className="h-4 w-4" />
+            Інтерактивна карта підрозділів
+          </h3>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setShowMap(!showMap)}
+            className="h-7 text-xs gap-1.5 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
+          >
+            {showMap ? (
+              <EyeOff className="h-3.5 w-3.5" />
+            ) : (
+              <Eye className="h-3.5 w-3.5" />
+            )}
+            {showMap ? "Сховати карту" : "Показати карту"}
+          </Button>
+        </div>
 
-          <div className="flex flex-col sm:flex-row gap-4">
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-3 h-4 w-4 text-[var(--brand-primary)]" />
-              <Input
-                placeholder="Пошук за областю, адресою або телефоном..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] focus:ring-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] focus:border-[var(--brand-primary)]"
+        {showMap && (
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_280px]">
+            <div className="p-3">
+              <UkraineStaticMap
+                selectedRegion={selectedRegion ?? undefined}
+                onRegionSelect={(r) => setSelectedRegion(r || null)}
               />
             </div>
-
-            <Button
-              variant="outline"
-              onClick={() => setShowMap(!showMap)}
-              className="border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] text-[var(--brand-primary)] hover:bg-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)]"
-            >
-              {showMap ? (
-                <EyeOff className="h-4 w-4 mr-2" />
-              ) : (
-                <Eye className="h-4 w-4 mr-2" />
-              )}
-              {showMap ? "Сховати карту" : "Показати карту"}
-            </Button>
+            <RightPanel
+              selectedRegion={selectedRegion}
+              onClear={() => setSelectedRegion(null)}
+            />
           </div>
-        </CardContent>
-      </Card>
+        )}
+      </div>
 
-      {showMap && (
-        <Card className="shadow-xl border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)]">
-          <CardHeader>
-            <CardTitle className="text-xl text-[var(--brand-primary)] flex items-center gap-3">
-              <MapPin className="h-6 w-6" />
-              Інтерактивна карта представництв
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <UkraineStaticMap />
-          </CardContent>
-        </Card>
-      )}
+      <div className="space-y-3">
+        {searchQuery && (
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            Знайдено: {filteredOffices.length} з {regionalOffices.length}
+          </p>
+        )}
 
-      <Card className="shadow-xl border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)]">
-        <CardHeader>
-          <CardTitle className="text-xl text-[var(--brand-primary)] flex items-center gap-3">
-            <Building2 className="h-6 w-6" />
-            Список всіх представництв
-            {filteredOffices.length !== regionalOffices.length && (
-              <Badge variant="secondary" className="ml-2">
-                {filteredOffices.length} з {regionalOffices.length}
-              </Badge>
-            )}
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-6">
-            {filteredOffices.map((office, index) => (
-              <Card
-                key={office.region}
-                className={`transition-all duration-300 hover:shadow-lg ${
-                  selectedRegion === office.region
-                    ? "border-[var(--brand-primary)] bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_5%,transparent)] to-purple-50 dark:from-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)] dark:to-purple-900/10"
-                    : "border-border hover:border-[color-mix(in_oklab,var(--brand-primary)_50%,transparent)]"
-                }`}
-              >
-                <CardContent className="p-6">
-                  <div className="flex flex-col lg:flex-row lg:items-start gap-4">
-                    <div className="flex-1">
-                      <div className="flex flex-wrap items-center gap-2 mb-3">
-                        <Badge
-                          variant="outline"
-                          className={`${
-                            selectedRegion === office.region
-                              ? "border-[var(--brand-primary)] text-[var(--brand-primary)] bg-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)]"
-                              : "border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] text-[var(--brand-primary)]"
-                          }`}
-                        >
-                          #{index + 1}
-                        </Badge>
-                        <Badge
-                          variant="secondary"
-                          className="bg-gradient-to-r from-[color-mix(in_oklab,var(--brand-primary)_20%,transparent)] to-purple-100 dark:from-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] dark:to-purple-800/30 text-[var(--brand-primary)]"
-                        >
-                          {office.region}
-                        </Badge>
-                      </div>
+        {filteredOffices.map((office, index) => (
+          <div
+            key={office.region}
+            className={`rounded-xl border bg-white dark:bg-gray-900 shadow-sm overflow-hidden transition-all hover:shadow-md ${
+              selectedRegion &&
+              (office.region.includes(selectedRegion) ||
+                selectedRegion.includes(
+                  office.region.replace(" область", "")
+                ))
+                ? "border-[var(--nav-active)] ring-1 ring-[var(--nav-active)]/20"
+                : "border-border"
+            }`}
+          >
+            <div className="p-4">
+              <div className="flex flex-col lg:flex-row lg:items-start gap-4">
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
+                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[var(--brand-primary)] text-white text-xs font-bold flex-shrink-0">
+                      {index + 1}
+                    </span>
+                    <Badge
+                      variant="secondary"
+                      className="text-xs bg-[var(--brand-primary-10)] text-[var(--brand-primary)] dark:bg-white/10 dark:text-white"
+                    >
+                      {office.region}
+                    </Badge>
+                  </div>
 
-                      <h3 className="text-lg text-[var(--brand-primary)] mb-2 leading-tight">
-                        {office.name}
-                      </h3>
+                  <p className="text-xs font-semibold text-[var(--brand-primary)] dark:text-gray-200 mb-3 leading-snug">
+                    {office.contact}
+                  </p>
 
-                      <p className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
-                        {office.contact}
-                      </p>
-
-                      <div className="space-y-3">
-                        <div className="flex items-start gap-3">
-                          <MapPin className="h-5 w-5 text-[var(--brand-primary)] mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-700 dark:text-gray-300">
-                            {office.address}
-                          </span>
-                        </div>
-
-                        <div className="flex items-center gap-3">
-                          <Phone className="h-5 w-5 text-[var(--brand-primary)] flex-shrink-0" />
-                          <span className="text-gray-700 dark:text-gray-300">
-                            {office.phone}
-                          </span>
-                        </div>
-                      </div>
+                  <div className="space-y-1.5">
+                    <div className="flex items-start gap-2">
+                      <MapPin className="h-4 w-4 text-[var(--brand-sky)] mt-0.5 flex-shrink-0" />
+                      <span className="text-sm text-gray-600 dark:text-gray-400">
+                        {office.address}
+                      </span>
                     </div>
-
-                    <div className="flex flex-col gap-2 lg:w-auto">
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="text-[var(--brand-primary)] hover:bg-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)]"
-                        onClick={() => {
-                          const phoneNumber = office.phone
-                            .split(",")[0]
-                            .replace(/[^\d+]/g, "");
-                          window.open(`tel:${phoneNumber}`, "_self");
-                        }}
-                      >
-                        <Phone className="h-4 w-4 mr-2" />
-                        Подзвонити
-                      </Button>
+                    <div className="flex items-center gap-2">
+                      <Phone className="h-4 w-4 text-[var(--brand-sky)] flex-shrink-0" />
+                      <span className="text-sm text-gray-600 dark:text-gray-400">
+                        {office.phone}
+                      </span>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                </div>
 
-          {filteredOffices.length === 0 && (
-            <div className="text-center py-12">
-              <div className="text-gray-500 dark:text-gray-400 mb-4">
-                <Building2 className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                <p className="text-lg">Представництв не знайдено</p>
-                <p className="text-sm">Спробуйте змінити пошуковий запит</p>
+                <div className="flex flex-col gap-2 lg:w-auto">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="text-xs border-[var(--brand-primary)]/30 text-[var(--brand-primary)] dark:border-gray-600 dark:text-gray-300 hover:bg-[var(--brand-primary-10)] dark:hover:bg-white/10"
+                    onClick={() => {
+                      const phoneNumber = office.phone
+                        .split(",")[0]
+                        .replace(/[^\d+]/g, "");
+                      window.open(`tel:${phoneNumber}`, "_self");
+                    }}
+                  >
+                    <Phone className="h-3.5 w-3.5 mr-1" />
+                    Подзвонити
+                  </Button>
+                </div>
               </div>
-              <Button
-                variant="outline"
-                onClick={() => setSearchQuery("")}
-                className="border-[color-mix(in_oklab,var(--brand-primary)_30%,transparent)] text-[var(--brand-primary)] hover:bg-[color-mix(in_oklab,var(--brand-primary)_10%,transparent)]"
-              >
-                Очистити пошук
-              </Button>
             </div>
-          )}
-        </CardContent>
-      </Card>
+          </div>
+        ))}
+
+        {filteredOffices.length === 0 && (
+          <div className="text-center py-12 rounded-xl border border-border bg-white dark:bg-gray-900">
+            <Building2 className="h-10 w-10 mx-auto mb-3 text-gray-300 dark:text-gray-600" />
+            <p className="text-gray-500 dark:text-gray-400 text-sm mb-1">
+              Представництв не знайдено
+            </p>
+            <p className="text-gray-400 dark:text-gray-600 text-xs mb-4">
+              Спробуйте змінити пошуковий запит
+            </p>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => setSearchQuery("")}
+              className="text-xs"
+            >
+              Очистити пошук
+            </Button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

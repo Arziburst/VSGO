@@ -106,18 +106,20 @@ export default function RootLayout({
             storageKey={THEME_STORAGE_KEY}
           >
             <SidebarSearchProvider>
-              <MobileChrome />
-              <div className="mx-auto max-w-7xl px-4 py-6">
-                <div className="grid grid-cols-12 gap-6">
-                  <aside className="hidden lg:block lg:col-span-3">
-                    <Sidebar />
-                  </aside>
-                  <div className="col-span-12 lg:col-span-9 space-y-6">
-                    <TooltipProvider>{children}</TooltipProvider>
+              <div className="flex min-h-screen flex-col">
+                <MobileChrome />
+                <div className="mx-auto w-full max-w-7xl flex-1 px-4 pt-5 pb-8">
+                  <div className="grid grid-cols-12 gap-5">
+                    <aside className="hidden lg:block lg:col-span-3">
+                      <Sidebar />
+                    </aside>
+                    <div className="col-span-12 lg:col-span-9">
+                      <TooltipProvider>{children}</TooltipProvider>
+                    </div>
                   </div>
                 </div>
+                <Footer />
               </div>
-              <Footer />
               <Toaster />
             </SidebarSearchProvider>
           </ThemeProvider>

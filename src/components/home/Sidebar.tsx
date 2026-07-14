@@ -1,13 +1,15 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Home,
   Info,
   Users,
   Building2,
   ScrollText,
-  Settings,
+  Activity,
   Camera,
   Newspaper,
   Phone,
@@ -16,12 +18,11 @@ import {
   UserCheck,
   Scale,
   Target,
+  ChevronDown,
+  ChevronRight,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { NavLink } from "@/components/home/NavLink";
-import { useSidebarSearch } from "@/context/SidebarSearchContext";
 import {
+  ROUTE_ROOT,
   ROUTE_MEMBERS,
   ROUTE_OFFICES,
   ROUTE_LEGISLATION,
@@ -36,146 +37,242 @@ import {
   ROUTE_TASKS,
 } from "@/constants";
 
-const menuItems = [
-  { icon: Home, label: "Головна", active: true },
-  { icon: Info, label: "Про Конфедерацію", expandable: true },
-  { icon: Users, label: "Члени Конфедерації" },
-  { icon: Building2, label: "Відокремлені підрозділи" },
-  { icon: ScrollText, label: "Законодавство" },
-  { icon: Settings, label: "Наша діяльність" },
-  { icon: Camera, label: "Фотогалерея" },
-  { icon: Newspaper, label: "Новини" },
-  { icon: Phone, label: "Контакти" },
+const ABOUT_ITEMS = [
+  { label: "Статус", href: ROUTE_STATUS, icon: FileText },
+  { label: "Структура", href: ROUTE_STRUCTURE, icon: Network },
+  { label: "Умови вступу", href: ROUTE_MEMBERSHIP, icon: UserCheck },
+  { label: "Права та обов'язки", href: ROUTE_RIGHTS, icon: Scale },
+  { label: "Завдання Конфедерації", href: ROUTE_TASKS, icon: Target },
 ];
 
-const confederationSubItems = [
-  { icon: FileText, label: "Статус" },
-  { icon: Network, label: "Структура" },
-  { icon: UserCheck, label: "Умови вступу" },
-  { icon: Scale, label: "Права та обов’язки" },
-  { icon: Target, label: "Завдання Конфедерації" },
+const OFFICES_ITEMS = [
+  { label: "Обласні організації", href: ROUTE_OFFICES },
 ];
+
+const ABOUT_ROUTES = new Set<string>([
+  ROUTE_STATUS,
+  ROUTE_STRUCTURE,
+  ROUTE_MEMBERSHIP,
+  ROUTE_RIGHTS,
+  ROUTE_TASKS,
+]);
+
+interface NavItemProps {
+  href: string;
+  label: string;
+  icon: React.ComponentType<{ className?: string }>;
+  isActive: boolean;
+  onSelect: () => void;
+}
+
+function NavItem({ href, label, icon: Icon, isActive, onSelect }: NavItemProps) {
+  return (
+    <Link
+      href={href}
+      aria-current={isActive ? "page" : undefined}
+      onClick={onSelect}
+      className={`flex items-center gap-3 px-4 py-3 transition-colors uppercase ${
+        isActive
+          ? "bg-[var(--nav-active)] text-[var(--nav-active-text)] font-bold"
+          : "text-[var(--nav-text)] hover:bg-[var(--nav-hover)]"
+      }`}
+    >
+      <Icon className="h-5 w-5 flex-shrink-0" />
+      <span className="text-sm leading-snug whitespace-normal break-words">
+        {label}
+      </span>
+    </Link>
+  );
+}
+
+interface ExpandableItemProps {
+  label: string;
+  icon: React.ComponentType<{ className?: string }>;
+  isHighlighted: boolean;
+  isExpanded: boolean;
+  onToggle: () => void;
+  children?: React.ReactNode;
+}
+
+function ExpandableItem({
+  label,
+  icon: Icon,
+  isHighlighted,
+  isExpanded,
+  onToggle,
+  children,
+}: ExpandableItemProps) {
+  return (
+    <div>
+      <button
+        type="button"
+        onClick={onToggle}
+        className={`w-full flex items-center gap-3 px-4 py-3 transition-colors uppercase ${
+          isHighlighted
+            ? "bg-[var(--nav-active)] text-[var(--nav-active-text)] font-bold"
+            : "text-[var(--nav-text)] hover:bg-[var(--nav-hover)]"
+        }`}
+      >
+        <Icon className="h-5 w-5 flex-shrink-0" />
+        <span className="flex-1 text-left text-sm leading-snug">{label}</span>
+        {isExpanded ? (
+          <ChevronDown className="h-4 w-4 flex-shrink-0 opacity-70" />
+        ) : (
+          <ChevronRight className="h-4 w-4 flex-shrink-0 opacity-70" />
+        )}
+      </button>
+      {isExpanded && children && (
+        <div className="bg-[var(--nav-submenu)]">{children}</div>
+      )}
+    </div>
+  );
+}
 
 export function Sidebar() {
-  const { query } = useSidebarSearch();
-  const q = query.trim().toLowerCase();
-  const routeByLabel: Record<string, string> = {
-    "Члени Конфедерації": ROUTE_MEMBERS,
-    "Відокремлені підрозділи": ROUTE_OFFICES,
-    Законодавство: ROUTE_LEGISLATION,
-    "Наша діяльність": ROUTE_ACTIVITIES,
-    Фотогалерея: ROUTE_GALLERY,
-    Новини: ROUTE_NEWS,
-    Контакти: ROUTE_CONTACTS,
+  const pathname = usePathname();
+  const isOnAbout = ABOUT_ROUTES.has(pathname);
+  const isOnOffices = pathname === ROUTE_OFFICES;
+
+  const [aboutOpen, setAboutOpen] = useState(isOnAbout);
+  const [officesOpen, setOfficesOpen] = useState(isOnOffices);
+  const [pendingPath, setPendingPath] = useState<string | null>(null);
+
+  const currentPath = pendingPath ?? pathname;
+  const accordionOpen = aboutOpen || officesOpen;
+
+  useEffect(() => {
+    setPendingPath(null);
+    setAboutOpen(ABOUT_ROUTES.has(pathname));
+    setOfficesOpen(pathname === ROUTE_OFFICES);
+  }, [pathname]);
+
+  const selectLeaf = (href: string) => {
+    setAboutOpen(false);
+    setOfficesOpen(false);
+    setPendingPath(href);
   };
 
-  const aboutRouteByLabel: Record<string, string> = {
-    Статус: ROUTE_STATUS,
-    Структура: ROUTE_STRUCTURE,
-    "Умови вступу": ROUTE_MEMBERSHIP,
-    "Права та обов’язки": ROUTE_RIGHTS,
-    "Завдання Конфедерації": ROUTE_TASKS,
-  };
-
-  const getSubIconKey = (label: string) => {
-    switch (label) {
-      case "Статус":
-        return "fileText" as const;
-      case "Структура":
-        return "network" as const;
-      case "Умови вступу":
-        return "userCheck" as const;
-      case "Права та обов’язки":
-        return "scale" as const;
-      default:
-        return "target" as const;
-    }
-  };
-
-  const getIconKey = (label: string) => {
-    switch (label) {
-      case "Члени Конфедерації":
-        return "users" as const;
-      case "Відокремлені підрозділи":
-        return "building2" as const;
-      case "Законодавство":
-        return "scrollText" as const;
-      case "Наша діяльність":
-        return "settings" as const;
-      case "Фотогалерея":
-        return "camera" as const;
-      case "Новини":
-        return "newspaper" as const;
-      default:
-        return "phone" as const;
-    }
-  };
-
-  const filteredConfederationSubItems = useMemo(() => {
-    if (!q) return confederationSubItems;
-    return confederationSubItems.filter((s) =>
-      s.label.toLowerCase().includes(q)
-    );
-  }, [q]);
-
-  const filteredMenuItems = useMemo(() => {
-    if (!q) return menuItems.filter((m) => !m.expandable && !m.active);
-    return menuItems
-      .filter((m) => !m.expandable && !m.active)
-      .filter((m) => m.label.toLowerCase().includes(q));
-  }, [q]);
+  const isLeafActive = (href: string) =>
+    currentPath === href && !accordionOpen;
 
   return (
-    <div className="pt-0 px-4 pb-4 min-w-0">
-      <div className="rounded-2xl border border-[color-mix(in_oklab,var(--brand-primary)_35%,transparent)]/70 min-w-0">
-        <Card className="p-4 shadow-lg border-0 rounded-2xl bg-card min-w-0 overflow-hidden">
-          <h3 className="text-lg text-[var(--brand-primary)] mb-4 text-center">
-            Меню
-          </h3>
+    <div
+      className="rounded-xl overflow-hidden shadow-md"
+      style={{ background: "var(--nav-bg)" }}
+    >
+      <nav>
+        <NavItem
+          href={ROUTE_ROOT}
+          label="Головна"
+          icon={Home}
+          isActive={isLeafActive(ROUTE_ROOT)}
+          onSelect={() => selectLeaf(ROUTE_ROOT)}
+        />
 
-          <nav className="space-y-2 min-w-0">
-            {/* Home */}
-            <NavLink href="/" label="Головна" iconKey="home" />
+        <ExpandableItem
+          label="Про Конфедерацію"
+          icon={Info}
+          isHighlighted={aboutOpen}
+          isExpanded={aboutOpen}
+          onToggle={() => {
+            setPendingPath(null);
+            setOfficesOpen(false);
+            setAboutOpen((v) => !v);
+          }}
+        >
+          {ABOUT_ITEMS.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              onClick={() => setPendingPath(item.href)}
+              className={`flex items-center gap-2 pl-11 pr-4 py-2.5 text-xs transition-colors ${
+                currentPath === item.href
+                  ? "text-[var(--nav-submenu-text)] font-semibold"
+                  : "text-[var(--nav-submenu-text)]/80 hover:bg-black/5"
+              }`}
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-sky)] flex-shrink-0" />
+              {item.label}
+            </Link>
+          ))}
+        </ExpandableItem>
 
-            {/* About Confederation always expanded */}
-            <div>
-              <Button
-                asChild
-                variant="ghost"
-                className="w-full justify-start gap-3 h-auto py-3 px-4 text-[var(--brand-primary)] hover:bg-[var(--brand-primary-10)]"
-              >
-                <div className="flex items-center w-full min-w-0">
-                  <Info className="h-5 w-5 flex-shrink-0" />
-                  <span className="text-left flex-1 whitespace-normal break-words min-w-0">
-                    Про Конфедерацію
-                  </span>
-                </div>
-              </Button>
-              <div className="space-y-1 mt-1">
-                {filteredConfederationSubItems.map((subItem, subIndex) => (
-                  <NavLink
-                    key={subIndex}
-                    href={aboutRouteByLabel[subItem.label] ?? "/"}
-                    label={subItem.label}
-                    iconKey={getSubIconKey(subItem.label)}
-                    sub
-                  />
-                ))}
-              </div>
-            </div>
+        <NavItem
+          href={ROUTE_MEMBERS}
+          label="Члени Конфедерації"
+          icon={Users}
+          isActive={isLeafActive(ROUTE_MEMBERS)}
+          onSelect={() => selectLeaf(ROUTE_MEMBERS)}
+        />
 
-            {/* Other menu items */}
-            {filteredMenuItems.map((item, index) => (
-              <NavLink
-                key={index}
-                href={routeByLabel[item.label] ?? "/"}
-                label={item.label}
-                iconKey={getIconKey(item.label)}
-              />
-            ))}
-          </nav>
-        </Card>
-      </div>
+        <ExpandableItem
+          label="Відокремлені підрозділи"
+          icon={Building2}
+          isHighlighted={officesOpen}
+          isExpanded={officesOpen}
+          onToggle={() => {
+            setPendingPath(null);
+            setAboutOpen(false);
+            setOfficesOpen((v) => !v);
+          }}
+        >
+          {OFFICES_ITEMS.map((item) => (
+            <Link
+              key={item.label}
+              href={item.href}
+              onClick={() => setPendingPath(item.href)}
+              className={`flex items-center gap-2 pl-11 pr-4 py-2.5 text-xs transition-colors ${
+                currentPath === item.href
+                  ? "text-[var(--nav-submenu-text)] font-semibold"
+                  : "text-[var(--nav-submenu-text)]/85 hover:bg-black/5"
+              }`}
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--brand-sky)] flex-shrink-0" />
+              {item.label}
+            </Link>
+          ))}
+        </ExpandableItem>
+
+        <NavItem
+          href={ROUTE_LEGISLATION}
+          label="Законодавство"
+          icon={ScrollText}
+          isActive={isLeafActive(ROUTE_LEGISLATION)}
+          onSelect={() => selectLeaf(ROUTE_LEGISLATION)}
+        />
+
+        <NavItem
+          href={ROUTE_ACTIVITIES}
+          label="Наша діяльність"
+          icon={Activity}
+          isActive={isLeafActive(ROUTE_ACTIVITIES)}
+          onSelect={() => selectLeaf(ROUTE_ACTIVITIES)}
+        />
+
+        <NavItem
+          href={ROUTE_GALLERY}
+          label="Фотогалерея"
+          icon={Camera}
+          isActive={isLeafActive(ROUTE_GALLERY)}
+          onSelect={() => selectLeaf(ROUTE_GALLERY)}
+        />
+
+        <NavItem
+          href={ROUTE_NEWS}
+          label="Новини"
+          icon={Newspaper}
+          isActive={isLeafActive(ROUTE_NEWS)}
+          onSelect={() => selectLeaf(ROUTE_NEWS)}
+        />
+
+        <NavItem
+          href={ROUTE_CONTACTS}
+          label="Контакти"
+          icon={Phone}
+          isActive={isLeafActive(ROUTE_CONTACTS)}
+          onSelect={() => selectLeaf(ROUTE_CONTACTS)}
+        />
+      </nav>
     </div>
   );
 }
