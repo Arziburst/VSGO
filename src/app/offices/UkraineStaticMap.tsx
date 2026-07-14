@@ -126,7 +126,7 @@ export default function UkraineStaticMap({
                 className={`select-none pointer-events-none font-medium ${
                   selected ? "fill-black" : "fill-white dark:fill-gray-100"
                 }`}
-                style={{ fontSize: isKyivOblast(loc.name) ? 14 : 11 }}
+                style={{ fontSize: isKyivOblast(loc.name) ? 20 : 17 }}
               >
                 {toUA(loc.name)}
               </text>
