@@ -150,7 +150,7 @@ export default function RootLayout({
             <SidebarSearchProvider>
               <div className="flex min-h-screen flex-col">
                 <MobileChrome />
-                <div className="mx-auto w-full max-w-7xl flex-1 px-4 pt-5 pb-8">
+                <div className="mx-auto w-full max-w-[1600px] flex-1 px-4 pt-5 pb-8">
                   <div className="grid grid-cols-12 gap-5">
                     <aside className="hidden lg:block lg:col-span-3">
                       <Sidebar />

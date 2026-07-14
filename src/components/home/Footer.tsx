@@ -4,7 +4,7 @@ import { Facebook, Mail } from "lucide-react";
 export function Footer() {
   return (
     <footer className="w-full" style={{ background: "var(--footer-bg)" }}>
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-5 text-base sm:flex-row sm:gap-3">
+      <div className="mx-auto flex max-w-[1600px] flex-col items-center justify-between gap-4 px-4 py-5 text-base sm:flex-row sm:gap-3">
         <p className="text-center text-base leading-relaxed text-white/85 sm:text-left">
           © 2026 Конфедерація громадських організацій осіб з інвалідністю України.
           Усі права захищені.

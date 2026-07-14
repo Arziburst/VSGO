@@ -94,7 +94,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
         backgroundPosition: "center center",
       }}
     >
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-3 py-3 sm:px-4 md:py-4">
+      <div className="relative z-10 mx-auto w-full max-w-[1600px] px-3 py-3 sm:px-4 md:py-4">
         <div className="relative flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-10 xl:gap-12">
           <div className="flex shrink-0 items-center justify-between gap-2 lg:justify-start">
             <Button

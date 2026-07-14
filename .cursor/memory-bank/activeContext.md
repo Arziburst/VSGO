@@ -1,5 +1,5 @@
 - Sidebar: leaf clicks close accordions + set `pendingPath` so yellow moves immediately (before Next.js pathname updates). Expandable yellow only when `aboutOpen`/`officesOpen`, not from route alone.
-- Layout uses `max-w-7xl` (~1280px); on wide monitors content looks “small” with large side gutters.
+- Layout uses `max-w-[1600px]` (was `max-w-7xl` ~1280px) for header/main/footer — less empty side gutters on wide monitors.
 - Header «Доступність» toggles `html.a11y`: grayscale/B&W; when on, shows A−/A+ with 4 scale steps (`1 → 1.15 → 1.3 → 1.45`, three enlarge clicks). «Стандартна версія» exits a11y and resets `--font-scale` to 1.
 - Site font is **Proba Pro** via `next/font/local`; base `html` **18px**, body weight 500; page body copy `text-base md:text-lg` (was `text-sm`).
 - Header: title `flex-col items-center`; more gap/padding vs logo; slightly smaller logo + title so text doesn’t overlap circular logo.
