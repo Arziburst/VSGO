@@ -17,7 +17,8 @@ interface UkraineStaticMapProps {
 
 const MAP_BLUE = "#80b2ee";
 const MAP_YELLOW = "#fece3c";
-const MAP_SELECTED = "#0b54ca";
+const MAP_BLUE_SELECTED = "#0b54ca";
+const MAP_YELLOW_SELECTED = "#d4a017";
 const MAP_CRIMEA = "#eae5e2";
 
 const YELLOW_REGION_IDS = new Set([
@@ -37,10 +38,20 @@ function isCrimeaRegion(name: string, id: string) {
   return /crimea|крим|sevastopol|севастополь/.test(key);
 }
 
+function isYellowRegion(id: string) {
+  return YELLOW_REGION_IDS.has(id.toLowerCase());
+}
+
 function baseFillForRegion(id: string, name: string) {
   if (isCrimeaRegion(name, id)) return MAP_CRIMEA;
-  if (YELLOW_REGION_IDS.has(id.toLowerCase())) return MAP_YELLOW;
+  if (isYellowRegion(id)) return MAP_YELLOW;
   return MAP_BLUE;
+}
+
+function activeFillForRegion(id: string, name: string) {
+  if (isCrimeaRegion(name, id)) return MAP_CRIMEA;
+  if (isYellowRegion(id)) return MAP_YELLOW_SELECTED;
+  return MAP_BLUE_SELECTED;
 }
 
 export default function UkraineStaticMap({
@@ -116,7 +127,7 @@ export default function UkraineStaticMap({
             const hovered = hoveredRegion === loc.id;
             const fill =
               selected || hovered
-                ? MAP_SELECTED
+                ? activeFillForRegion(loc.id, loc.name)
                 : baseFillForRegion(loc.id, loc.name);
 
             return (
@@ -139,15 +150,6 @@ export default function UkraineStaticMap({
             if (isKyivCity(loc.name)) return null;
             const p = labelPos[loc.id];
             if (!p) return null;
-            const selected = isSelected(loc.name);
-            const hovered = hoveredRegion === loc.id;
-            const crimea = isCrimeaRegion(loc.name, loc.id);
-            const labelFill =
-              selected || hovered
-                ? "#ffffff"
-                : crimea
-                  ? "#4b5563"
-                  : "#ffffff";
             return (
               <text
                 key={`${loc.id}-label`}
@@ -155,8 +157,7 @@ export default function UkraineStaticMap({
                 y={p.y}
                 textAnchor="middle"
                 dominantBaseline="central"
-                fill={labelFill}
-                className="pointer-events-none select-none font-medium"
+                className="pointer-events-none select-none fill-black font-medium dark:fill-white"
                 style={{ fontSize: isKyivOblast(loc.name) ? 20 : 17 }}
               >
                 {toUA(loc.name)}
