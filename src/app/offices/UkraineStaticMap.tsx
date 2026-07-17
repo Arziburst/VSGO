@@ -59,6 +59,8 @@ const LABEL_OFFSETS: Record<string, { x?: number; y?: number }> = {
   odessa: { x: 34, y: -28 },
   khmelnytskyi: { y: -12 },
   zakarpattia: { y: 12 },
+  sumy: { x: -20, y: 20 },
+  cherkasy: { y: 12 },
 };
 
 export default function UkraineStaticMap({
