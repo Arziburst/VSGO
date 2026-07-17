@@ -56,7 +56,7 @@ function activeFillForRegion(id: string, name: string) {
 
 const LABEL_OFFSETS: Record<string, { x?: number; y?: number }> = {
   "ivano-frankivsk": { y: -2 },
-  odessa: { x: 34 },
+  odessa: { x: 34, y: -28 },
   khmelnytskyi: { y: -12 },
   zakarpattia: { y: 12 },
 };
@@ -95,8 +95,6 @@ export default function UkraineStaticMap({
   }, [map.viewBox]);
 
   const isKyivCity = (name: string) => /kyiv[^a-z]*city/i.test(name);
-  const isKyivOblast = (name: string) =>
-    /kyiv/i.test(name) && !isKyivCity(name);
 
   const toUA = (name: string) =>
     UA_REGION_TRANSLATIONS[name.toLowerCase()] ?? name;
@@ -159,7 +157,7 @@ export default function UkraineStaticMap({
             if (!p) return null;
             const label = toUA(loc.name);
             const isIvanoFrankivsk = /ivano-frankivsk/i.test(loc.id);
-            const lineHeight = isKyivOblast(loc.name) ? 17 : 15;
+            const lineHeight = 15;
             const offset = LABEL_OFFSETS[loc.id.toLowerCase()] ?? {};
             const offsetX = offset.x ?? 0;
             const offsetY = offset.y ?? 0;
