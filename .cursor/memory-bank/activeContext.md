@@ -8,5 +8,6 @@
 - Titles/subtitles use `--brand-heading: #2b67bb` (`PageHeading`, `ContentTitle`, `ContentSubtitle`, section headings).
 - Dark theme: header bg `/fonDark.png`, stork `/stork-dark.png`; light: `/fon.png`, `/stork.png`.
 - Home partners/info copy translated to Ukrainian.
-- Gallery photos go in `public/gallery/` with descriptive kebab-case names; catalog in `src/lib/gallery.ts`; UI via `GalleryGrid` (grid + lightbox) on `/gallery`.
+- Gallery photos go in `public/gallery/` with descriptive kebab-case names; catalog in `src/lib/gallery.ts`; UI via `GalleryGrid` (grid + lightbox) on `/gallery`. Current files are ~414×414 Facebook thumbs — look soft when enlarged; use `unoptimized` Image to avoid extra compression.
 - Offices map colors: blue `#80b2ee`, yellow east/south `#fece3c`, selected/hover `#0b54ca`, Crimea `#eae5e2`.
+- Map click shows matching `regionalOffices` in right panel (screenshot-style); list below filters to that region.

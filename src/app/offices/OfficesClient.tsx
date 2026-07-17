@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,6 +13,7 @@ import {
   EyeOff,
   Filter,
   Users,
+  ChevronRight,
 } from "lucide-react";
 import {
   PageShell,
@@ -22,28 +23,49 @@ import {
 import UkraineStaticMap from "./UkraineStaticMap";
 import { regionalOffices } from "@/constants";
 
-function findOffice(selectedRegion: string | null) {
-  if (!selectedRegion) return null;
-  const q = selectedRegion.toLowerCase();
-  return (
-    regionalOffices.find((o) => {
-      const r = o.region.toLowerCase().replace(" область", "");
-      return r === q || o.region.toLowerCase().includes(q) || q.includes(r);
-    }) ?? null
-  );
+type Office = (typeof regionalOffices)[number];
+
+function normalizeKey(s: string) {
+  return s
+    .toLowerCase()
+    .replace(/область/g, "")
+    .replace(/[^a-zа-яіїєґ0-9]/gi, "")
+    .trim();
+}
+
+function officesForRegion(selectedRegion: string | null): Office[] {
+  if (!selectedRegion) return [];
+  const q = normalizeKey(selectedRegion);
+  return regionalOffices.filter((o) => {
+    const r = normalizeKey(o.region);
+    return r === q || r.includes(q) || q.includes(r);
+  });
 }
 
 interface RightPanelProps {
   selectedRegion: string | null;
   onClear: () => void;
+  onFocusOffice: (region: string) => void;
 }
 
-function RightPanel({ selectedRegion, onClear }: RightPanelProps) {
-  const office = findOffice(selectedRegion);
+function RightPanel({
+  selectedRegion,
+  onClear,
+  onFocusOffice,
+}: RightPanelProps) {
+  const offices = officesForRegion(selectedRegion);
+  const [featured, ...rest] = offices;
+  const regionTitle =
+    featured?.region ??
+    (selectedRegion
+      ? selectedRegion.includes("область")
+        ? selectedRegion
+        : `${selectedRegion} область`
+      : "");
 
   if (!selectedRegion) {
     return (
-      <div className="flex flex-col items-center justify-center gap-3 border-t border-border bg-gray-50 px-4 py-8 text-center dark:bg-gray-900/50 lg:min-h-[400px] lg:border-l lg:border-t-0 lg:py-12">
+      <div className="flex flex-col items-center justify-center gap-3 border-t border-border bg-gray-50 px-4 py-8 text-center dark:bg-gray-900/50 lg:min-h-[420px] lg:border-l lg:border-t-0 lg:py-12">
         <MapPin className="h-10 w-10 text-gray-300 dark:text-gray-600" />
         <p className="text-base text-gray-500 dark:text-gray-400 md:text-lg">
           Оберіть область або місто на карті
@@ -53,7 +75,7 @@ function RightPanel({ selectedRegion, onClear }: RightPanelProps) {
   }
 
   return (
-    <div className="flex min-h-0 flex-col border-t border-border bg-white dark:bg-gray-900 lg:min-h-[400px] lg:border-l lg:border-t-0">
+    <div className="flex max-h-[560px] min-h-0 flex-col overflow-y-auto border-t border-border bg-white dark:bg-gray-900 lg:min-h-[420px] lg:border-l lg:border-t-0">
       <div
         className="flex items-center gap-2 px-3 py-2.5"
         style={{ background: "var(--nav-active)" }}
@@ -63,6 +85,7 @@ function RightPanel({ selectedRegion, onClear }: RightPanelProps) {
           Обрана область / місто
         </span>
         <button
+          type="button"
           onClick={onClear}
           className="ml-auto shrink-0 text-base text-[var(--nav-active-text)]/60 hover:text-[var(--nav-active-text)]"
           aria-label="Clear selection"
@@ -73,34 +96,68 @@ function RightPanel({ selectedRegion, onClear }: RightPanelProps) {
 
       <div className="border-b border-border px-3 pb-2 pt-3">
         <p className="text-xl font-black uppercase text-[var(--brand-heading)] sm:text-2xl">
-          {office?.region ?? selectedRegion}
+          {regionTitle}
         </p>
         <p className="mt-0.5 flex items-center gap-1 text-base text-gray-500 dark:text-gray-400">
           <Users className="h-4 w-4 shrink-0" />
-          Організацій у регіоні: {office ? 1 : 0}
+          Організацій у регіоні: {offices.length}
         </p>
       </div>
 
-      {office ? (
-        <div className="mx-3 my-3 space-y-2 rounded-lg border border-[var(--brand-sky)]/30 bg-[var(--brand-sky)]/10 px-3 py-3">
-          <div className="flex items-start gap-2">
-            <Building2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-primary)]" />
-            <p className="text-base font-semibold leading-snug text-[var(--brand-primary)] dark:text-sky-200 md:text-lg">
-              {office.contact}
-            </p>
+      {featured ? (
+        <div className="flex flex-1 flex-col gap-3 p-3">
+          <div className="space-y-2 rounded-lg border border-[var(--brand-secondary)]/40 bg-[var(--nav-submenu)] px-3 py-3 dark:border-[var(--nav-active)]/30 dark:bg-[var(--nav-submenu)]/15">
+            <div className="flex items-start gap-2">
+              <Building2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-heading)]" />
+              <p className="text-base font-semibold leading-snug text-[var(--brand-heading)] md:text-lg">
+                {featured.contact}
+              </p>
+            </div>
+            <div className="flex items-start gap-2">
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-sky)]" />
+              <span className="break-words text-base leading-snug text-gray-600 dark:text-gray-300">
+                {featured.address}
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Phone className="h-4 w-4 shrink-0 text-[var(--brand-sky)]" />
+              <a
+                href={`tel:${featured.phone.split(",")[0].replace(/[^\d+]/g, "")}`}
+                className="break-all text-base text-gray-600 hover:underline dark:text-gray-300"
+              >
+                {featured.phone}
+              </a>
+            </div>
           </div>
-          <div className="flex items-start gap-2">
-            <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-sky)]" />
-            <span className="text-base leading-snug text-gray-600 dark:text-gray-400 md:text-lg break-words">
-              {office.address}
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Phone className="h-4 w-4 shrink-0 text-[var(--brand-sky)]" />
-            <span className="text-base text-gray-600 dark:text-gray-400 md:text-lg break-all">
-              {office.phone}
-            </span>
-          </div>
+
+          {rest.length > 0 ? (
+            <div className="space-y-2">
+              <p className="text-sm font-black uppercase tracking-wide text-[var(--brand-heading)]">
+                Інші організації в регіоні ({rest.length})
+              </p>
+              {rest.map((office) => (
+                <button
+                  key={`${office.region}-${office.address}`}
+                  type="button"
+                  onClick={() => onFocusOffice(office.region)}
+                  className="flex w-full items-center gap-2 rounded-lg border border-border bg-white px-3 py-2.5 text-left transition-colors hover:bg-gray-50 dark:bg-gray-900 dark:hover:bg-gray-800"
+                >
+                  <div className="min-w-0 flex-1 space-y-0.5">
+                    <p className="text-sm font-semibold leading-snug text-[var(--brand-heading)]">
+                      {office.contact}
+                    </p>
+                    <p className="truncate text-sm text-gray-500 dark:text-gray-400">
+                      {office.address}
+                    </p>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                      {office.phone}
+                    </p>
+                  </div>
+                  <ChevronRight className="h-4 w-4 shrink-0 text-gray-400" />
+                </button>
+              ))}
+            </div>
+          ) : null}
         </div>
       ) : (
         <div className="flex flex-1 items-center justify-center p-4">
@@ -117,6 +174,7 @@ export default function OfficesClient() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedRegion, setSelectedRegion] = useState<string | null>(null);
   const [showMap, setShowMap] = useState(true);
+  const listRef = useRef<HTMLDivElement | null>(null);
 
   const normalize = (s: string) =>
     s
@@ -129,20 +187,33 @@ export default function OfficesClient() {
   const q = normalize(searchQuery);
   const qDigits = searchQuery.replace(/[^\d+]/g, "");
 
+  const selectedOffices = officesForRegion(selectedRegion);
+
   const filteredOffices = regionalOffices.filter((office) => {
     const region = normalize(office.region);
     const address = normalize(office.address);
     const name = normalize(office.name);
     const contact = normalize(office.contact);
     const phone = office.phone.replace(/[^\d+]/g, "");
-    return (
+    const matchesSearch =
+      !q ||
       region.includes(q) ||
       address.includes(q) ||
       name.includes(q) ||
       contact.includes(q) ||
-      (qDigits.length > 1 && phone.includes(qDigits))
-    );
+      (qDigits.length > 1 && phone.includes(qDigits));
+
+    if (!matchesSearch) return false;
+    if (!selectedRegion) return true;
+    return selectedOffices.some((o) => o.region === office.region);
   });
+
+  const focusOfficeInList = (region: string) => {
+    setSelectedRegion(region.replace(/ область$/i, "") || region);
+    requestAnimationFrame(() => {
+      listRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  };
 
   return (
     <PageShell>
@@ -199,7 +270,7 @@ export default function OfficesClient() {
         </div>
 
         {showMap && (
-          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(260px,320px)]">
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(280px,360px)]">
             <div className="min-w-0 p-2 sm:p-3">
               <UkraineStaticMap
                 selectedRegion={selectedRegion ?? undefined}
@@ -209,27 +280,44 @@ export default function OfficesClient() {
             <RightPanel
               selectedRegion={selectedRegion}
               onClear={() => setSelectedRegion(null)}
+              onFocusOffice={focusOfficeInList}
             />
           </div>
         )}
       </div>
 
-      <div className="space-y-3">
-        {searchQuery && (
+      <div ref={listRef} className="space-y-3">
+        {selectedRegion ? (
+          <div className="flex flex-wrap items-center gap-2">
+            <p className="text-base text-gray-500 dark:text-gray-400">
+              Представництва: {filteredOffices.length}
+              {selectedOffices.length
+                ? ` · ${selectedOffices[0]?.region ?? selectedRegion}`
+                : ""}
+            </p>
+            <Button
+              variant="outline"
+              size="sm"
+              className="text-sm"
+              onClick={() => setSelectedRegion(null)}
+            >
+              Показати всі
+            </Button>
+          </div>
+        ) : null}
+
+        {searchQuery && !selectedRegion ? (
           <p className="text-base text-gray-500 dark:text-gray-400">
             Знайдено: {filteredOffices.length} з {regionalOffices.length}
           </p>
-        )}
+        ) : null}
 
         {filteredOffices.map((office, index) => (
           <div
             key={office.region}
             className={`overflow-hidden rounded-xl border bg-white shadow-sm transition-all hover:shadow-md dark:bg-gray-900 ${
               selectedRegion &&
-              (office.region.includes(selectedRegion) ||
-                selectedRegion.includes(
-                  office.region.replace(" область", ""),
-                ))
+              selectedOffices.some((o) => o.region === office.region)
                 ? "border-[var(--nav-active)] ring-1 ring-[var(--nav-active)]/20"
                 : "border-border"
             }`}
@@ -297,15 +385,18 @@ export default function OfficesClient() {
               Представництв не знайдено
             </p>
             <p className="mb-4 text-base text-gray-400 dark:text-gray-600">
-              Спробуйте змінити пошуковий запит
+              Спробуйте змінити пошуковий запит або обрати іншу область
             </p>
             <Button
               variant="outline"
               size="sm"
-              onClick={() => setSearchQuery("")}
+              onClick={() => {
+                setSearchQuery("");
+                setSelectedRegion(null);
+              }}
               className="text-base"
             >
-              Очистити пошук
+              Очистити фільтри
             </Button>
           </div>
         )}

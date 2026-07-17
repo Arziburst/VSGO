@@ -39,6 +39,7 @@ export function GalleryGrid({ images }: { images: GalleryImage[] }) {
               src={image.src}
               alt={image.alt}
               fill
+              unoptimized
               sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
               className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
@@ -89,14 +90,15 @@ export function GalleryGrid({ images }: { images: GalleryImage[] }) {
                   </button>
                 </>
               ) : null}
-              <div className="relative mx-auto h-[min(78vh,820px)] w-full">
+              <div className="relative mx-auto flex h-[min(78vh,820px)] w-full items-center justify-center p-4">
                 <Image
                   src={active.src}
                   alt={active.alt}
-                  fill
-                  sizes="96vw"
-                  className="object-contain"
+                  width={414}
+                  height={414}
+                  unoptimized
                   priority
+                  className="max-h-full max-w-full object-contain"
                 />
               </div>
             </div>

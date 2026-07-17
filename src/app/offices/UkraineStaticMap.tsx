@@ -150,17 +150,36 @@ export default function UkraineStaticMap({
             if (isKyivCity(loc.name)) return null;
             const p = labelPos[loc.id];
             if (!p) return null;
+            const label = toUA(loc.name);
+            const isIvanoFrankivsk = /ivano-frankivsk/i.test(loc.id);
+            const lineHeight = isKyivOblast(loc.name) ? 17 : 15;
+            const offsetY = isIvanoFrankivsk ? -14 : 0;
             return (
               <text
                 key={`${loc.id}-label`}
-                x={p.x}
-                y={p.y}
+                x={0}
+                y={0}
                 textAnchor="middle"
                 dominantBaseline="central"
+                transform={`translate(${p.x} ${p.y + offsetY}) scale(0.78 1)`}
                 className="pointer-events-none select-none fill-black font-medium dark:fill-white"
-                style={{ fontSize: isKyivOblast(loc.name) ? 20 : 17 }}
+                style={{
+                  fontSize: lineHeight,
+                  letterSpacing: "-0.03em",
+                }}
               >
-                {toUA(loc.name)}
+                {isIvanoFrankivsk ? (
+                  <>
+                    <tspan x={0} dy={-lineHeight * 0.45}>
+                      Івано-
+                    </tspan>
+                    <tspan x={0} dy={lineHeight * 0.95}>
+                      Франківська
+                    </tspan>
+                  </>
+                ) : (
+                  label
+                )}
               </text>
             );
           })}
@@ -183,16 +202,6 @@ export default function UkraineStaticMap({
           −
         </button>
       </div>
-
-      {selectedRegion && (
-        <button
-          aria-label="Clear selection"
-          onClick={() => onRegionSelect?.("")}
-          className="absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-full border border-gray-300 bg-white/80 text-xs text-gray-500 transition-colors hover:bg-white hover:text-gray-700 dark:border-gray-600 dark:bg-gray-800/80 dark:text-gray-400"
-        >
-          ✕
-        </button>
-      )}
     </div>
   );
 }
