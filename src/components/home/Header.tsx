@@ -153,7 +153,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
                 </span>
               </h1>
               <p
-                className="mt-2 max-w-full px-1 font-[family-name:var(--font-e-ukraine)] font-black uppercase tracking-[0.08em] text-[var(--brand-primary)] sm:tracking-[0.12em] dark:text-[var(--brand-secondary)] dark:[text-shadow:0_1px_3px_rgba(0,0,0,0.75),0_0_2px_rgba(0,0,0,0.55)]"
+                className="mt-2 max-w-full px-1 font-[family-name:var(--font-e-ukraine)] font-black uppercase tracking-[0.08em] text-[var(--brand-heading)] sm:tracking-[0.12em] dark:text-[var(--brand-secondary)] dark:[text-shadow:0_1px_3px_rgba(0,0,0,0.75),0_0_2px_rgba(0,0,0,0.55)]"
                 style={{
                   fontSize: "clamp(0.65rem, 2.2cqi + 0.15rem, 1.45rem)",
                   WebkitTextStroke: "0.35px currentColor",

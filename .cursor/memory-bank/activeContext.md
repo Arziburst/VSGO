@@ -9,4 +9,4 @@
 - Dark theme: header bg `/fonDark.png`, stork `/stork-dark.png`; light: `/fon.png`, `/stork.png`.
 - Home partners/info copy translated to Ukrainian.
 - Gallery photos go in `public/gallery/` with descriptive kebab-case names; catalog in `src/lib/gallery.ts`; UI via `GalleryGrid` (grid + lightbox) on `/gallery`.
-- Offices page mobile: search/filter stack full-width; map hide button stacks; panel uses top border on small screens; uses `PageShell`/`PageHeading`.
+- Offices map colors: blue `#80b2ee`, yellow east/south `#fece3c`, selected/hover `#0b54ca`, Crimea `#eae5e2`.

@@ -15,6 +15,34 @@ interface UkraineStaticMapProps {
   onRegionSelect?: (regionName: string) => void;
 }
 
+const MAP_BLUE = "#80b2ee";
+const MAP_YELLOW = "#fece3c";
+const MAP_SELECTED = "#0b54ca";
+const MAP_CRIMEA = "#eae5e2";
+
+const YELLOW_REGION_IDS = new Set([
+  "kharkiv",
+  "luhansk",
+  "donetsk",
+  "zaporizhia",
+  "dnipropetrovsk",
+  "kirovohrad",
+  "mykolaiv",
+  "kherson",
+  "odessa",
+]);
+
+function isCrimeaRegion(name: string, id: string) {
+  const key = `${id} ${name}`.toLowerCase();
+  return /crimea|крим|sevastopol|севастополь/.test(key);
+}
+
+function baseFillForRegion(id: string, name: string) {
+  if (isCrimeaRegion(name, id)) return MAP_CRIMEA;
+  if (YELLOW_REGION_IDS.has(id.toLowerCase())) return MAP_YELLOW;
+  return MAP_BLUE;
+}
+
 export default function UkraineStaticMap({
   selectedRegion,
   onRegionSelect,
@@ -72,11 +100,11 @@ export default function UkraineStaticMap({
   const zoomedViewBox = `${scaledVbX} ${scaledVbY} ${scaledVbW} ${scaledVbH}`;
 
   return (
-    <div className="relative bg-[#d6eaf8] dark:bg-blue-950/30 rounded-lg overflow-hidden">
+    <div className="relative overflow-hidden rounded-lg bg-[#f7f9fc] dark:bg-blue-950/30">
       <svg
         ref={svgRef}
         viewBox={zoomedViewBox}
-        className="w-full h-auto transition-all duration-300"
+        className="h-auto w-full transition-all duration-300"
         role="img"
         aria-label="Ukraine regions map"
       >
@@ -86,22 +114,18 @@ export default function UkraineStaticMap({
             if (isKyivCity(loc.name)) return null;
             const selected = isSelected(loc.name);
             const hovered = hoveredRegion === loc.id;
-
-            let fillClass: string;
-            if (selected) {
-              fillClass = "fill-[var(--nav-active)]";
-            } else if (hovered) {
-              fillClass = "fill-[#5db8e8] dark:fill-[#4a7abf]";
-            } else {
-              fillClass = "fill-[var(--brand-sky)] dark:fill-[#2a4a78]";
-            }
+            const fill =
+              selected || hovered
+                ? MAP_SELECTED
+                : baseFillForRegion(loc.id, loc.name);
 
             return (
               <path
                 key={loc.id}
                 data-id={loc.id}
                 d={loc.path}
-                className={`${fillClass} stroke-white/70 [stroke-width:1] cursor-pointer transition-colors duration-150`}
+                fill={fill}
+                className="cursor-pointer stroke-white/80 transition-colors duration-150 [stroke-width:1]"
                 onClick={() => onRegionSelect?.(toUA(loc.name))}
                 onMouseEnter={() => setHoveredRegion(loc.id)}
                 onMouseLeave={() => setHoveredRegion(null)}
@@ -116,6 +140,14 @@ export default function UkraineStaticMap({
             const p = labelPos[loc.id];
             if (!p) return null;
             const selected = isSelected(loc.name);
+            const hovered = hoveredRegion === loc.id;
+            const crimea = isCrimeaRegion(loc.name, loc.id);
+            const labelFill =
+              selected || hovered
+                ? "#ffffff"
+                : crimea
+                  ? "#4b5563"
+                  : "#ffffff";
             return (
               <text
                 key={`${loc.id}-label`}
@@ -123,9 +155,8 @@ export default function UkraineStaticMap({
                 y={p.y}
                 textAnchor="middle"
                 dominantBaseline="central"
-                className={`select-none pointer-events-none font-medium ${
-                  selected ? "fill-black" : "fill-white dark:fill-gray-100"
-                }`}
+                fill={labelFill}
+                className="pointer-events-none select-none font-medium"
                 style={{ fontSize: isKyivOblast(loc.name) ? 20 : 17 }}
               >
                 {toUA(loc.name)}
@@ -139,14 +170,14 @@ export default function UkraineStaticMap({
         <button
           aria-label="Zoom in"
           onClick={() => setZoom((z) => Math.min(z + 0.3, 3))}
-          className="w-7 h-7 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded shadow text-gray-700 dark:text-gray-200 flex items-center justify-center text-base font-bold hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+          className="flex h-7 w-7 items-center justify-center rounded border border-gray-300 bg-white text-base font-bold text-gray-700 shadow transition-colors hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
         >
           +
         </button>
         <button
           aria-label="Zoom out"
           onClick={() => setZoom((z) => Math.max(z - 0.3, 0.7))}
-          className="w-7 h-7 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded shadow text-gray-700 dark:text-gray-200 flex items-center justify-center text-base font-bold hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+          className="flex h-7 w-7 items-center justify-center rounded border border-gray-300 bg-white text-base font-bold text-gray-700 shadow transition-colors hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
         >
           −
         </button>
@@ -156,7 +187,7 @@ export default function UkraineStaticMap({
         <button
           aria-label="Clear selection"
           onClick={() => onRegionSelect?.("")}
-          className="absolute top-2 right-2 w-6 h-6 bg-white/80 dark:bg-gray-800/80 border border-gray-300 dark:border-gray-600 rounded-full text-gray-500 dark:text-gray-400 flex items-center justify-center text-xs hover:bg-white hover:text-gray-700 transition-colors"
+          className="absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-full border border-gray-300 bg-white/80 text-xs text-gray-500 transition-colors hover:bg-white hover:text-gray-700 dark:border-gray-600 dark:bg-gray-800/80 dark:text-gray-400"
         >
           ✕
         </button>
