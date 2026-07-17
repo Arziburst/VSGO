@@ -11,7 +11,6 @@ import {
   Building2,
   Eye,
   EyeOff,
-  Filter,
   Users,
   ChevronRight,
 } from "lucide-react";
@@ -228,24 +227,14 @@ export default function OfficesClient() {
         </PageBadge>
       </PageHeading>
 
-      <div className="flex min-w-0 flex-col gap-2 sm:flex-row sm:items-center">
-        <div className="relative min-w-0 flex-1">
-          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
-          <Input
-            placeholder="Пошук за областю, містом або назвою..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="h-11 w-full pl-10 text-base md:h-12 md:text-lg"
-          />
-        </div>
-        <Button
-          variant="outline"
-          size="sm"
-          className="h-11 w-full shrink-0 gap-1.5 border-gray-300 text-base dark:border-gray-600 sm:h-12 sm:w-auto md:text-lg"
-        >
-          <Filter className="h-4 w-4" />
-          Фільтри
-        </Button>
+      <div className="relative min-w-0 w-full">
+        <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+        <Input
+          placeholder="Пошук за областю, містом або назвою..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="h-11 w-full pl-10 text-base md:h-12 md:text-lg"
+        />
       </div>
 
       <div className="overflow-hidden rounded-xl border border-border bg-white shadow-sm dark:bg-gray-900">
