@@ -86,7 +86,7 @@ export function Header({ onMenuToggle }: HeaderProps) {
 
   return (
     <header
-      className="relative w-full bg-white dark:bg-black"
+      className="relative w-full max-w-full overflow-x-hidden bg-white dark:bg-black"
       style={{
         backgroundImage: `url(${isDark ? "/fonDark.png" : "/fon.png"})`,
         backgroundRepeat: "no-repeat",
@@ -94,8 +94,8 @@ export function Header({ onMenuToggle }: HeaderProps) {
         backgroundPosition: "center center",
       }}
     >
-      <div className="relative z-10 mx-auto w-full max-w-[1600px] px-3 py-3 sm:px-4 md:py-4">
-        <div className="relative flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-10 xl:gap-12">
+      <div className="relative z-10 mx-auto w-full min-w-0 max-w-[1600px] px-3 py-3 sm:px-4 md:py-4">
+        <div className="relative flex min-w-0 flex-col gap-3 lg:flex-row lg:items-center lg:gap-10 xl:gap-12">
           <div className="flex shrink-0 items-center justify-between gap-2 lg:justify-start">
             <Button
               variant="ghost"
@@ -133,22 +133,22 @@ export function Header({ onMenuToggle }: HeaderProps) {
           </div>
 
           <div
-            className="flex min-w-0 flex-1 justify-center px-2 sm:px-3 lg:px-2 lg:pl-5 lg:pr-[230px] xl:pl-8 xl:pr-[250px]"
+            className="flex min-w-0 flex-1 justify-center overflow-hidden px-1 sm:px-3 lg:px-2 lg:pl-5 lg:pr-[230px] xl:pl-8 xl:pr-[250px]"
             style={{ containerType: "inline-size" }}
           >
             <div className="flex w-full max-w-full flex-col items-center text-center">
               <h1
-                className="w-full max-w-full font-[family-name:var(--font-e-ukraine)] font-black uppercase leading-[1.15] tracking-[0.01em] text-[var(--brand-primary)] dark:text-[var(--brand-secondary)] dark:[text-shadow:0_1px_3px_rgba(0,0,0,0.75),0_0_2px_rgba(0,0,0,0.55)]"
+                className="w-full max-w-full overflow-hidden break-words font-[family-name:var(--font-e-ukraine)] font-black uppercase leading-[1.15] tracking-[0.01em] text-[var(--brand-primary)] dark:text-[var(--brand-secondary)] dark:[text-shadow:0_1px_3px_rgba(0,0,0,0.75),0_0_2px_rgba(0,0,0,0.55)]"
                 style={{
                   fontSize: "clamp(0.68rem, 3.2cqi + 0.2rem, 2.1rem)",
                   WebkitTextStroke: "0.6px currentColor",
                   paintOrder: "stroke fill",
                 }}
               >
-                <span className="block text-balance md:whitespace-nowrap">
+                <span className="block text-balance lg:whitespace-nowrap">
                   Конфедерація громадських
                 </span>
-                <span className="block text-balance md:whitespace-nowrap">
+                <span className="block text-balance lg:whitespace-nowrap">
                   організацій осіб з інвалідністю України
                 </span>
               </h1>

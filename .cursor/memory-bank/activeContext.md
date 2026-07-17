@@ -10,4 +10,4 @@
 - Home partners/info copy translated to Ukrainian.
 - Gallery photos go in `public/gallery/` with descriptive kebab-case names; catalog in `src/lib/gallery.ts`; UI via `GalleryGrid` (grid + lightbox) on `/gallery`. Lightbox arrows sit beside the photo (not overlaid). Current files are ~414×414 Facebook thumbs — look soft when enlarged; use `unoptimized` Image / native `img` to avoid extra compression.
 - Offices map colors: blue `#80b2ee`, yellow east/south `#fece3c`, selected/hover `#0b54ca`, Crimea `#eae5e2`.
-- Map click shows matching `regionalOffices` in right panel (screenshot-style); list below filters to that region.
+- Mobile: `overflow-x-hidden` on html/body/layout; tighter px-3 padding; header title wraps until lg; gallery stays 2 cols until md.

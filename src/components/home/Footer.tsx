@@ -4,22 +4,22 @@ import { Facebook, Mail } from "lucide-react";
 export function Footer() {
   return (
     <footer className="w-full" style={{ background: "var(--footer-bg)" }}>
-      <div className="mx-auto flex max-w-[1600px] flex-col items-center justify-between gap-4 px-4 py-5 text-base sm:flex-row sm:gap-3">
-        <p className="text-center text-base leading-relaxed text-white/85 sm:text-left">
+      <div className="mx-auto flex w-full min-w-0 max-w-[1600px] flex-col items-center justify-between gap-4 overflow-x-hidden px-3 py-5 text-base sm:flex-row sm:gap-3 sm:px-4">
+        <p className="max-w-full text-center text-base leading-relaxed text-white/85 sm:text-left">
           © 2026 Конфедерація громадських організацій осіб з інвалідністю України.
           Усі права захищені.
         </p>
 
-        <div className="flex items-center gap-5 text-base text-white/85">
+        <div className="flex max-w-full flex-wrap items-center justify-center gap-x-5 gap-y-2 text-base text-white/85">
           <Link
             href="#"
-            className="whitespace-nowrap transition-colors hover:text-white"
+            className="transition-colors hover:text-white"
           >
             Карта сайту
           </Link>
           <Link
             href="#"
-            className="whitespace-nowrap transition-colors hover:text-white"
+            className="transition-colors hover:text-white"
           >
             Політика конфіденційності
           </Link>
