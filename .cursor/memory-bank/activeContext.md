@@ -3,7 +3,10 @@
 - Header «Доступність» toggles `html.a11y`: grayscale/B&W; when on, shows A−/A+ with 4 scale steps (`1 → 1.15 → 1.3 → 1.45`, three enlarge clicks). «Стандартна версія» exits a11y and resets `--font-scale` to 1.
 - Site font is **Proba Pro** via `next/font/local`; base `html` **18px**, body weight 500; page body copy `text-base md:text-lg` (was `text-sm`).
 - Header: title `flex-col items-center`; more gap/padding vs logo; slightly smaller logo + title so text doesn’t overlap circular logo.
+- Header title on mobile: smaller clamp + wrap until `sm` (no `nowrap` overflow); full-width centered block.
 - Dark theme: `--brand-primary` → white; solid navy UI uses `--brand-surface`; external links use `--brand-link` / light sky `#7dd3fc`. Header title/tagline stay gold.
 - Titles/subtitles use `--brand-heading: #2b67bb` (`PageHeading`, `ContentTitle`, `ContentSubtitle`, section headings).
 - Dark theme: header bg `/fonDark.png`, stork `/stork-dark.png`; light: `/fon.png`, `/stork.png`.
 - Home partners/info copy translated to Ukrainian.
+- Gallery photos go in `public/gallery/` with descriptive kebab-case names; catalog in `src/lib/gallery.ts`; UI via `GalleryGrid` (grid + lightbox) on `/gallery`.
+- Offices page mobile: search/filter stack full-width; map hide button stacks; panel uses top border on small screens; uses `PageShell`/`PageHeading`.

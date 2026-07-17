@@ -133,30 +133,30 @@ export function Header({ onMenuToggle }: HeaderProps) {
           </div>
 
           <div
-            className="flex min-w-0 flex-1 justify-center overflow-hidden px-1 pl-3 lg:px-2 lg:pl-5 lg:pr-[230px] xl:pl-8 xl:pr-[250px]"
+            className="flex min-w-0 flex-1 justify-center px-2 sm:px-3 lg:px-2 lg:pl-5 lg:pr-[230px] xl:pl-8 xl:pr-[250px]"
             style={{ containerType: "inline-size" }}
           >
-            <div className="flex w-fit max-w-full flex-col items-center text-center">
+            <div className="flex w-full max-w-full flex-col items-center text-center">
               <h1
-                className="flex w-full max-w-full flex-col items-center font-[family-name:var(--font-e-ukraine)] font-black uppercase leading-[1.1] tracking-[0.01em] text-[var(--brand-primary)] dark:text-[var(--brand-secondary)] dark:[text-shadow:0_1px_3px_rgba(0,0,0,0.75),0_0_2px_rgba(0,0,0,0.55)]"
+                className="w-full max-w-full font-[family-name:var(--font-e-ukraine)] font-black uppercase leading-[1.15] tracking-[0.01em] text-[var(--brand-primary)] dark:text-[var(--brand-secondary)] dark:[text-shadow:0_1px_3px_rgba(0,0,0,0.75),0_0_2px_rgba(0,0,0,0.55)]"
                 style={{
-                  fontSize: "clamp(1rem, 4.05cqi, 2.1rem)",
-                  WebkitTextStroke: "1px currentColor",
+                  fontSize: "clamp(0.68rem, 3.2cqi + 0.2rem, 2.1rem)",
+                  WebkitTextStroke: "0.6px currentColor",
                   paintOrder: "stroke fill",
                 }}
               >
-                <span className="whitespace-nowrap">
+                <span className="block text-balance md:whitespace-nowrap">
                   Конфедерація громадських
                 </span>
-                <span className="whitespace-nowrap">
+                <span className="block text-balance md:whitespace-nowrap">
                   організацій осіб з інвалідністю України
                 </span>
               </h1>
               <p
-                className="mt-2 font-[family-name:var(--font-e-ukraine)] font-black uppercase tracking-[0.12em] text-[var(--brand-primary)] dark:text-[var(--brand-secondary)] dark:[text-shadow:0_1px_3px_rgba(0,0,0,0.75),0_0_2px_rgba(0,0,0,0.55)]"
+                className="mt-2 max-w-full px-1 font-[family-name:var(--font-e-ukraine)] font-black uppercase tracking-[0.08em] text-[var(--brand-primary)] sm:tracking-[0.12em] dark:text-[var(--brand-secondary)] dark:[text-shadow:0_1px_3px_rgba(0,0,0,0.75),0_0_2px_rgba(0,0,0,0.55)]"
                 style={{
-                  fontSize: "clamp(0.8rem, 2.4cqi, 1.45rem)",
-                  WebkitTextStroke: "0.45px currentColor",
+                  fontSize: "clamp(0.65rem, 2.2cqi + 0.15rem, 1.45rem)",
+                  WebkitTextStroke: "0.35px currentColor",
                   paintOrder: "stroke fill",
                 }}
               >

@@ -5,6 +5,8 @@ import {
   PageHeading,
   PageCard,
 } from "@/components/home/PageChrome";
+import { GalleryGrid } from "@/components/home/GalleryGrid";
+import { GALLERY_IMAGES } from "@/lib/gallery";
 
 export const metadata: Metadata = {
   title: "Photo Gallery",
@@ -17,10 +19,8 @@ export default function Page() {
   return (
     <PageShell>
       <PageHeading title="Фотогалерея" icon={Camera} />
-      <PageCard tone="soft" className="p-5 md:p-6">
-        <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-          Content will be added soon.
-        </p>
+      <PageCard className="p-3 sm:p-4 md:p-5">
+        <GalleryGrid images={GALLERY_IMAGES} />
       </PageCard>
     </PageShell>
   );

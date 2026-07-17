@@ -14,6 +14,11 @@ import {
   Filter,
   Users,
 } from "lucide-react";
+import {
+  PageShell,
+  PageHeading,
+  PageBadge,
+} from "@/components/home/PageChrome";
 import UkraineStaticMap from "./UkraineStaticMap";
 import { regionalOffices } from "@/constants";
 
@@ -38,9 +43,9 @@ function RightPanel({ selectedRegion, onClear }: RightPanelProps) {
 
   if (!selectedRegion) {
     return (
-      <div className="flex flex-col items-center justify-center gap-3 py-12 px-4 text-center bg-gray-50 dark:bg-gray-900/50 border-l border-border">
+      <div className="flex flex-col items-center justify-center gap-3 border-t border-border bg-gray-50 px-4 py-8 text-center dark:bg-gray-900/50 lg:min-h-[400px] lg:border-l lg:border-t-0 lg:py-12">
         <MapPin className="h-10 w-10 text-gray-300 dark:text-gray-600" />
-        <p className="text-lg text-gray-500 dark:text-gray-400">
+        <p className="text-base text-gray-500 dark:text-gray-400 md:text-lg">
           Оберіть область або місто на карті
         </p>
       </div>
@@ -48,58 +53,58 @@ function RightPanel({ selectedRegion, onClear }: RightPanelProps) {
   }
 
   return (
-    <div className="flex flex-col border-l border-border bg-white dark:bg-gray-900 min-h-[400px]">
+    <div className="flex min-h-0 flex-col border-t border-border bg-white dark:bg-gray-900 lg:min-h-[400px] lg:border-l lg:border-t-0">
       <div
-        className="px-3 py-2.5 flex items-center gap-2"
+        className="flex items-center gap-2 px-3 py-2.5"
         style={{ background: "var(--nav-active)" }}
       >
-        <MapPin className="h-4 w-4 text-[var(--nav-active-text)] flex-shrink-0" />
-        <span className="text-[var(--nav-active-text)] text-base font-bold uppercase tracking-wide">
+        <MapPin className="h-4 w-4 shrink-0 text-[var(--nav-active-text)]" />
+        <span className="min-w-0 text-sm font-bold uppercase tracking-wide text-[var(--nav-active-text)] sm:text-base">
           Обрана область / місто
         </span>
         <button
           onClick={onClear}
-          className="ml-auto text-[var(--nav-active-text)]/60 hover:text-[var(--nav-active-text)] text-base"
+          className="ml-auto shrink-0 text-base text-[var(--nav-active-text)]/60 hover:text-[var(--nav-active-text)]"
           aria-label="Clear selection"
         >
           ✕
         </button>
       </div>
 
-      <div className="px-3 pt-3 pb-2 border-b border-border">
-        <p className="text-2xl font-black text-[var(--brand-heading)] uppercase">
+      <div className="border-b border-border px-3 pb-2 pt-3">
+        <p className="text-xl font-black uppercase text-[var(--brand-heading)] sm:text-2xl">
           {office?.region ?? selectedRegion}
         </p>
         <p className="mt-0.5 flex items-center gap-1 text-base text-gray-500 dark:text-gray-400">
-          <Users className="h-4 w-4" />
+          <Users className="h-4 w-4 shrink-0" />
           Організацій у регіоні: {office ? 1 : 0}
         </p>
       </div>
 
       {office ? (
-        <div className="mx-3 my-3 rounded-lg border border-[var(--brand-sky)]/30 bg-[var(--brand-sky)]/10 px-3 py-3 space-y-2">
+        <div className="mx-3 my-3 space-y-2 rounded-lg border border-[var(--brand-sky)]/30 bg-[var(--brand-sky)]/10 px-3 py-3">
           <div className="flex items-start gap-2">
-            <Building2 className="h-4 w-4 text-[var(--brand-primary)] mt-0.5 flex-shrink-0" />
-            <p className="text-lg font-semibold leading-snug text-[var(--brand-primary)] dark:text-sky-200">
+            <Building2 className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-primary)]" />
+            <p className="text-base font-semibold leading-snug text-[var(--brand-primary)] dark:text-sky-200 md:text-lg">
               {office.contact}
             </p>
           </div>
           <div className="flex items-start gap-2">
-            <MapPin className="h-4 w-4 text-[var(--brand-sky)] mt-0.5 flex-shrink-0" />
-            <span className="text-lg text-gray-600 dark:text-gray-400 leading-snug">
+            <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-sky)]" />
+            <span className="text-base leading-snug text-gray-600 dark:text-gray-400 md:text-lg break-words">
               {office.address}
             </span>
           </div>
           <div className="flex items-center gap-2">
-            <Phone className="h-4 w-4 text-[var(--brand-sky)] flex-shrink-0" />
-            <span className="text-lg text-gray-600 dark:text-gray-400">
+            <Phone className="h-4 w-4 shrink-0 text-[var(--brand-sky)]" />
+            <span className="text-base text-gray-600 dark:text-gray-400 md:text-lg break-all">
               {office.phone}
             </span>
           </div>
         </div>
       ) : (
-        <div className="flex-1 flex items-center justify-center p-4">
-          <p className="text-base text-gray-400 text-center">
+        <div className="flex flex-1 items-center justify-center p-4">
+          <p className="text-center text-base text-gray-400">
             Представництво не знайдено
           </p>
         </div>
@@ -140,56 +145,49 @@ export default function OfficesClient() {
   });
 
   return (
-    <div className="space-y-4">
-      <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-        <div className="flex flex-wrap items-center gap-2 flex-1 min-w-0">
-          <h2 className="text-xl md:text-2xl font-black text-[var(--brand-heading)] uppercase tracking-wide">
-            Відокремлені підрозділи
-          </h2>
-          <Badge className="bg-[var(--brand-surface)] text-white border-0 text-base">
-            <Users className="h-3 w-3 mr-1" />
-            {regionalOffices.length} представництв
-          </Badge>
-          <Badge
-            variant="outline"
-            className="border-[var(--brand-primary)] text-[var(--brand-primary)] dark:border-gray-500 dark:text-gray-300 text-base"
-          >
-            <MapPin className="h-3 w-3 mr-1" />
-            24 областей України
-          </Badge>
+    <PageShell>
+      <PageHeading title="Відокремлені підрозділи" icon={Building2}>
+        <PageBadge>
+          <Users className="h-3 w-3" />
+          {regionalOffices.length} представництв
+        </PageBadge>
+        <PageBadge variant="outline">
+          <MapPin className="h-3 w-3" />
+          24 областей України
+        </PageBadge>
+      </PageHeading>
+
+      <div className="flex min-w-0 flex-col gap-2 sm:flex-row sm:items-center">
+        <div className="relative min-w-0 flex-1">
+          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+          <Input
+            placeholder="Пошук за областю, містом або назвою..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="h-11 w-full pl-10 text-base md:h-12 md:text-lg"
+          />
         </div>
-        <div className="flex gap-2">
-          <div className="relative">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-400" />
-            <Input
-              placeholder="Пошук за областю, містом або назвою організації..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 h-12 text-lg w-64 lg:w-80"
-            />
-          </div>
-          <Button
-            variant="outline"
-            size="sm"
-            className="h-12 gap-1.5 text-lg border-gray-300 dark:border-gray-600"
-          >
-            <Filter className="h-4 w-4" />
-            Фільтри
-          </Button>
-        </div>
+        <Button
+          variant="outline"
+          size="sm"
+          className="h-11 w-full shrink-0 gap-1.5 border-gray-300 text-base dark:border-gray-600 sm:h-12 sm:w-auto md:text-lg"
+        >
+          <Filter className="h-4 w-4" />
+          Фільтри
+        </Button>
       </div>
 
-      <div className="rounded-xl border border-border overflow-hidden bg-white dark:bg-gray-900 shadow-sm">
-        <div className="flex items-center justify-between px-4 py-2.5 border-b border-border bg-gray-50 dark:bg-gray-800/50">
-          <h3 className="flex items-center gap-2 text-lg font-bold uppercase tracking-wide text-[var(--brand-primary)] dark:text-gray-300">
-            <MapPin className="h-5 w-5" />
-            Інтерактивна карта підрозділів
+      <div className="overflow-hidden rounded-xl border border-border bg-white shadow-sm dark:bg-gray-900">
+        <div className="flex flex-col gap-2 border-b border-border bg-gray-50 px-3 py-2.5 dark:bg-gray-800/50 sm:flex-row sm:items-center sm:justify-between sm:px-4">
+          <h3 className="flex min-w-0 items-center gap-2 text-base font-bold uppercase tracking-wide text-[var(--brand-primary)] dark:text-gray-300 md:text-lg">
+            <MapPin className="h-5 w-5 shrink-0" />
+            <span className="leading-snug">Інтерактивна карта підрозділів</span>
           </h3>
           <Button
             variant="ghost"
             size="sm"
             onClick={() => setShowMap(!showMap)}
-            className="h-9 text-base gap-1.5 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700"
+            className="h-9 w-full shrink-0 gap-1.5 text-base text-gray-600 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 sm:w-auto"
           >
             {showMap ? (
               <EyeOff className="h-3.5 w-3.5" />
@@ -201,8 +199,8 @@ export default function OfficesClient() {
         </div>
 
         {showMap && (
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px]">
-            <div className="p-3">
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(260px,320px)]">
+            <div className="min-w-0 p-2 sm:p-3">
               <UkraineStaticMap
                 selectedRegion={selectedRegion ?? undefined}
                 onRegionSelect={(r) => setSelectedRegion(r || null)}
@@ -226,56 +224,56 @@ export default function OfficesClient() {
         {filteredOffices.map((office, index) => (
           <div
             key={office.region}
-            className={`rounded-xl border bg-white dark:bg-gray-900 shadow-sm overflow-hidden transition-all hover:shadow-md ${
+            className={`overflow-hidden rounded-xl border bg-white shadow-sm transition-all hover:shadow-md dark:bg-gray-900 ${
               selectedRegion &&
               (office.region.includes(selectedRegion) ||
                 selectedRegion.includes(
-                  office.region.replace(" область", "")
+                  office.region.replace(" область", ""),
                 ))
                 ? "border-[var(--nav-active)] ring-1 ring-[var(--nav-active)]/20"
                 : "border-border"
             }`}
           >
-            <div className="p-4">
-              <div className="flex flex-col lg:flex-row lg:items-start gap-4">
-                <div className="flex-1 min-w-0">
-                  <div className="flex flex-wrap items-center gap-2 mb-2">
-                    <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-[var(--brand-surface)] text-white text-base font-bold flex-shrink-0">
+            <div className="p-3 sm:p-4">
+              <div className="flex flex-col gap-4 lg:flex-row lg:items-start">
+                <div className="min-w-0 flex-1">
+                  <div className="mb-2 flex flex-wrap items-center gap-2">
+                    <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--brand-surface)] text-base font-bold text-white">
                       {index + 1}
                     </span>
                     <Badge
                       variant="secondary"
-                      className="text-base bg-[var(--brand-primary-10)] text-[var(--brand-primary)] dark:bg-white/10 dark:text-white"
+                      className="bg-[var(--brand-primary-10)] text-base text-[var(--brand-primary)] dark:bg-white/10 dark:text-white"
                     >
                       {office.region}
                     </Badge>
                   </div>
 
-                  <p className="text-lg font-semibold text-[var(--brand-primary)] dark:text-gray-200 mb-3 leading-snug">
+                  <p className="mb-3 text-base font-semibold leading-snug text-[var(--brand-primary)] dark:text-gray-200 md:text-lg">
                     {office.contact}
                   </p>
 
                   <div className="space-y-1.5">
                     <div className="flex items-start gap-2">
-                      <MapPin className="h-4 w-4 text-[var(--brand-sky)] mt-0.5 flex-shrink-0" />
-                      <span className="text-lg text-gray-600 dark:text-gray-400">
+                      <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-sky)]" />
+                      <span className="break-words text-base text-gray-600 dark:text-gray-400 md:text-lg">
                         {office.address}
                       </span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Phone className="h-4 w-4 text-[var(--brand-sky)] flex-shrink-0" />
-                      <span className="text-lg text-gray-600 dark:text-gray-400">
+                      <Phone className="h-4 w-4 shrink-0 text-[var(--brand-sky)]" />
+                      <span className="break-all text-base text-gray-600 dark:text-gray-400 md:text-lg">
                         {office.phone}
                       </span>
                     </div>
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-2 lg:w-auto">
+                <div className="flex w-full flex-col gap-2 lg:w-auto">
                   <Button
                     variant="outline"
                     size="sm"
-                    className="text-base border-[var(--brand-primary)]/30 text-[var(--brand-primary)] dark:border-gray-600 dark:text-gray-300 hover:bg-[var(--brand-primary-10)] dark:hover:bg-white/10"
+                    className="w-full border-[var(--brand-primary)]/30 text-base text-[var(--brand-primary)] hover:bg-[var(--brand-primary-10)] dark:border-gray-600 dark:text-gray-300 dark:hover:bg-white/10 lg:w-auto"
                     onClick={() => {
                       const phoneNumber = office.phone
                         .split(",")[0]
@@ -283,7 +281,7 @@ export default function OfficesClient() {
                       window.open(`tel:${phoneNumber}`, "_self");
                     }}
                   >
-                    <Phone className="h-3.5 w-3.5 mr-1" />
+                    <Phone className="mr-1 h-3.5 w-3.5" />
                     Подзвонити
                   </Button>
                 </div>
@@ -293,12 +291,12 @@ export default function OfficesClient() {
         ))}
 
         {filteredOffices.length === 0 && (
-          <div className="text-center py-12 rounded-xl border border-border bg-white dark:bg-gray-900">
-            <Building2 className="h-10 w-10 mx-auto mb-3 text-gray-300 dark:text-gray-600" />
-            <p className="text-gray-500 dark:text-gray-400 text-base mb-1">
+          <div className="rounded-xl border border-border bg-white py-12 text-center dark:bg-gray-900">
+            <Building2 className="mx-auto mb-3 h-10 w-10 text-gray-300 dark:text-gray-600" />
+            <p className="mb-1 text-base text-gray-500 dark:text-gray-400">
               Представництв не знайдено
             </p>
-            <p className="text-gray-400 dark:text-gray-600 text-base mb-4">
+            <p className="mb-4 text-base text-gray-400 dark:text-gray-600">
               Спробуйте змінити пошуковий запит
             </p>
             <Button
@@ -312,6 +310,6 @@ export default function OfficesClient() {
           </div>
         )}
       </div>
-    </div>
+    </PageShell>
   );
 }
