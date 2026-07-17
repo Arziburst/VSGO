@@ -55,48 +55,50 @@ export function GalleryGrid({ images }: { images: GalleryImage[] }) {
       >
         <DialogContent
           showCloseButton={false}
-          className="max-h-[94vh] w-auto max-w-[min(96vw,1200px)] gap-0 overflow-hidden border-0 bg-transparent p-0 shadow-none sm:max-w-[min(96vw,1200px)]"
+          className="max-h-[94vh] w-auto max-w-[min(98vw,1280px)] gap-0 overflow-visible border-0 bg-transparent p-0 shadow-none sm:max-w-[min(98vw,1280px)]"
         >
           <DialogTitle className="sr-only">
             {active?.alt ?? "Gallery photo"}
           </DialogTitle>
           {active ? (
-            <div className="relative flex items-center justify-center">
-              <button
-                type="button"
-                onClick={() => setActiveIndex(null)}
-                className="absolute right-2 top-2 z-10 rounded-full bg-black/60 p-2 text-white transition-opacity hover:opacity-90"
-                aria-label="Close"
-              >
-                <X className="h-5 w-5" />
-              </button>
+            <div className="relative flex items-center justify-center gap-2 sm:gap-4">
               {images.length > 1 ? (
-                <>
-                  <button
-                    type="button"
-                    onClick={goPrev}
-                    className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/60 p-2 text-white transition-opacity hover:opacity-90"
-                    aria-label="Previous photo"
-                  >
-                    <ChevronLeft className="h-6 w-6" />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={goNext}
-                    className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/60 p-2 text-white transition-opacity hover:opacity-90"
-                    aria-label="Next photo"
-                  >
-                    <ChevronRight className="h-6 w-6" />
-                  </button>
-                </>
+                <button
+                  type="button"
+                  onClick={goPrev}
+                  className="shrink-0 rounded-full bg-black/60 p-2 text-white transition-opacity hover:opacity-90"
+                  aria-label="Previous photo"
+                >
+                  <ChevronLeft className="h-6 w-6" />
+                </button>
               ) : null}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={active.src}
-                alt={active.alt}
-                className="max-h-[90vh] max-w-[min(96vw,1200px)] object-contain"
-                draggable={false}
-              />
+              <div className="relative min-w-0">
+                <button
+                  type="button"
+                  onClick={() => setActiveIndex(null)}
+                  className="absolute -right-1 -top-1 z-10 rounded-full bg-black/60 p-2 text-white transition-opacity hover:opacity-90 sm:right-0 sm:top-0"
+                  aria-label="Close"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={active.src}
+                  alt={active.alt}
+                  className="max-h-[90vh] max-w-[min(calc(98vw-7rem),1100px)] object-contain"
+                  draggable={false}
+                />
+              </div>
+              {images.length > 1 ? (
+                <button
+                  type="button"
+                  onClick={goNext}
+                  className="shrink-0 rounded-full bg-black/60 p-2 text-white transition-opacity hover:opacity-90"
+                  aria-label="Next photo"
+                >
+                  <ChevronRight className="h-6 w-6" />
+                </button>
+              ) : null}
             </div>
           ) : null}
         </DialogContent>
