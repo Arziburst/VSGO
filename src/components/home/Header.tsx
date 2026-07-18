@@ -133,7 +133,11 @@ export function Header({ onMenuToggle }: HeaderProps) {
           </div>
 
           <div
-            className="flex min-w-0 flex-1 justify-center overflow-hidden px-1 sm:px-3 lg:px-2 lg:pl-5 lg:pr-[230px] xl:pl-8 xl:pr-[250px]"
+            className={`flex min-w-0 flex-1 justify-center overflow-hidden px-1 sm:px-3 lg:px-2 lg:pl-5 xl:pl-8 ${
+              a11yOn
+                ? "lg:pr-[360px] xl:pr-[400px]"
+                : "lg:pr-[230px] xl:pr-[250px]"
+            }`}
             style={{ containerType: "inline-size" }}
           >
             <div className="flex w-full max-w-full flex-col items-center text-center">
@@ -145,10 +149,18 @@ export function Header({ onMenuToggle }: HeaderProps) {
                   paintOrder: "stroke fill",
                 }}
               >
-                <span className="block text-balance lg:whitespace-nowrap">
+                <span
+                  className={`block text-balance ${
+                    a11yOn ? "" : "lg:whitespace-nowrap"
+                  }`}
+                >
                   Конфедерація громадських
                 </span>
-                <span className="block text-balance lg:whitespace-nowrap">
+                <span
+                  className={`block text-balance ${
+                    a11yOn ? "" : "lg:whitespace-nowrap"
+                  }`}
+                >
                   організацій осіб з інвалідністю України
                 </span>
               </h1>
@@ -165,7 +177,11 @@ export function Header({ onMenuToggle }: HeaderProps) {
             </div>
           </div>
 
-          <div className="flex shrink-0 flex-wrap items-center justify-center gap-2 sm:gap-3 lg:absolute lg:right-0 lg:top-0 lg:flex-row lg:items-start lg:justify-end xl:gap-3">
+          <div
+            className={`flex shrink-0 flex-wrap items-center justify-center gap-2 sm:gap-3 lg:absolute lg:right-0 lg:top-0 lg:flex-row lg:items-start lg:justify-end xl:gap-3 ${
+              a11yOn ? "lg:w-[350px] xl:w-[390px]" : ""
+            }`}
+          >
             <div className="flex flex-col items-center gap-1.5 lg:items-start">
               <button
                 type="button"
