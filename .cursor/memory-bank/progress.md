@@ -13,5 +13,6 @@
 - Created `public/gallery/` for gallery photo assets.
 - Gallery page shows 10 PNG photos with meaningful camelCase filenames in a responsive grid with lightbox navigation.
 - Offices page mobile layout fixed (no clipped search / hide-map text).
+- Contacts page includes a clickable `mailto:vsgo@ukr.net` email card.
 - Base type raised to 18px; content pages use `text-base md:text-lg`; header title larger/extrabold; no logo overlap.
 - Offices page: bumped `text-xs`→`text-sm/base`, map labels 15/18; footer `text-base`.

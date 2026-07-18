@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Phone } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import {
   PageShell,
   PageHeading,
@@ -18,9 +18,20 @@ export default function Page() {
     <PageShell>
       <PageHeading title="Контакти" icon={Phone} />
       <PageCard tone="soft" className="p-5 md:p-6">
-        <p className="text-base md:text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-          Content will be added soon.
-        </p>
+        <div className="flex items-center gap-4">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[var(--brand-surface)] text-white">
+            <Mail className="h-6 w-6" />
+          </div>
+          <div className="min-w-0">
+            <p className="font-bold text-[var(--brand-heading)]">Email</p>
+            <a
+              href="mailto:vsgo@ukr.net"
+              className="break-all text-lg font-semibold text-[var(--brand-link)] underline underline-offset-4 hover:opacity-80 md:text-xl"
+            >
+              vsgo@ukr.net
+            </a>
+          </div>
+        </div>
       </PageCard>
     </PageShell>
   );
