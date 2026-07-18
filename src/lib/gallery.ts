@@ -5,43 +5,43 @@ export type GalleryImage = {
 
 export const GALLERY_IMAGES: GalleryImage[] = [
   {
-    src: "/gallery/meeting-presentation.jpg",
-    alt: "Meeting presentation with Confederation poster",
-  },
-  {
-    src: "/gallery/outdoor-community-gathering.jpg",
-    alt: "Outdoor community gathering with participants",
-  },
-  {
-    src: "/gallery/patriot-fest-emblem.jpg",
+    src: "/gallery/patriotFest.png",
     alt: "Patriot Fest event emblem",
   },
   {
-    src: "/gallery/sviatohirsk-group-visit.jpg",
-    alt: "Group visit with Confederation flag at Sviatohirsk",
+    src: "/gallery/mountainCelebration.png",
+    alt: "Confederation group celebration on a mountain deck",
   },
   {
-    src: "/gallery/award-ceremony.jpg",
+    src: "/gallery/beachGathering.png",
+    alt: "Community gathering by the sea with Confederation flag",
+  },
+  {
+    src: "/gallery/awardCeremony.png",
     alt: "Award ceremony with medal and certificate",
   },
   {
-    src: "/gallery/beach-group-photo.jpg",
-    alt: "Beach group photo with Confederation flag",
+    src: "/gallery/membersGathering.png",
+    alt: "Confederation members gathered at a building entrance",
   },
   {
-    src: "/gallery/park-group-with-flag.jpg",
+    src: "/gallery/parkGathering.png",
     alt: "Park group photo with Confederation flag",
   },
   {
-    src: "/gallery/members-building-entrance.jpg",
-    alt: "Members group photo at building entrance",
+    src: "/gallery/sviatohirskPanorama.png",
+    alt: "Confederation group visit at Sviatohirsk",
   },
   {
-    src: "/gallery/autumn-group-banner.jpg",
-    alt: "Autumn outdoor group photo with Confederation banner",
+    src: "/gallery/outdoorMeeting.png",
+    alt: "Participants at an outdoor community meeting",
   },
   {
-    src: "/gallery/mountain-deck-celebration.jpg",
-    alt: "Celebration on wooden deck with Confederation flag",
+    src: "/gallery/autumnGroupPhoto.png",
+    alt: "Confederation members posing with their flag outdoors",
+  },
+  {
+    src: "/gallery/meetingPresentation.png",
+    alt: "Confederation presentation during a community meeting",
   },
 ];
