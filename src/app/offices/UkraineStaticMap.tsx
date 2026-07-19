@@ -26,7 +26,7 @@ const MAP_LABELS: Record<string, string> = {
   rivne: "РІВНЕ",
   lviv: "ЛЬВІВ",
   zakarpattia: "УЖГОРОД",
-  "ivano-frankivsk": "ІВ.-ФРАНКІВСЬК",
+  "ivano-frankivsk": "ІВАНО-ФРАНКІВСЬК",
   ternopil: "ТЕРНОПІЛЬ",
   chernivtsi: "ЧЕРНІВЦІ",
   khmelnytskyi: "ХМЕЛЬНИЦЬКИЙ",
@@ -51,7 +51,7 @@ const MAP_LABELS: Record<string, string> = {
 
 const LABEL_OFFSETS: Record<string, { x?: number; y?: number }> = {
   "ivano-frankivsk": { y: -10 },
-  odessa: { x: -15, y: 55 },
+  odessa: { y: -40, x: 30 },
   khmelnytskyi: { y: -5 },
   zakarpattia: { y: 12 },
   sumy: { x: -10, y: 10 },
@@ -128,7 +128,8 @@ export default function UkraineStaticMap({
             const kyivCity = isKyivCity(loc.name);
             const selected = isSelected(loc.name);
             const hovered = hoveredRegion === loc.id;
-            const fill = selected || (!kyivCity && hovered) ? MAP_YELLOW : MAP_BLUE;
+            const fill =
+              selected || (!kyivCity && hovered) ? MAP_YELLOW : MAP_BLUE;
 
             return (
               <path
@@ -190,7 +191,7 @@ export default function UkraineStaticMap({
                   {isIvanoFrankivsk ? (
                     <>
                       <tspan x={0} dy={-lineHeight * 0.45}>
-                        ІВ.-
+                        ІВАНО-
                       </tspan>
                       <tspan x={0} dy={lineHeight * 0.95}>
                         ФРАНКІВСЬК
