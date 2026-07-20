@@ -118,15 +118,6 @@ function RightPanel({
                 {featured.address}
               </span>
             </div>
-            <div className="flex items-center gap-2">
-              <Phone className="h-4 w-4 shrink-0 text-[var(--brand-sky)]" />
-              <a
-                href={`tel:${featured.phone.split(",")[0].replace(/[^\d+]/g, "")}`}
-                className="break-all text-base text-gray-600 hover:underline dark:text-gray-300"
-              >
-                {featured.phone}
-              </a>
-            </div>
           </div>
 
           {rest.length > 0 ? (
@@ -147,9 +138,6 @@ function RightPanel({
                     </p>
                     <p className="truncate text-sm text-gray-500 dark:text-gray-400">
                       {office.address}
-                    </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
-                      {office.phone}
                     </p>
                   </div>
                   <ChevronRight className="h-4 w-4 shrink-0 text-gray-400" />
