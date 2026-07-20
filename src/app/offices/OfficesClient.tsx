@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
   MapPin,
-  Phone,
   Search,
   Building2,
   Eye,
@@ -318,37 +317,12 @@ export default function OfficesClient() {
                     {office.contact}
                   </p>
 
-                  <div className="space-y-1.5">
-                    <div className="flex items-start gap-2">
-                      <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-sky)]" />
-                      <span className="break-words text-base text-gray-600 dark:text-gray-400 md:text-lg">
-                        {office.address}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Phone className="h-4 w-4 shrink-0 text-[var(--brand-sky)]" />
-                      <span className="break-all text-base text-gray-600 dark:text-gray-400 md:text-lg">
-                        {office.phone}
-                      </span>
-                    </div>
+                  <div className="flex items-start gap-2">
+                    <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[var(--brand-sky)]" />
+                    <span className="break-words text-base text-gray-600 dark:text-gray-400 md:text-lg">
+                      {office.address}
+                    </span>
                   </div>
-                </div>
-
-                <div className="flex w-full flex-col gap-2 lg:w-auto">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="w-full border-[var(--brand-primary)]/30 text-base text-[var(--brand-primary)] hover:bg-[var(--brand-primary-10)] dark:border-gray-600 dark:text-gray-300 dark:hover:bg-white/10 lg:w-auto"
-                    onClick={() => {
-                      const phoneNumber = office.phone
-                        .split(",")[0]
-                        .replace(/[^\d+]/g, "");
-                      window.open(`tel:${phoneNumber}`, "_self");
-                    }}
-                  >
-                    <Phone className="mr-1 h-3.5 w-3.5" />
-                    Подзвонити
-                  </Button>
                 </div>
               </div>
             </div>
