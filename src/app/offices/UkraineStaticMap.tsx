@@ -56,7 +56,7 @@ const LABEL_OFFSETS: Record<string, { x?: number; y?: number }> = {
   zakarpattia: { y: 12 },
   sumy: { x: -10, y: 10 },
   cherkasy: { y: 8 },
-  chernivtsi: { x: -22 },
+  chernivtsi: { x: -22, y: -12 },
 };
 
 export default function UkraineStaticMap({
@@ -162,11 +162,9 @@ export default function UkraineStaticMap({
             const pointOffsetY =
               loc.id === "kyiv"
                 ? -18
-                : loc.id === "odessa"
-                  ? -18
-                  : isIvanoFrankivsk
-                    ? 25
-                    : 18;
+                : isIvanoFrankivsk
+                  ? 25
+                  : 18;
             return (
               <React.Fragment key={`${loc.id}-label`}>
                 <circle

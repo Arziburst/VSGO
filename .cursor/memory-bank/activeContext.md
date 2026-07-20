@@ -11,3 +11,5 @@
 - Gallery photos go in `public/gallery/` with descriptive kebab-case names; catalog in `src/lib/gallery.ts`; UI via `GalleryGrid` (grid + lightbox) on `/gallery`. Lightbox arrows sit beside the photo (not overlaid). Current files are ~414×414 Facebook thumbs — look soft when enlarged; use `unoptimized` Image / native `img` to avoid extra compression.
 - Offices map colors: blue `#80b2ee`, yellow east/south `#fece3c`, selected/hover `#0b54ca`, Crimea `#eae5e2`.
 - Mobile: `overflow-x-hidden` on html/body/layout; tighter px-3 padding; header title wraps until lg; gallery stays 2 cols until md.
+- Offices UI (map panel + list cards) shows org name and address only — no phones / «Подзвонити».
+- Map: `ЧЕРНІВЦІ` label + yellow dot shifted slightly up; Odessa yellow dot sits below the `ОДЕСА` label.
